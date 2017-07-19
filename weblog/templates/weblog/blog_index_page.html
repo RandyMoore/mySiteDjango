@@ -1,0 +1,8 @@
+{% extends "weblog/base.html" %}
+{% block main %}
+        {% for blog in blogs %}
+            {% include "weblog/blog_list_item.html" %}
+        {% empty %}
+            No blogs found
+        {% endfor %}
+{% endblock %}

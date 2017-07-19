@@ -1,0 +1,16 @@
+# IDEA, PyCharm
+.idea
+*pycache*
+# For virtualenv
+bin/
+include/
+lib/
+lib64
+# Misc
+pip-selfcheck.json
+# Django Generated
+home/migrations/*
+!home/migrations/__init__.py
+weblog/migrations/*
+!weblog/migrations/__init__.py
+db.sqlite3
