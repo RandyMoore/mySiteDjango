@@ -1,5 +1,19 @@
 {% extends "weblog/base.html" %}
 
-{% block main %}
+{% load wagtailcore_tags %}
 
+{% block heading %}
+    {{ title }}
+{% endblock %}
+
+{% block subheading %}
+    {% if subheading %}
+    <h3 class="post-subtitle">
+        {{ subheading }}
+    </h3>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    {% include_block body %}
 {% endblock %}

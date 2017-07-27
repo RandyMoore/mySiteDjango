@@ -1,9 +1,0 @@
-{% load wagtailcore_tags wagtailimages_tags %}
-
-<a href="{% pageurl blog %}">
-  <h4>{{ blog.title }}</h4>
-  <p><strong>{{ blog.date }}</strong></p>
-  {% if blog.search_description %}
-    <p>{{ blog.search_description }}</p>
-  {% endif %}
-</a>

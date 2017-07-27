@@ -1,8 +1,20 @@
 {% extends "weblog/base.html" %}
+
+{% load staticfiles %}
+
+{% block heading %}
+    {{ title }}
+{% endblock %}
+
+{% block subheading %}
+    {{ subheading }}
+{% endblock %}
+
 {% block main %}
-        {% for blog in blogs %}
-            {% include "weblog/blog_list_item.html" %}
-        {% empty %}
-            No blogs found
-        {% endfor %}
+    {% for blog in blogs %}
+        {% include "weblog/includes/blog_list_item.html" %}
+    {% empty %}
+        No blogs found
+    {% endfor %}
+
 {% endblock %}

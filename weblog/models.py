@@ -1,22 +1,29 @@
 from django.db import models
+from django.db.models.fields import CharField
 
-
+from wagtail.wagtailcore import blocks
+from wagtail.wagtailcore.blocks import BlockQuoteBlock, RawHTMLBlock
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import RichTextField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel, InlinePanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from wagtail.wagtailcore.fields import StreamField
+from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.wagtailembeds.blocks import EmbedBlock
+from wagtail.wagtailimages.blocks import ImageChooserBlock
+
+
 from wagtail.wagtailsearch import index
 
 
 class BlogIndexPage(Page):
-    intro = RichTextField(blank=True)
+    subheading = CharField(max_length=255)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('subheading', classname="full"),
+    ]
 
     @property
     def blogs(self):
-        # Get list of live blog pages that are descendants of this page
         blogs = WeblogPage.objects.live().descendant_of(self)
 
-        # Order by most recent date first
         blogs = blogs.order_by('-date')
 
         return blogs
@@ -24,48 +31,40 @@ class BlogIndexPage(Page):
     def get_context(self, request):
         blogs = self.blogs
 
-        # Update template context
         context = super(BlogIndexPage, self).get_context(request)
         context['blogs'] = blogs
+        context['title'] = self.title
+        context['subheading'] = self.subheading
         return context
 
-BlogIndexPage.content_panels = [
-    FieldPanel('title', classname="full title"),
-    FieldPanel('intro', classname="full"),
-]
-
-BlogIndexPage.promote_panels = Page.promote_panels
 
 class WeblogPage(Page):
+    body = StreamField([
+        ('heading', blocks.CharBlock(classname="full title")),
+        ('paragraph', blocks.RichTextBlock()),
+        ('image', ImageChooserBlock()),
+        ('html', RawHTMLBlock()),
+        ('block_quote', BlockQuoteBlock()),
+        ('embed', EmbedBlock()),
+    ])
 
-    # Database fields
-
-    body = RichTextField()
+    subheading = CharField(max_length=255)
     date = models.DateField("Post date")
-    feed_image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-
-
-    # Search index configuration
 
     search_fields = Page.search_fields + [
         index.SearchField('body'),
         index.FilterField('date'),
     ]
 
-
-    # Editor panels configuration
     content_panels = Page.content_panels + [
+        FieldPanel('subheading', classname="full"),
         FieldPanel('date'),
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body', classname="full"),
     ]
 
-    promote_panels = [
-        MultiFieldPanel(Page.promote_panels, "Common page configuration"),
-        ImageChooserPanel('feed_image'),
-    ]
+    def get_context(self, request):
+        context = super(WeblogPage, self).get_context(request)
+        context['title'] = self.title
+        context['subheading'] = self.subheading
+        context['body'] = self.body
+        return context
