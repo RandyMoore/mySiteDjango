@@ -1,5 +1,12 @@
 from django.db import models
 from django.db.models.fields import CharField
+from django.utils.safestring import mark_safe
+
+from markdown import markdown
+
+from pygments import highlight
+from pygments.formatters import get_formatter_by_name
+from pygments.lexers import get_lexer_by_name
 
 from wagtail.wagtailcore import blocks
 from wagtail.wagtailcore.blocks import BlockQuoteBlock, RawHTMLBlock
@@ -8,11 +15,62 @@ from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.wagtailembeds.blocks import EmbedBlock
 from wagtail.wagtailimages.blocks import ImageChooserBlock
-
-
 from wagtail.wagtailsearch import index
 
 
+# Custom blocks for StreamField.  From https://gist.github.com/frankwiles/74a882f16704db9caa27
+# See also http://docs.wagtail.io/en/v1.9/releases/1.6.html#render-and-render-basic-methods-on-streamfield-blocks-now-accept-a-context-keyword-argument
+class CodeBlock(blocks.StructBlock):
+    """
+    Code Highlighting Block
+    """
+    LANGUAGE_CHOICES = (
+        ('python', 'Python'),
+        ('bash', 'Bash/Shell'),
+        ('html', 'HTML'),
+        ('css', 'CSS'),
+        ('scss', 'SCSS'),
+    )
+
+    language = blocks.ChoiceBlock(choices=LANGUAGE_CHOICES)
+    code = blocks.TextBlock()
+
+    class Meta:
+        icon = 'code'
+
+    def render(self, value, context=None):
+        src = value['code'].strip('\n')
+        lang = value['language']
+
+        lexer = get_lexer_by_name(lang)
+        formatter = get_formatter_by_name(
+            'html',
+            linenos=None,
+            cssclass='codehilite',
+            style='default',
+            noclasses=False,
+        )
+        return mark_safe(highlight(src, lexer, formatter))
+
+
+class MarkDownBlock(blocks.TextBlock):
+    """ MarkDown Block """
+
+    class Meta:
+        icon = 'code'
+
+    def render_basic(self, value, context=None):
+        md = markdown(
+            value,
+            [
+                'markdown.extensions.fenced_code',
+                'codehilite',
+            ],
+        )
+        return mark_safe(md)
+
+
+# Page Models
 class BlogIndexPage(Page):
     subheading = CharField(max_length=255)
 
@@ -46,6 +104,8 @@ class WeblogPage(Page):
         ('html', RawHTMLBlock()),
         ('block_quote', BlockQuoteBlock()),
         ('embed', EmbedBlock()),
+        ('code', CodeBlock()),
+        ('markdown', MarkDownBlock()),
     ])
 
     subheading = CharField(max_length=255)
@@ -68,3 +128,4 @@ class WeblogPage(Page):
         context['subheading'] = self.subheading
         context['body'] = self.body
         return context
+
