@@ -1,0 +1,7 @@
+wagtail
+pygments
+markdown
+uwsgi
+django-contrib-comments
+django_mptt
+django_tagging

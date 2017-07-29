@@ -1,3 +1,0 @@
-wagtail
-pygments
-markdown

@@ -25,7 +25,7 @@ SECRET_KEY = '93)7#__v1n0b%kst#j#!m43(8xc0-mzd4w168ejeji$u7d9p%o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','.amazonaws.com']
 
 
 # Application definition
@@ -73,7 +73,7 @@ MIDDLEWARE = [
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
-ROOT_URLCONF = 'mySiteDjango.urls'
+ROOT_URLCONF = 'my_site_django.urls'
 
 SITE_ID = 1
 
@@ -94,7 +94,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mySiteDjango.wsgi.application'
+WSGI_APPLICATION = 'my_site_django.wsgi.application'
 
 
 # Database
@@ -144,19 +144,23 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATIC_URL = '/static/'
-
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
+STATIC_URL = '/static/'
+STATIC_ROOT = '/var/run/www/static'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+if 'DOCKER' in os.environ:
+    MEDIA_ROOT = '/var/run/www/media'
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 WAGTAIL_SITE_NAME = 'Blog of Randy Moore'
+
+COMMENTS_PLUGINS = []

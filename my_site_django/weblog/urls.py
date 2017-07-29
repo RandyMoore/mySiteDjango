@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from wagtail.wagtailadmin import urls as wagtailadmin_urls
 from wagtail.wagtailcore import urls as wagtail_urls
 
-from mySiteDjango import settings
+from my_site_django import settings
 
 
 urlpatterns = [
