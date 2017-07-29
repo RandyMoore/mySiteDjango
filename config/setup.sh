@@ -29,5 +29,10 @@ chown -R www-data:www-data /var/log/uwsgi
 
 # Put static and media files in location for access by webserver
 cd /usr/local/src
+chmod +x manage.py
 ./manage.py collectstatic
-cp -r media/* /var/run/www/media/
+if [ -d media ]; then
+  cp -r media/* /var/run/www/media/
+fi
+chown www-data:www-data db.sqlite3
+mv db.sqlite3 /var/run/www/

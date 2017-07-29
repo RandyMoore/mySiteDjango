@@ -9,7 +9,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y nginx python-pip
 ADD config/* /usr/local/etc/
 ADD my_site_django /usr/local/src/
 
-RUN /usr/local/etc/setup.sh
+RUN /bin/sh /usr/local/etc/setup.sh
 
 EXPOSE 80
 

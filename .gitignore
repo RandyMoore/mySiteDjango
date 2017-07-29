@@ -1,3 +1,4 @@
+*.pyc
 # IDEA, PyCharm
 .idea
 *pycache*
@@ -13,5 +14,4 @@ home/migrations/*
 !home/migrations/__init__.py
 weblog/migrations/*
 !weblog/migrations/__init__.py
-db.sqlite3
 media/
