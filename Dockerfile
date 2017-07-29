@@ -2,8 +2,6 @@ FROM phusion/baseimage
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
-ENV DOCKER=True
-
 RUN apt-get update && apt-get upgrade -y && apt-get install -y nginx python-pip
 
 ADD config/* /usr/local/etc/
