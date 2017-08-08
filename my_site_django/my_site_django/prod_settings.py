@@ -1,7 +1,9 @@
+import os
 from .settings import *
 
 # Override base dev settings for production
 DEBUG = False
+ALLOWED_HOSTS += ['.amazonaws.com','randalmoore.me']
 
 DATABASES = {
     'default': {
@@ -11,3 +13,6 @@ DATABASES = {
 }
 
 MEDIA_ROOT = '/var/run/www/media'
+
+if 'DJANGO_SECRET_KEY' in os.environ:
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']

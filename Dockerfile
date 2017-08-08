@@ -1,4 +1,6 @@
 FROM phusion/baseimage
+ARG django_secret_key # required, no default here for security
+
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
@@ -10,6 +12,8 @@ ADD my_site_django /usr/local/src/
 RUN /bin/sh /usr/local/etc/setup.sh
 
 EXPOSE 80
+
+ENV DJANGO_SECRET_KEY $django_secret_key
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
