@@ -1,3 +1,4 @@
+my_site_django/my_site_django/prod_settings_secret.py
 *.pyc
 # IDEA, PyCharm
 .idea
@@ -9,9 +10,3 @@ lib/
 lib64
 # Misc
 pip-selfcheck.json
-# Django Generated
-home/migrations/*
-!home/migrations/__init__.py
-weblog/migrations/*
-!weblog/migrations/__init__.py
-media/
