@@ -1,5 +1,6 @@
 FROM phusion/baseimage
-ARG django_secret_key # required, no default here for security
+# required, no default here for security
+ARG django_secret_key
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
