@@ -8,6 +8,9 @@ CMD ["/sbin/my_init"]
 RUN apt-get update && apt-get upgrade -y && apt-get install -y nginx python-pip
 
 ADD config/* /usr/local/etc/
+
+RUN pip install --upgrade pip && pip install -r /usr/local/etc/requirements.txt
+
 ADD my_site_django /usr/local/src/
 
 RUN /bin/sh /usr/local/etc/setup.sh

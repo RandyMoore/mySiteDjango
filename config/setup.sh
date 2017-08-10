@@ -1,11 +1,9 @@
 #!/bin/bash -x
 
-# Install Python requirements
-pip install --upgrade pip
-pip install -r /usr/local/etc/requirements.txt
-
 # Add our Nginx config
-ln -s /usr/local/etc/nginx.conf /etc/nginx/conf.d/ 
+ln -s /usr/local/etc/nginx_server.conf /etc/nginx/conf.d/nginx.conf
+rm /etc/nginx/nginx.conf
+ln -s /usr/local/etc/nginx.conf /etc/nginx/nginx.conf
 mkdir /etc/service/nginx
 cp /usr/local/etc/nginx.sh /etc/service/nginx/run
 chmod +x /etc/service/nginx/run
