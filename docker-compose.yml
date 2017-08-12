@@ -3,12 +3,8 @@ version: '2'
 services:
   db:
     image: postgres
-    cpu_shares: 100
-    mem_limit: 209715200
   web:
-    image: 300338791355.dkr.ecr.us-east-1.amazonaws.com/website:latest
-    cpu_shares: 100
-    mem_limit: 524288000
+    image: website
     ports:
       - "80:80"
     links:
