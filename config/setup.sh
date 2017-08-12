@@ -10,8 +10,7 @@ chmod +x /etc/service/nginx/run
 rm /etc/nginx/sites-enabled/default # So to not override our config
 
 # Add our uWSGI config
-mkdir /etc/uwsgi 
-mkdir /etc/uwsgi/vassals 
+mkdir -p /etc/uwsgi/vassals
 ln -s /usr/local/etc/uwsgi.ini /etc/uwsgi/vassals/
 mkdir /etc/service/uwsgi
 cp /usr/local/etc/uwsgi.sh /etc/service/uwsgi/run
@@ -25,12 +24,16 @@ chown -R www-data:www-data /var/run/www
 mkdir /var/log/uwsgi
 chown -R www-data:www-data /var/log/uwsgi
 
-# Put static and media files in location for access by webserver
+# Put static and media files in location for access by webserver - do this during image build
 cd /usr/local/src
 chmod +x manage.py
 ./manage.py collectstatic
 if [ -d media ]; then
   cp -r media/* /var/run/www/media/
 fi
-chown www-data:www-data db.sqlite3
-mv db.sqlite3 /var/run/www/
+
+# Setup scripts to execute 1 time commands on container start - this is a feature of phusion/baseimage
+# https://github.com/phusion/baseimage-docker#running_startup_scripts
+mkdir -p /etc/my_init.d
+ln -s /usr/local/etc/startup.sh /etc/my_init.d/
+chmod +x /etc/my_init.d/startup.sh

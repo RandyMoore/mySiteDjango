@@ -132,11 +132,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Central'
 
-USE_I18N = True
+USE_I18N = False
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -160,3 +160,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 WAGTAIL_SITE_NAME = 'Blog of Randy Moore'
 
 COMMENTS_PLUGINS = []
+
+# Self defined settings
+PRODUCTION = False

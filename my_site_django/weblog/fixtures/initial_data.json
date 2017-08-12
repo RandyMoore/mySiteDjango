@@ -1,0 +1,1716 @@
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "page"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "wagtailadmin",
+      "model": "admin"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "wagtaildocs",
+      "model": "document"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "wagtailimages",
+      "model": "image"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "sites",
+      "model": "site"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "django_comments",
+      "model": "comment"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "django_comments",
+      "model": "commentflag"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "tagging",
+      "model": "tag"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "tagging",
+      "model": "taggeditem"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "wagtailforms",
+      "model": "formsubmission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "wagtailredirects",
+      "model": "redirect"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "wagtailembeds",
+      "model": "embed"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+      "app_label": "wagtailusers",
+      "model": "userprofile"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+      "app_label": "wagtailimages",
+      "model": "rendition"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+      "app_label": "wagtailsearch",
+      "model": "query"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 22,
+    "fields": {
+      "app_label": "wagtailsearch",
+      "model": "querydailyhits"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 23,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "grouppagepermission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 24,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "pagerevision"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 25,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "pageviewrestriction"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 26,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "site"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 27,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "collection"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 28,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "groupcollectionpermission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 29,
+    "fields": {
+      "app_label": "wagtailcore",
+      "model": "collectionviewrestriction"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 30,
+    "fields": {
+      "app_label": "taggit",
+      "model": "tag"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 31,
+    "fields": {
+      "app_label": "taggit",
+      "model": "taggeditem"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 32,
+    "fields": {
+      "app_label": "weblog",
+      "model": "blogindexpage"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 33,
+    "fields": {
+      "app_label": "weblog",
+      "model": "weblogpage"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "yemui7hnt8n4wjkeky8vaviuk9hqh4x6",
+    "fields": {
+      "session_data": "NGRhN2YyNmJmZDdhZGNiMTJlZTVlMTJhYjA3YmI1MTBkOGVlZTcxNDp7IndhZ3RhaWwtcHJldmlldy01IjpbeyJib2R5LTktdHlwZSI6WyJjb2RlIl0sImJvZHktNS1pZCI6WyJiODAyMGY0Yy05OTM1LTQzNzktODcwYy00YjdlZGFlMGFkNzMiXSwiYm9keS02LW9yZGVyIjpbIjYiXSwiYm9keS01LXZhbHVlLWNvZGUiOlsiU3RhcnQgY2hpbGQgdGhyZWFkc1xyXG4gICAgMHMgSU8gQm91bmQgc3RhcnRlZFxyXG4gICAgMHMgSU8gQm91bmQgZmluaXNoZWRcclxuICAgIDFzIElPIEJvdW5kIHN0YXJ0ZWRcclxuICAgIDJzIElPIEJvdW5kIHN0YXJ0ZWRcclxuICAgIDNzIElPIEJvdW5kIHN0YXJ0ZWRcclxuICAgIDJzIENQVSBCb3VuZCBzdGFydGVkXHJcbiAgICBQb2xsXHJcbiAgICBQb2xsXHJcbiAgICAxcyBJTyBCb3VuZCBmaW5pc2hlZFxyXG4gICAgUG9sbFxyXG4gICAgUG9sbFxyXG4gICAgMnMgQ1BVIEJvdW5kIGZpbmlzaGVkXHJcbiAgICAycyBJTyBCb3VuZCBmaW5pc2hlZFxyXG4gICAgUG9sbFxyXG4gICAgUG9sbFxyXG4gICAgM3MgSU8gQm91bmQgZmluaXNoZWRcclxuICAgIFBvbGxcclxuICAgIE1haW4gdGhyZWFkIGNvbXBsZXRlZCJdLCJib2R5LTYtdHlwZSI6WyJtYXJrZG93biJdLCJib2R5LTctb3JkZXIiOlsiNyJdLCJib2R5LTQtb3JkZXIiOlsiNCJdLCJzZW9fdGl0bGUiOlsiIl0sImRhdGUiOlsiMjAxNy0wNi0xOSJdLCJib2R5LTEwLWlkIjpbIjM1NGJmNTY5LTM2MDItNDg2Yi1hNDVjLTA3NzJiZDczMjk2MiJdLCJib2R5LTgtdmFsdWUiOlsiPHA+T3V0cHV0OjwvcD4iXSwiYm9keS0yLXR5cGUiOlsibWFya2Rvd24iXSwiYm9keS0zLXR5cGUiOlsiY29kZSJdLCJib2R5LTQtZGVsZXRlZCI6WyIiXSwiYm9keS0yLW9yZGVyIjpbIjIiXSwiYm9keS00LXR5cGUiOlsicGFyYWdyYXBoIl0sImJvZHktMy1kZWxldGVkIjpbIiJdLCJib2R5LTItZGVsZXRlZCI6WyIiXSwiYm9keS03LXZhbHVlLWNvZGUiOlsiIyEgL3Vzci9iaW4vZW52IHB5dGhvbjNcclxuICAgIGltcG9ydCBhc3luY2lvXHJcbiAgICBmcm9tIHJhbmRvbSBpbXBvcnQgc2FtcGxlXHJcbiAgICBmcm9tIHRpbWUgaW1wb3J0IHRpbWVcclxuICAgIFxyXG4gICAgYXN5bmMgZGVmIGlvX2JvdW5kKHMsIGxhYmVsPVwiSU8gYm91bmRcIik6XHJcbiAgICAgICAgcHJpbnQobGFiZWwgKyBcIiBzdGFydGVkXCIpXHJcbiAgICAgICAgYXdhaXQgYXN5bmNpby5zbGVlcChzKVxyXG4gICAgICAgIHByaW50KGxhYmVsICsgXCIgZmluaXNoZWRcIilcclxuICAgIFxyXG4gICAgIyBFeGFtcGxlIG9mIGEgYmxvY2tpbmcgdGFza1xyXG4gICAgYXN5bmMgZGVmIGNwdV9ib3VuZChzLCBsYWJlbD1cIkNQVSBib3VuZFwiKTpcclxuICAgICAgICBwcmludChsYWJlbCArIFwiIHN0YXJ0ZWRcIilcclxuICAgICAgICBlbmQgPSB0aW1lKCkgKyBzXHJcbiAgICAgICAgd2hpbGUgdGltZSgpIDwgZW5kOlxyXG4gICAgICAgICAgICBzYW1wbGUocmFuZ2UoMTAwMCksIDEwMDApXHJcbiAgICAgICAgcHJpbnQobGFiZWwgKyBcIiBmaW5pc2hlZFwiKVxyXG4gICAgXHJcbiAgICBhc3luYyBkZWYgcG9sbChzKTpcclxuICAgICAgICB3aGlsZSBUcnVlOlxyXG4gICAgICAgICAgICBwcmludChcIlBvbGxcIilcclxuICAgICAgICAgICAgYXdhaXQgYXN5bmNpby5zbGVlcChzKVxyXG4gICAgICAgICAgICBhY3RpdmVfdGFza3MgPSBbdGFzayBmb3IgdGFzayBpbiBhc3luY2lvLlRhc2suYWxsX3Rhc2tzKCkgaWYgbm90IHRhc2suZG9uZSgpXVxyXG4gICAgICAgICAgICBpZiAgbGVuKGFjdGl2ZV90YXNrcykgPCAzOiAjIHRoaXMgcG9sbCgpIGFuZCB3YWl0KCkgZm9yIHJ1bl91bnRpbF9jb21wbGV0ZSB3aWxsIGFsd2F5cyBleGlzdFxyXG4gICAgICAgICAgICAgICAgcmV0dXJuXHJcbiAgICBcclxuICAgIGxvb3AgPSBhc3luY2lvLmdldF9ldmVudF9sb29wKClcclxuICAgIHRhc2tzID0gW2FzeW5jaW8uZW5zdXJlX2Z1dHVyZShpb19ib3VuZChzLCBzdHIocykgKyBcInMgSU8gQm91bmRcIikpIGZvciBzIGluIHJhbmdlKDQpXVxyXG4gICAgdGFza3MuYXBwZW5kKGFzeW5jaW8uZW5zdXJlX2Z1dHVyZShjcHVfYm91bmQoMiwgXCIycyBDUFUgQm91bmRcIikpKVxyXG4gICAgdGFza3MuYXBwZW5kKGFzeW5jaW8uZW5zdXJlX2Z1dHVyZShwb2xsKC41KSkpXHJcbiAgICBcclxuICAgIGxvb3AucnVuX3VudGlsX2NvbXBsZXRlKGFzeW5jaW8ud2FpdCh0YXNrcykpXHJcbiAgICBcclxuICAgIHByaW50KFwiRXZlbnQgbG9vcCBjb21wbGV0ZWRcIikiXSwidGl0bGUiOlsiQXN5bmNocm9ub3VzIFByb2dyYW1taW5nIl0sImJvZHktMTAtb3JkZXIiOlsiMTAiXSwiYm9keS03LWRlbGV0ZWQiOlsiIl0sImJvZHktOS1pZCI6WyJkNDZhMGM0Zi1iYWJjLTQ3ODUtOTZiNi02YjQyOTk1Y2Y2YzMiXSwic3ViaGVhZGluZyI6WyIoYW5kIHdoeSBpdCdzIGFsbCB0aGUgcmFnZSBmb3Igd2ViIHNlcnZpY2VzKSJdLCJib2R5LTMtb3JkZXIiOlsiMyJdLCJib2R5LTYtaWQiOlsiNDdkMzU2MWQtMDk5OS00MTVhLThmOWItNjZmMDg4YTZlNmU5Il0sImJvZHktMi1pZCI6WyJlYTE5MmJkMC0yNTFhLTQ4OTItOTdjMS00NjA3MzFiOGFkZTYiXSwiYm9keS01LWRlbGV0ZWQiOlsiIl0sImJvZHktMS10eXBlIjpbImltYWdlIl0sImNzcmZtaWRkbGV3YXJldG9rZW4iOlsicW5PejVsSEg2NjgxMTVrNlp0RlhnSnhUMFAzYTdOWllsR1J3aEE1S09heDQ1WlMxeVEwb0lUcEx5TXVFb2pvdCJdLCJnb19saXZlX2F0IjpbIiJdLCJib2R5LTUtdHlwZSI6WyJjb2RlIl0sImJvZHktOC10eXBlIjpbInBhcmFncmFwaCJdLCJib2R5LTAtb3JkZXIiOlsiMCJdLCJib2R5LTAtZGVsZXRlZCI6WyIiXSwiYm9keS01LXZhbHVlLWxhbmd1YWdlIjpbImJhc2giXSwiYm9keS0xLWlkIjpbIjM4OWVhMzVhLTZjZTAtNGNiOC1iMjVjLWY1OTg4M2FhYmUxOCJdLCJib2R5LTEwLWRlbGV0ZWQiOlsiIl0sImJvZHktNi1kZWxldGVkIjpbIiJdLCJib2R5LTEtb3JkZXIiOlsiMSJdLCJib2R5LTMtdmFsdWUtY29kZSI6WyIjISAvdXNyL2Jpbi9lbnYgcHl0aG9uM1xyXG4gICAgZnJvbSByYW5kb20gaW1wb3J0IHNhbXBsZVxyXG4gICAgZnJvbSB0aW1lIGltcG9ydCBzbGVlcCwgdGltZVxyXG4gICAgZnJvbSB0aHJlYWRpbmcgaW1wb3J0IFRocmVhZFxyXG4gICAgXHJcbiAgICBkZWYgaW9fYm91bmQocywgbGFiZWw9XCJJTyBib3VuZFwiKTpcclxuICAgICAgICBwcmludChsYWJlbCArIFwiIHN0YXJ0ZWRcIilcclxuICAgICAgICBzbGVlcChzKVxyXG4gICAgICAgIHByaW50KGxhYmVsICsgXCIgZmluaXNoZWRcIilcclxuICAgIFxyXG4gICAgZGVmIGNwdV9ib3VuZChzLCBsYWJlbD1cIkNQVSBib3VuZFwiKTpcclxuICAgICAgICBwcmludChsYWJlbCArIFwiIHN0YXJ0ZWRcIilcclxuICAgICAgICBlbmQgPSB0aW1lKCkgKyBzXHJcbiAgICAgICAgd2hpbGUgdGltZSgpIDwgZW5kOlxyXG4gICAgICAgICAgICBzYW1wbGUocmFuZ2UoMTAwMCksIDEwMDApXHJcbiAgICAgICAgcHJpbnQobGFiZWwgKyBcIiBmaW5pc2hlZFwiKVxyXG4gICAgXHJcbiAgICBjaGlsZF90aHJlYWRzID0gW1RocmVhZCh0YXJnZXQ9aW9fYm91bmQsIGFyZ3M9KHMsIHN0cihzKSArIFwicyBJTyBCb3VuZFwiKSkgZm9yIHMgaW4gcmFuZ2UoNCldXHJcbiAgICBjaGlsZF90aHJlYWRzLmFwcGVuZChUaHJlYWQodGFyZ2V0PWNwdV9ib3VuZCwgYXJncz0oMiwgXCIycyBDUFUgQm91bmRcIikpKVxyXG4gICAgXHJcbiAgICBwcmludChcIlN0YXJ0IGNoaWxkIHRocmVhZHNcIilcclxuICAgIGZvciB0IGluIGNoaWxkX3RocmVhZHM6XHJcbiAgICAgICAgdC5zdGFydCgpXHJcbiAgICBcclxuICAgICMgV2UgYXJlIGluIGEgbWFpbiB0aHJlYWQsIHNvIHRoaXMgaXMgdGhlIGVxdWl2YWxlbnQgb2YgdGhlIHBvbGwgdGFzayBmcm9tIGFzeW5jX2V4YW1wbGVcclxuICAgIHdoaWxlIFRydWU6XHJcbiAgICAgICAgcHJpbnQoXCJQb2xsXCIpXHJcbiAgICAgICAgbGl2ZV90aHJlYWRzID0gW3QgZm9yIHQgaW4gY2hpbGRfdGhyZWFkcyBpZiB0LmlzX2FsaXZlKCldXHJcbiAgICAgICAgaWYgbGVuKGxpdmVfdGhyZWFkcykgPiAwOlxyXG4gICAgICAgICAgICBzbGVlcCgwLjUpXHJcbiAgICAgICAgZWxzZTpcclxuICAgICAgICAgICAgYnJlYWtcclxuXHJcbiAgICBwcmludChcIk1haW4gdGhyZWFkIGNvbXBsZXRlZFwiKSJdLCJuZXh0IjpbIiJdLCJib2R5LTAtaWQiOlsiZWRhMTYyYmYtNDgyYy00ZTk3LWEyY2QtZDgwMGE2MzcxMGE4Il0sImJvZHktMy1pZCI6WyI4OThhYTkxZS0wYWUxLTQyZGEtODMwZC00ODQxMDk5MGY3NGMiXSwiYm9keS05LXZhbHVlLWxhbmd1YWdlIjpbImJhc2giXSwiYm9keS05LXZhbHVlLWNvZGUiOlsiMHMgSU8gQm91bmQgc3RhcnRlZFxyXG4gICAgMXMgSU8gQm91bmQgc3RhcnRlZFxyXG4gICAgMnMgSU8gQm91bmQgc3RhcnRlZFxyXG4gICAgM3MgSU8gQm91bmQgc3RhcnRlZFxyXG4gICAgMnMgQ1BVIEJvdW5kIHN0YXJ0ZWRcclxuICAgIDJzIENQVSBCb3VuZCBmaW5pc2hlZFxyXG4gICAgUG9sbFxyXG4gICAgMHMgSU8gQm91bmQgZmluaXNoZWRcclxuICAgIDFzIElPIEJvdW5kIGZpbmlzaGVkXHJcbiAgICAycyBJTyBCb3VuZCBmaW5pc2hlZFxyXG4gICAgUG9sbFxyXG4gICAgM3MgSU8gQm91bmQgZmluaXNoZWRcclxuICAgIEV2ZW50IGxvb3AgY29tcGxldGVkIl0sImJvZHktMi12YWx1ZSI6WyJPZiBjb3Vyc2UgdGhpcyBkaWFncmFtIGlzIGEgc2ltcGxpZmljYXRpb24gb25seSBzaG93aW5nIGEgc21hbGwgc3Vic2V0IG9mIHBvc3NpYmlsaXRpZXMgZm9yIHRoZSBpbnN0YW5jZXMgb2Yge1Byb2Nlc3MsIFRocmVhZCwgQ29yb3V0aW5lfSB0aGF0IGNvdWxkIGV4aXN0LiAgRm9yIGV4YW1wbGUgdGhlcmUgY291bGQgYmUgbWFueSBwcm9jZXNzZXMsIHByb2Nlc3NlcyBjYW4gc3Bhd24gY2hpbGQgcHJvY2Vzc2VzLCBhbmQgdGhlcmUgY2FuIGJlIG1hbnkgaW5zdGFuY2VzIG9mIGNvcm91dGluZXMuICBPbmx5IHN0YWNrcyBhcmUgc2hvd24gYnV0IG9mIGNvdXJzZSBvdGhlciBsb2NhbCBkYXRhIHN1Y2ggYXMgdGhlIHByb2dyYW0gY291bnRlciBmb3IgZWFjaCBleGVjdXRhYmxlIGluc3RhbmNlIHdvdWxkIG5lZWQgdG8gZXhpc3QuICBBZGRpdGlvbmFsbHkgZGlmZmVyZW50IGNvbXB1dGluZyBlbnZpcm9ubWVudHMgaGF2ZSBkaWZmZXJlbnQgc2V0dXBzOyBlLmcuIGEgcGFydGljdWxhciBwcm9ncmFtbWluZyBsYW5ndWFnZSBpbXBsZW1lbnRhdGlvbiBtYXkgbWFuYWdlIHRocmVhZHMgaW5zdGVhZCBvZiB0aGUgT1MgKGtub3duIGFzIFwiZ3JlZW5cIiB0aHJlYWRzKS4gIEFsd2F5cyByZWFkIHRoZSBkb2NzIChhbmQgYmxvZ3MsIHR1dG9yaWFscywgZXRjKSByZWxhdGVkIHRvIHlvdXIgcGFydGljdWxhciBlbnZpcm9ubWVudC5cclxuXHJcblNvIGhvdyBkbyB5b3UgZGVjaWRlIHdoZXJlIHRvIGFsbG9jYXRlIHByb2Nlc3Npbmc/ICBIZXJlIGFyZSBzb21lIHByb3MgYW5kIGNvbnMgdG8gY29uc2lkZXIgZm9yIGVhY2g6XHJcblxyXG4xLiAgTXVsdGlwbGUgcHJvY2Vzc2VzXHJcblxyXG4gICAgUHJvc1xyXG5cclxuICAgICogIFRydWUgcGFyYWxsZWxpc20sIHdpbGwgd29yayBmb3IgaW5jcmVhc2luZyBvdmVyYWxsIHBlcmZvcm1hbmNlIG9mIENQVSBib3VuZCB0YXNrcy5cclxuICAgICogIFNlcGFyYXRlIGFkZHJlc3Mgc3BhY2UgZm9yIGVhY2ggcHJvY2VzcyBpbnN0YW5jZSwgbm8gbmVlZCB0byB3b3JyeSBhYm91dCByZXNvdXJjZSBjb250ZW50aW9uIHdpdGhpbiB0aGUgcHJvZ3JhbSAoZXh0ZXJuYWwgcmVzb3VyY2UgY29udGVudGlvbiBtYXkgc3RpbGwgZXhpc3QsIGUuZy4gbXVsdGlwbGUgcHJvY2Vzc2VzIHdyaXRpbmcgdG8gYSBzaW5nbGUgZmlsZSkuXHJcbiAgICAqICBFYXNpZXN0IHRvIHJlYXNvbiBhYm91dC4gIE9ubHkgMSBlbnRyeSBwb2ludCBmb3IgZXhlY3V0aW9uLlxyXG4gICAgKiAgRm9yICpuaXggcGxhdGZvcm0gZWFzaWVzdCB0byByZXVzZSBhcyBhIG1vZHVsYXIgY29tcG9uZW50IHdpdGggT1MgcHJvdmlkZWQgSVBDIG1lY2hhbmlzbXMgKGVnIGNvbWJpbmluZyBzbWFsbCBwcm9ncmFtcyB3aXRoIHBpcGUgJ3wnIG9uIHRoZSBjb21tYW5kIHByb21wdCkuXHJcblxyXG4gICAgQ29uc1xyXG5cclxuICAgICogIEhlYXZ5IHdlaWdodC4gIEVhY2ggcHJvY2VzcyBoYXMgaXQncyBvd24gY29weSBvZiBwcm9ncmFtIGRhdGEsIGV0Yy4gIEluIGFkZGl0aW9uIHRvIG1lbW9yeSBwcm9jZXNzZXMgZ2VuZXJhbGx5IHVzZSBvdGhlciBsaW1pdGVkIE9TIHJlc291cmNlcyBtb3JlIGhlYXZpbHkgdGhhbiB0aGUgb3RoZXIgb3B0aW9ucy5cclxuXHJcblxyXG4yLiAgTXVsdGlwbGUgdGhyZWFkc1xyXG5cclxuICAgIFByb3NcclxuXHJcbiAgICAqICBMaWdodGVyIHdlaWdodCB0aGFuIHByb2Nlc3Nlcy4gIFRocmVhZHMgc2hhcmUgdGhlIGRhdGEgYW5kIGhlYXAgcG9ydGlvbiBvZiBwcm9jZXNzIG1lbW9yeS5cclxuICAgICogIE1heSBvZmZlciB0cnVlIHBhcmFsbGVsaXNtIGZvciBDUFUgYm91bmQgdGFza3MuICBDaGVjayB5b3VyIGNvbXB1dGluZyBlbnZpcm9ubWVudCBpbXBsZW1lbnRhdGlvbiBkb2NzIHRvIGJlIHN1cmUuXHJcblxyXG4gICAgQ29uc1xyXG5cclxuICAgICogIFJlc291cmNlIGNvbnRlbnRpb24gd2l0aGluIHRoZSBwcm9jZXNzIGFkZHJlc3Mgc3BhY2UgbWF5IGJlIGNvbXBsaWNhdGVkIHRvIGRlYWwgd2l0aCwgZXNwZWNpYWxseSBpZiB0aGUgdGhyZWFkcyBjYW4gYmUgcnVuIGluIHBhcmFsbGVsIGFuZCAvIG9yIGFyZSBzY2hlZHVsZWQgYnkgdGhlIE9TLlxyXG4gICAgKiAgRGlmZmljdWx0IHRvIHJlYXNvbiBhYm91dCBiZWNhdXNlIGEgdGhyZWFkIG1heSBiZSBzdXNwZW5kZWQgYXQgYW55IHRpbWUgYW5kIGhhdmUgYW5vdGhlciB0aHJlYWQgY2hhbmdlIGl0J3MgZW52aXJvbm1lbnQuXHJcblxyXG5cclxuMy4gIENvcm91dGluZXNcclxuXHJcbiAgICBQcm9zXHJcblxyXG4gICAgKiAgRXhwbGljaXQgY29udHJvbCBvZiB3aGVuIGNvZGUgaXMgZXhlY3V0aW5nIGFuZCB3aGVuIGl0IGlzIG5vdCBleGVjdXRpbmcsIGVhc2llciB0byByZWFzb24gYWJvdXQgYmVjYXVzZSB5b3UgZG9uJ3QgaGF2ZSB0byBhY2NvdW50IGZvciBzdXNwZW5zaW9uIGluIGV2ZXJ5IHBvc3NpYmxlIGxvY2F0aW9uLlxyXG4gICAgKiAgTGFuZ3VhZ2Ugc3VwcG9ydCByZWR1Y2VzIGNvbXBsZXhpdHkgb2YgZ2F0aGVyaW5nIHJlc3VsdHMuICBHZW5lcmFsbHkgdGhlIHJlc3VsdCByZXBsYWNlcyB0aGUgdGFzayBpbiB5b3VyIGNvZGUuICBpLmUuIGEgbGlzdCBvZiB0YXNrcyBiZWNvbWVzIGEgbGlzdCBvZiByZXN1bHRzIGZyb20gdGhvc2UgdGFza3M7IG5vIG5lZWQgdG8gaW1wbGVtZW50IGNvZGUgdG8gY29sbGVjdCByZXN1bHRzIChpZSBjYWxsYmFja3MsIGdsb2JhbCBkYXRhIHN0cnVjdHVyZXMsIGV0YykuXHJcblxyXG4gICAgQ29uc1xyXG5cclxuICAgICogIERvZXMgbm90IG9mZmVyIGxvY2FsIHBhcmFsbGVsaXNtLiAgT25seSAxIGNvcm91dGluZSBtYXkgYmUgcnVubmluZyBhdCBhIGdpdmVuIHRpbWUgaW4gdGhlIHRocmVhZCBpdCBzaGFyZXMgd2l0aCBvdGhlciBjb3JvdXRpbmVzLlxyXG4gICAgKiAgUmVxdWlyZXMgaW1wbGVtZW50YXRpb24gZGlzY2lwbGluZS4gIEl0IGlzIGVhc3kgdG8gaW50cm9kdWNlIGJsb2NraW5nIGNvZGUgd2hpY2ggZnJlZXplcyB5b3VyIHRocmVhZCBhbmQgc3Vic2VxdWVudGx5IGFsbCBvdGhlciBjb3JvdXRpbmVzIG9uIHRoZSB0aHJlYWQgZm9yIHRoYXQgZHVyYXRpb24uICBCbG9ja2luZyBjb2RlIGNvdWxkIGV2ZW4gYmUgcGFydCBvZiBhIDNyZCBwYXJ0eSBsaWJyYXJ5IC0gdGhlIGxpYnJhcmllcyB5b3UgdXNlIG5lZWQgdG8gYmUgY29tcGF0aWJsZSFcclxuXHJcbk9uY2UgdGhlIG5hdHVyZSBvZiB0aGUgdGFza3MgKElPIG9yIENQVSBib3VuZD8pIGFyZSBpZGVudGlmaWVkIGFsb25nIHdpdGggdGhlIHVzYWJpbGl0eSBmZWF0dXJlcyBkZXNpcmVkIGZvciB0aGUgY29kZSBzb21lIGNvbWJpbmF0aW9uIG9mIHRoZXNlIG9wdGlvbnMgc2hvdWxkIHN1cmZhY2UgYXMgYSB3aW5uZXIuXHJcblxyXG5IZXJlIGFyZSB0d28gY29kZSBleGFtcGxlcyAoYXQgbGVhc3QgUHl0aG9uIDMuNSBpcyByZXF1aXJlZCkgdG8gaWxsdXN0cmF0ZSB0aGUgZXhlY3V0aW9uIGRpZmZlcmVuY2UgYmV0d2VlbiB0aHJlYWRzIGFuZCBjb3JvdXRpbmVzLiAgU3BlY2lmaWNhbGx5IHRoZXNlIGV4YW1wbGVzIGlsbHVzdHJhdGUgaG93IGNvcm91dGluZSBleGVjdXRpb24gaXMgbW9yZSBleHBsaWNpdCBhbmQgZGV0ZXJtaW5pc3RpYyBhcyBvcHBvc2VkIHRvIHRoZSB3aWxseS1uaWxseSBleGVjdXRpb24gdGhhdCB0aHJlYWRzIGVuam95IChidXQgdGhlIHJlc3Qgb2YgdXMgZG9uJ3QpLiBUaHJlYWQgYW5kIHByb2Nlc3MgZXhlY3V0aW9uIGlzIHNpbWlsYXIgKGJvdGggd2lsbHktbmlsbHkpIHNvIGEgcHJvY2VzcyBleGFtcGxlIGlzIG5vdCBpbmNsdWRlZCBoZXJlLiAgRWFjaCBleGFtcGxlIGNvbnRhaW5zIDMga2luZHMgb2YgdGFza3MuICBBIENQVSBib3VuZCB0YXNrLCA0IElPIGJvdW5kIHRhc2tzIG9mIHZhcnlpbmcgbGVuZ3RocywgYW5kIGEgcG9sbGluZyB0YXNrIHRoYXQgd2FudHMgdG8gcmVjdXIuXHJcblxyXG5GaXJzdCwgbXVsdGkgdGhyZWFkaW5nOiJdLCJib2R5LTQtaWQiOlsiNjFiMDc2MDUtZGVkMS00YWFiLTkzMGQtZTkzZDBiZjNkNTRmIl0sImJvZHktMC10eXBlIjpbIm1hcmtkb3duIl0sImJvZHktNi12YWx1ZSI6WyJIZXJlIGFsbCB0aHJlYWRzIGFyZSBydW5uaW5nIGluZGVwZW5kZW50bHkgc3ByZWFkIHRocm91Z2hvdXQgdGltZS4gIFRoZSBkcmF3YmFjayBpcyBzZWVuIHdoZW4gY29uc2lkZXJpbmcgdGhlIENQVSBib3VuZCB0YXNrLiAgV2hpbGUgaXQgaXMgcnVubmluZyBvdGhlciB0aHJlYWRzIGFyZSBhbGxvd2VkIHRvIHJ1bi4gIEl0IGNhbiBiZSBwcmVlbXB0ZWQgbWlkIG9wZXJhdGlvbiBhbmQgaGF2ZSB0aGluZ3MgY2hhbmdlIHVuZGVyIGl0J3MgZmVldC4gIElmIHRoaXMgdGFzayBuZWVkZWQgdG8gYWNjZXNzIHJlc291cmNlcyBhbHNvIGFjY2Vzc2libGUgdG8gdGhlIG90aGVyIHRhc2tzIHRoZW4gcG90ZW50aWFsbHkgY29tcGxleCBzeW5jaHJvbml6YXRpb24gaW1wbGVtZW50YXRpb24gaXMgcmVxdWlyZWQuICBJZiBmb3IgZXhhbXBsZSBpdCB3YXMgcGxhY2luZyBwYXJ0aWFsIHJlc3VsdHMgaW4gYSBzaGFyZWQgZ2xvYmFsIGxvY2F0aW9uIHRoZXJlIHdvdWxkIG5lZWQgdG8gYmUgYWRkaXRpb25hbCBjb2RlIHRvIHN5bmNocm9uaXplIGFjY2VzcyB0byB0aGF0IGxvY2F0aW9uIGFjcm9zcyB0aHJlYWRzLiAgT25lIHBvc2l0aXZlIGFzcGVjdCBoZXJlIGlzIHNob3duIGJ5IHRoZSBwb2xsaW5nIHRhc2s6IGl0IGlzIGFsbG93ZWQgdG8gcnVuIHdpdGhvdXQgYmVpbmcgc3RhcnZlZCBieSB0aGUgQ1BVIGJvdW5kIHRhc2suXHJcblxyXG5Ob3cgdGhlIGFzeW5jaHJvbm91cyB2ZXJzaW9uIHVzaW5nIGFzeW5jaW8gLSBQeXRob24ncyBjb3JvdXRpbmUgc3VwcG9ydC4iXSwic2x1ZyI6WyJhc3luY2hyb25vdXMtcHJvZ3JhbW1pbmciXSwiYm9keS03LWlkIjpbImI2NjAwZjNkLTdjYTktNGM1Ni1iYjkwLThkZDg3ZDBhZWM4ZSJdLCJib2R5LTgtZGVsZXRlZCI6WyIiXSwiYm9keS03LXZhbHVlLWxhbmd1YWdlIjpbInB5dGhvbiJdLCJib2R5LTEwLXR5cGUiOlsibWFya2Rvd24iXSwiYm9keS1jb3VudCI6WyIxMSJdLCJib2R5LTEtdmFsdWUiOlsiMyJdLCJib2R5LTktb3JkZXIiOlsiOSJdLCJib2R5LTMtdmFsdWUtbGFuZ3VhZ2UiOlsicHl0aG9uIl0sImJvZHktNy10eXBlIjpbImNvZGUiXSwiYm9keS00LXZhbHVlIjpbIjx1bD48bGk+T3V0cHV0Ojxici8+PC9saT48L3VsPiJdLCJib2R5LTktZGVsZXRlZCI6WyIiXSwic2VhcmNoX2Rlc2NyaXB0aW9uIjpbIiJdLCJib2R5LTgtb3JkZXIiOlsiOCJdLCJib2R5LTUtb3JkZXIiOlsiNSJdLCJib2R5LTgtaWQiOlsiNGRhMDFiNWItY2ZkZi00ZWJlLWFlNzgtYzY3ODQ3MWZlMTQ3Il0sImJvZHktMTAtdmFsdWUiOlsiVGhlIGRpZmZlcmVuY2UgaGVyZSBpcyB0aGF0IHRoZSBDUFUgYm91bmQgdGFza3MgcnVucyB0byBjb21wbGV0aW9uIHdpdGhvdXQgYmVpbmcgaW50ZXJydXB0ZWQuICBZb3UgbWF5IGFzayB5b3Vyc2VsZiAtIGlzbid0IHRoaXMgYSBiYWQgdGhpbmc/ICBZZXMgaXQgaXMgZm9yIENQVSBib3VuZCB0YXNrcyBhbmQgdGhhdCdzIHdoeSB5b3Ugc2hvdWxkbid0IHVzZSBjb3JvdXRpbmVzIHRvIHBhcmFsbGVsaXplIHRob3NlLiAgQnV0IGl0IGlsbHVzdHJhdGVzIHRoZSBwb2ludCB0aGF0IHlvdXIgY29kZSB3aWxsIG5vdCBiZSBpbnRlcnJ1cHRlZCB3aWxseS1uaWxseSEgIFNpbmNlIGV4ZWN1dGlvbiB3b24ndCBiZSBwcmVlbXB0ZWQgeW91IGRvbid0IGhhdmUgdG8gZGVhbCB3aXRoIGltcGxlbWVudGluZyBhIHN5bmNocm9uaXphdGlvbiBzdHJhdGVneSBmb3Igc2hhcmVkIHJlc291cmNlcy4gIEFsbCB0aGUgdGFza3MgdGhhdCBoYXZlIHRvIHdhaXQgZm9yIF9leHRlcm5hbF8gSU8gYm91bmQgcHJvY2Vzc2luZyB0byBjb21wbGV0ZSBlZmZlY3RpdmVseSBoYXZlIHRoZSB3b3JrIHByb2Nlc3NlZCBpbiBwYXJhbGxlbCAtIHNsYXNoaW5nIHRoZSBvdmVyYWxsIHdhaXQgdGltZS4gIEFsbCBvZiB0aGlzIGlzIGRvbmUgdmVyeSBlZmZpY2llbnRseSBhbmQgd2l0aG91dCB0aGUgaGVhZGFjaGUgb2YgcmVzb3VyY2Ugc3luY2hyb25pemF0aW9uISAgV2FpdGluZyBvbiBJTyBib3VuZCBleHRlcm5hbCB0YXNrcyBpcyB2ZXJ5IGNvbW1vbiBpbiB3ZWIgZGV2ZWxvcG1lbnQsIHdoaWNoIGlzIHdoeSB0aGlzIGZvcm0gb2YgYXN5bmNocm9ub3VzIHByb2Nlc3NpbmcgaGFzIGJlY29tZSBhbGwgdGhlIHJhZ2UuIl0sImJvZHktMS1kZWxldGVkIjpbIiJdLCJib2R5LTAtdmFsdWUiOlsiIyMjIFdoeSBDYXJlP1xyXG5Ccm93c2luZyB0aHJvdWdoIGpvYiBwb3N0aW5ncyB5b3Ugb2Z0ZW4gbm90aWNlIGEgam9iIHJlcXVpcmVtZW50IGFsb25nIHRoZSBsaW5lcyBvZjogXHJcbj4gQWJsZSB0byB3cml0ZSBoaWdobHkgZWZmaWNpZW50IGFzeW5jaHJvbm91cyBjb2RlLiAgXHJcblxyXG5BIGZsZWV0aW5nIHRob3VnaHQ6XHJcblxyXG5cIkFoIHRoaXMganVzdCBtZWFucyB3cml0aW5nIGVmZmljaWVudCBjb2RlIGluIHRlcm1zIG9mIEJpZy1PIGFuZCB0aGVuIHNwbGl0IGFuZCBmYXJtIG91dCB3b3JrIHRvIGl0IGJ5IHVzaW5nIGEgc29sdXRpb24gKGxhbmd1YWdlIGZlYXR1cmUsIGxpYnJhcnksIGZyYW1ld29yaywgLi4uKSBzb21lb25lIGVsc2UgaGFzIGFscmVhZHkgY29tZSB1cCB3aXRoLlwiXHJcblxyXG5Zb3Ugc2tpcCBvdmVyIHRoaXMgcmVxdWlyZW1lbnQgd2l0aG91dCBtdWNoIG1vcmUgdGhvdWdodC4gIEEgZmV3IGRheXMgbGF0ZXIgeW91IGFyZSBpbiBhbiBpbnRlcnZpZXcgYW5kIGdldCBhc2tlZCB0aGUgc2VtaW5hbCBcIldoYXQncyB0aGUgZGlmZmVyZW5jZSBiZXR3ZWVuIGEgcHJvY2VzcyBhbmQgYSB0aHJlYWQ/XCIuICAgSHVoPyBXaHkgaXMgdGhhdCBhIHJlbGV2YW50IHF1ZXN0aW9uPyAgWW91IGFscmVhZHkga25vdyBwcm9jZXNzZXMgYW5kIHRocmVhZHMgYXJlIGxvdyBsZXZlbCBPUyBzdHVmZi4gIFdlIGRvbid0IHByb2dyYW0gaW4gYXNzZW1ibHkgbGFuZ3VhZ2UgYW55IG1vcmUgLSB3aHkgYmUgY29uY2VybmVkIHdpdGggT1MgcHJpbWl0aXZlcz9cclxuXHJcbldyaXRpbmcgZWZmaWNpZW50IGFzeW5jaHJvbm91cyBjb2RlIGRvZXMgaGF2ZSB0aGUgcHJlcmVxdWlzaXRlIHRoYXQgeW91ciBjb2RlIGlzIGVmZmljaWVudCBhbmQgeW91IGFyZSBza2lsbGVkIGF0IHVzaW5nIHByZS1leGlzdGluZyBjb2RlLiAgQnV0IHRoZXJlIGlzIChhdCBsZWFzdCkgb25lIGFkZGl0aW9uYWwgc2tpbGwgcmVxdWlyZWQgaGVyZTogY2hvb3NpbmcgYW5kIGVmZmVjdGl2ZWx5IGltcGxlbWVudGluZyB0aGUgYXN5bmNocm9ub3VzIHBhcmFkaWdtIHRoYXQgZml0cyB0aGUgcHJvYmxlbSB5b3UgYXJlIHRyeWluZyB0byBzb2x2ZS4gIFdoZW4gdGhlIGludGVydmlld2VyIGFza2VkIHlvdSBhYm91dCBwcm9jZXNzIHZzIHRocmVhZCB0aGV5IHdlcmUgcXVpY2tseSBjaGVja2luZyB0aGUgdGlwIG9mIHRoZSBpY2ViZXJnIG9mIHdoYXQgdGhleSBob3BlIHlvdSBhbHJlYWR5IGtub3cgYWJvdXQgYXN5bmNocm9ub3VzIHByb2dyYW1taW5nLiAgSG9wZWZ1bGx5IHlvdSBrbm93IHRoaXMgc3R1ZmYsIG90aGVyd2lzZSBpbiB0aGUgZGVzaWduIGludGVydmlldyB5b3Ugd2lsbCBiZSB5aWVsZGluZyBibGFuayBzdGFyZXMgaW5zdGVhZCBvZiBzb2x1dGlvbnMuXHJcblxyXG4jIyMgUHJvYmxlbSBTcGFjZVxyXG5cclxuU28gd2hhdCBpcyB0aGUgaGlnaCBsZXZlbCBwcm9ibGVtIHRvIGJlIHNvbHZlZCB3aXRoIHRoZSBza2lsbCBvZiB3cml0aW5nIFwiRWZmaWNpZW50IEFzeW5jaHJvbm91cyBDb2RlXCI/ICBKdXN0IHdyaXRpbmcgZWZmaWNpZW50IGNvZGUgaW4gdGVybXMgb2YgYWxnb3JpdGhtaWMgY29tcGxleGl0eSB3aWxsIG9wdGltaXplIHJlc291cmNlIHVzYWdlOiBDUFUgY3ljbGVzIGFuZCAvIG9yIG1lbW9yeS4gIFRoZSBhZGRpdGlvbiBvZiBcIkFzeW5jaHJvbm91c1wiIGltcGxpZXMgdGhhdCBkaWZmZXJlbnQgcGFydHMgb2YgeW91ciBjb2RlIG1heSBtb3JlIGZyZWVseSBleGVjdXRlIHdoZW4gbmVlZGVkLCBsZXNzIGNvbnN0cmFpbmVkIGJ5IHRoZWlyIGxvY2F0aW9uIGluIHRoZSBzb3VyY2UgY29kZSBmaWxlLlxyXG5cclxuVGhlIGFzeW5jaHJvbm91cyBhc3BlY3QgaXMgZXhwZWN0ZWQgdG8geWllbGQgc2NhbGFyIGJlbmVmaXQgYmVjYXVzZSBhbGwgaXQgY29uc2lkZXJzIGlzIHdoZW4gY29kZSBleGVjdXRlcyBnaXZlbiB0aGUgc2FtZSBpbnB1dCwgdXNpbmcgdGhlIHNhbWUgYWxnb3JpdGhtcy4gIEluIGNvbnRyYXN0LCB0aGUgZ29hbCBvZiBhbGdvcml0aG1pYyBlZmZpY2llbmN5IHR1bmluZyBpcyBhbiBhc3ltcHRvdGljIGJlbmVmaXQgZ2l2ZW4gaW5jcmVhc2luZyBpbnB1dCBzaXplLiAgU28gd2h5IGJvdGhlciB3aXRoIGEgbWVyZSBzY2FsYXIgaW5jcmVhc2U/ICBBdCBzb21lIHBvaW50IHByb2Nlc3NpbmcgdGFrZXMgYSBtaW5pbXVtIGFtb3VudCBvZiB0aW1lLiAgV2hlbiB5b3UgaGF2ZSBtYW55IHRhc2tzIHRha2luZyBzb21lIG5vbi10cml2aWFsIGFtb3VudCBvZiB0aW1lLCB0aGUgYWJpbGl0eSB0byBvcmRlciBhbmQgcG90ZW50aWFsbHkgcGFyYWxsZWxpemUgdGhlbSBjYW4gaGF2ZSBhIHNpZ25pZmljYW50IGltcGFjdCBvbiBvdmVyYWxsIChjYWxlbmRhcikgcnVuIHRpbWUuXHJcblxyXG5UaGVyZSBhcmUgMiBjYXRlZ29yaWVzIG9mIHdoYXQgY2F1c2VzIGNhbGVuZGFyIHdhaXQgdGltZXM6XHJcblxyXG4xLiAgQ1BVIEJvdW5kIC0gVGltZSByZXF1aXJlZCB0byBwcm9jZXNzIGRhdGFcclxuICAgICogIENhbiBhbHRlcm5hdGl2ZWx5IGJlIGFkZHJlc3NlZCBieSBhIG1vcmUgZWZmaWNpZW50IGFsZ29yaXRobVxyXG4yLiAgSS9PIEJvdW5kIC0gVGltZSByZXF1aXJlZCB0byBtb3ZlIGRhdGFcclxuICAgICogIENhbiBhbHRlcm5hdGl2ZWx5IGJlIGFkZHJlc3NlZCBieSBjYWNoaW5nXHJcblxyXG5Ta2lsbGZ1bCBhcHBsaWNhdGlvbiBvZiBhc3luY2hyb25vdXMgcHJvY2Vzc2luZyB0ZWNobmlxdWUgYWxsb3dzIHlvdSB0byBwYXJhbGxlbGl6ZSBzdWNoIHRpbWUgYm91bmQgdGFza3MgdG8gcmVkdWNlIG92ZXJhbGwgY2FsZW5kYXIgd2FpdCB0aW1lIGFzIG11Y2ggYXMgcG9zc2libGUuICBJbiB0aGUgd29ybGQgb2YgYSB3ZWIgc2VydmljZSBwbGF0Zm9ybSBzY2FsYXIgZ2FpbnMgKDJYLCAzWCBldGMpIHdvdWxkIGJlIHNlZW4gYXMgcGhlbm9tZW5hbCB3aW5zLiAgRXZlbiBtYXJnaW5hbCBnYWlucyAoMTAlKSBhcmUgW3ZhbHVhYmxlXShodHRwczovL2Jsb2cua2lzc21ldHJpY3MuY29tL2xvYWRpbmctdGltZS8pLlxyXG5cclxuXHJcbiMjIyBCdWlsZGluZyBCbG9ja3NcclxuVGhhdCBpbnRlcnZpZXcgcXVlc3Rpb24gYWJvdXQgcHJvY2VzcyB2cyB0aHJlYWQgaXMgY2hlY2tpbmcgdGhlIHJlbGF0aW9uc2hpcCBiZXR3ZWVuIDIgbm9kZXMgaW4gYSBrbm93bGVkZ2UgZ3JhcGggcmVxdWlyZWQgdG8gc2VsZWN0IHRoZSBidWlsZGluZyBibG9ja3MgcmVxdWlyZWQgZm9yIGFuIG92ZXJhbGwgc29sdXRpb24uXHJcblxyXG5JbiBhIG51dHNoZWxsOiAgVGhlIG9wZXJhdGluZyBzeXN0ZW0gY3JlYXRlcyBhbmQgbWFuYWdlcyBwcm9jZXNzZXMsIGVhY2ggaGF2aW5nIGl0J3Mgb3duIGFkZHJlc3Mgc3BhY2UuICBUaGUgb3BlcmF0aW5nIHN5c3RlbSBtYXkgYWxzbyBjcmVhdGUgYWRkaXRpb25hbCB0aHJlYWRzIHdpdGhpbiBhIHByb2Nlc3MgKHRoaXMgaXMgZ2VuZXJhbGx5IGRvbmUgdXNpbmcgdGhlIGxhbmd1YWdlIG9mIHlvdXIgY2hvaWNlIGludGVyZmFjaW5nIHdpdGggdGhlIE9TKS4gIFRocmVhZHMgc2hhcmUgdGhlIGFkZHJlc3Mgc3BhY2Ugb2YgdGhlIHByb2Nlc3MsIGFsbG9jYXRpbmcgb2ZmIHRoZSBzYW1lIGhlYXAgYW5kIGFsc28gYWJsZSB0byBzaGFyZSByZWZlcmVuY2VzIHRvIGFyYml0cmFyeSBtZW1vcnkgaW4gdGhlIGFkZHJlc3Mgc3BhY2UuICBTb21lIGxhbmd1YWdlcyBhZGRpdGlvbmFsbHkgc3VwcG9ydCBbY29yb3V0aW5lc10oaHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29yb3V0aW5lKSB3aGljaCBoYXZlIHRoZWlyIG93biBzdGFjayBidXQgd2hpY2ggZXhlY3V0ZSB3aXRoaW4gYSB0aHJlYWQuICBUaGlzIGxlYWRzIHRvIDMgY2hvaWNlcyBlYWNoIG9mIHdoZXJlIHRvIGFsbG9jYXRlIGV4ZWN1dGlvbiBhbmQgZGF0YTogUHJvY2Vzc2VzLCBUaHJlYWRzLCBvciBDb3JvdXRpbmVzLiJdLCJleHBpcmVfYXQiOlsiIl19LDE1MDE0Mzg3NjAuNTgxMjA1XSwiX2F1dGhfdXNlcl9oYXNoIjoiNmI5YmU5NjQ2MGU0NjBlYzNkZmMwOWRmZWJhMjA5NmUxYzk3YWI1NSIsIl9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQifQ==",
+      "expire_date": "2017-08-13T18:19:20.601Z"
+    }
+  },
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "example.com",
+      "name": "example.com"
+    }
+  },
+  {
+    "model": "wagtailimages.rendition",
+    "pk": 1,
+    "fields": {
+      "filter_spec": "max-165x165",
+      "file": "images/InitialDeploymentThoughts2.max-165x165.png",
+      "width": 165,
+      "height": 109,
+      "focal_point_key": "",
+      "image": 1
+    }
+  },
+  {
+    "model": "wagtailimages.rendition",
+    "pk": 2,
+    "fields": {
+      "filter_spec": "original",
+      "file": "images/InitialDeploymentThoughts2.original.png",
+      "width": 360,
+      "height": 238,
+      "focal_point_key": "",
+      "image": 1
+    }
+  },
+  {
+    "model": "wagtailimages.rendition",
+    "pk": 3,
+    "fields": {
+      "filter_spec": "max-165x165",
+      "file": "images/InitialDeploymentThoughts2.max-165x165.png",
+      "width": 165,
+      "height": 108,
+      "focal_point_key": "",
+      "image": 2
+    }
+  },
+  {
+    "model": "wagtailimages.rendition",
+    "pk": 4,
+    "fields": {
+      "filter_spec": "original",
+      "file": "images/InitialDeploymentThoughts2.original.png",
+      "width": 362,
+      "height": 239,
+      "focal_point_key": "",
+      "image": 2
+    }
+  },
+  {
+    "model": "wagtailimages.rendition",
+    "pk": 5,
+    "fields": {
+      "filter_spec": "max-165x165",
+      "file": "images/BuildingBlocks_ProcessThread.max-165x165.png",
+      "width": 165,
+      "height": 78,
+      "focal_point_key": "",
+      "image": 3
+    }
+  },
+  {
+    "model": "wagtailimages.rendition",
+    "pk": 6,
+    "fields": {
+      "filter_spec": "original",
+      "file": "images/BuildingBlocks_ProcessThread.original.png",
+      "width": 519,
+      "height": 247,
+      "focal_point_key": "",
+      "image": 3
+    }
+  },
+  {
+    "model": "wagtailcore.site",
+    "pk": 1,
+    "fields": {
+      "hostname": "localhost",
+      "port": 80,
+      "site_name": null,
+      "root_page": 3,
+      "is_default_site": true
+    }
+  },
+  {
+    "model": "wagtailcore.collection",
+    "pk": 1,
+    "fields": {
+      "path": "0001",
+      "depth": 1,
+      "numchild": 0,
+      "name": "Root"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can access Wagtail admin",
+      "content_type": 2,
+      "codename": "access_admin"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can add document",
+      "content_type": 3,
+      "codename": "add_document"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can change document",
+      "content_type": 3,
+      "codename": "change_document"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can delete document",
+      "content_type": 3,
+      "codename": "delete_document"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add image",
+      "content_type": 4,
+      "codename": "add_image"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change image",
+      "content_type": 4,
+      "codename": "change_image"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete image",
+      "content_type": 4,
+      "codename": "delete_image"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 5,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 5,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 5,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 6,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 6,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 6,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 7,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 7,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 7,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 8,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 8,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 8,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 9,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 9,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 9,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 10,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 10,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 10,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can add site",
+      "content_type": 11,
+      "codename": "add_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can change site",
+      "content_type": 11,
+      "codename": "change_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can delete site",
+      "content_type": 11,
+      "codename": "delete_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add comment",
+      "content_type": 12,
+      "codename": "add_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change comment",
+      "content_type": 12,
+      "codename": "change_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete comment",
+      "content_type": 12,
+      "codename": "delete_comment"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can moderate comments",
+      "content_type": 12,
+      "codename": "can_moderate"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add comment flag",
+      "content_type": 13,
+      "codename": "add_commentflag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change comment flag",
+      "content_type": 13,
+      "codename": "change_commentflag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete comment flag",
+      "content_type": 13,
+      "codename": "delete_commentflag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can add tag",
+      "content_type": 14,
+      "codename": "add_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can change tag",
+      "content_type": 14,
+      "codename": "change_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can delete tag",
+      "content_type": 14,
+      "codename": "delete_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can add tagged item",
+      "content_type": 15,
+      "codename": "add_taggeditem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can change tagged item",
+      "content_type": 15,
+      "codename": "change_taggeditem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can delete tagged item",
+      "content_type": 15,
+      "codename": "delete_taggeditem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can add form submission",
+      "content_type": 16,
+      "codename": "add_formsubmission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can change form submission",
+      "content_type": 16,
+      "codename": "change_formsubmission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can delete form submission",
+      "content_type": 16,
+      "codename": "delete_formsubmission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add redirect",
+      "content_type": 17,
+      "codename": "add_redirect"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change redirect",
+      "content_type": 17,
+      "codename": "change_redirect"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete redirect",
+      "content_type": 17,
+      "codename": "delete_redirect"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can add embed",
+      "content_type": 18,
+      "codename": "add_embed"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can change embed",
+      "content_type": 18,
+      "codename": "change_embed"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can delete embed",
+      "content_type": 18,
+      "codename": "delete_embed"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can add user profile",
+      "content_type": 19,
+      "codename": "add_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can change user profile",
+      "content_type": 19,
+      "codename": "change_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can delete user profile",
+      "content_type": 19,
+      "codename": "delete_userprofile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can add rendition",
+      "content_type": 20,
+      "codename": "add_rendition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can change rendition",
+      "content_type": 20,
+      "codename": "change_rendition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can delete rendition",
+      "content_type": 20,
+      "codename": "delete_rendition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add query",
+      "content_type": 21,
+      "codename": "add_query"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change query",
+      "content_type": 21,
+      "codename": "change_query"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete query",
+      "content_type": 21,
+      "codename": "delete_query"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can add Query Daily Hits",
+      "content_type": 22,
+      "codename": "add_querydailyhits"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can change Query Daily Hits",
+      "content_type": 22,
+      "codename": "change_querydailyhits"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can delete Query Daily Hits",
+      "content_type": 22,
+      "codename": "delete_querydailyhits"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can add page",
+      "content_type": 1,
+      "codename": "add_page"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can change page",
+      "content_type": 1,
+      "codename": "change_page"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can delete page",
+      "content_type": 1,
+      "codename": "delete_page"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can add group page permission",
+      "content_type": 23,
+      "codename": "add_grouppagepermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can change group page permission",
+      "content_type": 23,
+      "codename": "change_grouppagepermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can delete group page permission",
+      "content_type": 23,
+      "codename": "delete_grouppagepermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+      "name": "Can add page revision",
+      "content_type": 24,
+      "codename": "add_pagerevision"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+      "name": "Can change page revision",
+      "content_type": 24,
+      "codename": "change_pagerevision"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+      "name": "Can delete page revision",
+      "content_type": 24,
+      "codename": "delete_pagerevision"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+      "name": "Can add page view restriction",
+      "content_type": 25,
+      "codename": "add_pageviewrestriction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+      "name": "Can change page view restriction",
+      "content_type": 25,
+      "codename": "change_pageviewrestriction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+      "name": "Can delete page view restriction",
+      "content_type": 25,
+      "codename": "delete_pageviewrestriction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+      "name": "Can add site",
+      "content_type": 26,
+      "codename": "add_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+      "name": "Can change site",
+      "content_type": 26,
+      "codename": "change_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+      "name": "Can delete site",
+      "content_type": 26,
+      "codename": "delete_site"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+      "name": "Can add collection",
+      "content_type": 27,
+      "codename": "add_collection"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+      "name": "Can change collection",
+      "content_type": 27,
+      "codename": "change_collection"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+      "name": "Can delete collection",
+      "content_type": 27,
+      "codename": "delete_collection"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+      "name": "Can add group collection permission",
+      "content_type": 28,
+      "codename": "add_groupcollectionpermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+      "name": "Can change group collection permission",
+      "content_type": 28,
+      "codename": "change_groupcollectionpermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+      "name": "Can delete group collection permission",
+      "content_type": 28,
+      "codename": "delete_groupcollectionpermission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+      "name": "Can add collection view restriction",
+      "content_type": 29,
+      "codename": "add_collectionviewrestriction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+      "name": "Can change collection view restriction",
+      "content_type": 29,
+      "codename": "change_collectionviewrestriction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+      "name": "Can delete collection view restriction",
+      "content_type": 29,
+      "codename": "delete_collectionviewrestriction"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+      "name": "Can add Tag",
+      "content_type": 30,
+      "codename": "add_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+      "name": "Can change Tag",
+      "content_type": 30,
+      "codename": "change_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+      "name": "Can delete Tag",
+      "content_type": 30,
+      "codename": "delete_tag"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+      "name": "Can add Tagged Item",
+      "content_type": 31,
+      "codename": "add_taggeditem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+      "name": "Can change Tagged Item",
+      "content_type": 31,
+      "codename": "change_taggeditem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+      "name": "Can delete Tagged Item",
+      "content_type": 31,
+      "codename": "delete_taggeditem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+      "name": "Can add blog index page",
+      "content_type": 32,
+      "codename": "add_blogindexpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+      "name": "Can change blog index page",
+      "content_type": 32,
+      "codename": "change_blogindexpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+      "name": "Can delete blog index page",
+      "content_type": 32,
+      "codename": "delete_blogindexpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+      "name": "Can add weblog page",
+      "content_type": 33,
+      "codename": "add_weblogpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 97,
+    "fields": {
+      "name": "Can change weblog page",
+      "content_type": 33,
+      "codename": "change_weblogpage"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 98,
+    "fields": {
+      "name": "Can delete weblog page",
+      "content_type": 33,
+      "codename": "delete_weblogpage"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "Moderators",
+      "permissions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "Editors",
+      "permissions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$36000$dbvOXfAjEmVI$ymSoKPbFzIj55BI4fVnggzOTuvXuNnpM8zSKEwPDOdA=",
+      "last_login": "2017-07-30T18:11:38.182Z",
+      "is_superuser": true,
+      "username": "fool",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2017-07-29T20:49:22.947Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "wagtailimages.image",
+    "pk": 1,
+    "fields": {
+      "collection": 1,
+      "title": "Initial Thoughts",
+      "file": "original_images/InitialDeploymentThoughts2.png",
+      "width": 360,
+      "height": 238,
+      "created_at": "2017-07-29T21:08:26.470Z",
+      "uploaded_by_user": 1,
+      "focal_point_x": null,
+      "focal_point_y": null,
+      "focal_point_width": null,
+      "focal_point_height": null,
+      "file_size": null
+    }
+  },
+  {
+    "model": "wagtailimages.image",
+    "pk": 2,
+    "fields": {
+      "collection": 1,
+      "title": "Initial Thoughts",
+      "file": "original_images/InitialDeploymentThoughts2.png",
+      "width": 362,
+      "height": 239,
+      "created_at": "2017-07-30T18:13:34.317Z",
+      "uploaded_by_user": 1,
+      "focal_point_x": null,
+      "focal_point_y": null,
+      "focal_point_width": null,
+      "focal_point_height": null,
+      "file_size": null
+    }
+  },
+  {
+    "model": "wagtailimages.image",
+    "pk": 3,
+    "fields": {
+      "collection": 1,
+      "title": "Building Blocks",
+      "file": "original_images/BuildingBlocks_ProcessThread.png",
+      "width": 519,
+      "height": 247,
+      "created_at": "2017-07-30T18:16:16.870Z",
+      "uploaded_by_user": 1,
+      "focal_point_x": null,
+      "focal_point_y": null,
+      "focal_point_width": null,
+      "focal_point_height": null,
+      "file_size": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 1,
+    "fields": {
+      "path": "0001",
+      "depth": 1,
+      "numchild": 1,
+      "title": "Root",
+      "slug": "root",
+      "content_type": 1,
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/",
+      "owner": null,
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "first_published_at": null,
+      "last_published_at": null,
+      "latest_revision_created_at": null,
+      "live_revision": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 3,
+    "fields": {
+      "path": "00010002",
+      "depth": 2,
+      "numchild": 3,
+      "title": "Randy Moore",
+      "slug": "randy-moore",
+      "content_type": 32,
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/randy-moore/",
+      "owner": 1,
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "first_published_at": "2017-07-29T21:05:36.834Z",
+      "last_published_at": "2017-07-29T21:05:36.834Z",
+      "latest_revision_created_at": "2017-07-29T21:05:36.787Z",
+      "live_revision": 2
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 4,
+    "fields": {
+      "path": "000100020001",
+      "depth": 3,
+      "numchild": 0,
+      "title": "Genesis",
+      "slug": "genesis",
+      "content_type": 33,
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/randy-moore/genesis/",
+      "owner": 1,
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "first_published_at": "2017-07-29T21:11:03.825Z",
+      "last_published_at": "2017-07-30T18:13:41.062Z",
+      "latest_revision_created_at": "2017-07-30T18:13:41.035Z",
+      "live_revision": 7
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 5,
+    "fields": {
+      "path": "000100020002",
+      "depth": 3,
+      "numchild": 0,
+      "title": "Asynchronous Programming",
+      "slug": "asynchronous-programming",
+      "content_type": 33,
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/randy-moore/asynchronous-programming/",
+      "owner": 1,
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "first_published_at": "2017-07-30T18:20:11.671Z",
+      "last_published_at": "2017-07-30T18:20:11.671Z",
+      "latest_revision_created_at": "2017-07-30T18:20:11.631Z",
+      "live_revision": 10
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 6,
+    "fields": {
+      "path": "000100020003",
+      "depth": 3,
+      "numchild": 0,
+      "title": "Website Relaunch",
+      "slug": "website-relaunch",
+      "content_type": 33,
+      "live": false,
+      "has_unpublished_changes": true,
+      "url_path": "/randy-moore/website-relaunch/",
+      "owner": 1,
+      "seo_title": "",
+      "show_in_menus": false,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "first_published_at": null,
+      "last_published_at": null,
+      "latest_revision_created_at": "2017-08-01T20:51:42.310Z",
+      "live_revision": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 1,
+    "fields": {
+      "page": 3,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-29T21:05:33.788Z",
+      "user": 1,
+      "content_json": "{\"pk\": 3, \"path\": \"00010002\", \"depth\": 2, \"numchild\": 0, \"title\": \"Randy Moore\", \"slug\": \"randy-moore\", \"content_type\": 32, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/randy-moore/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"subheading\": \"Software Engineer Passionate about Quality and Impact\"}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 2,
+    "fields": {
+      "page": 3,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-29T21:05:36.787Z",
+      "user": 1,
+      "content_json": "{\"pk\": 3, \"path\": \"00010002\", \"depth\": 2, \"numchild\": 0, \"title\": \"Randy Moore\", \"slug\": \"randy-moore\", \"content_type\": 32, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/randy-moore/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2017-07-29T21:05:33.788Z\", \"live_revision\": null, \"subheading\": \"Software Engineer Passionate about Quality and Impact\"}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 3,
+    "fields": {
+      "page": 4,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-29T21:08:52.805Z",
+      "user": 1,
+      "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 0, \"title\": \"Genesis\", \"slug\": \"genesis\", \"content_type\": 33, \"live\": false, \"has_unpublished_changes\": false, \"url_path\": \"/randy-moore/genesis/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": null, \"live_revision\": null, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"value\\\": \\\"### Why build a personal site?\\\\r\\\\nMany folks have an online identity through sources such as Facebook or [LinkedIn](https://www.linkedin.com/in/randy-moore-b552b014/).  Profiles such as these have the benefit of a network engine but limit creative expression.  \\\\r\\\\n\\\\r\\\\nLinkedIn serves as an excellent host to one's professional profile.  The features are tailored to a professional perspective and include an automatic and personalized connection to LinkedIn's ecosystem.  Shortly after creating my LinkedIn profile I was contacted by a LinkedIn recruiter and wound up spending 5 most excellent career years there.  Similarly Facebook automatically provides opportunity to connect to people in your social circles.\\\\r\\\\n\\\\r\\\\nPreexisting sites with a particular focus come with the downside of limiting creative expression.  LinkedIn and Facebook will hold your hand and guide you through creating a profile.  This scripted creation is easy and potentially rewarding but limits you to the purpose and environment of the platform.  Creating a personal website from lower level building blocks offers greater freedom of expression but in the same vein is a daunting endeavor.  Beyond the technical challenges you need to think about content and purpose.  Will it serve as a herald of your professional brand?  You run into tough questions: is it wise to include your personal views as a part of your professional brand?\\\\r\\\\n\\\\r\\\\nFrom experience I have faith in open source to solve the technical challenges.  A plethora of proven building blocks exist.  The greater challenge is content and purpose.  This website will serve as an experiment. From life experience I've noticed many sources recommend to be either hot or cold, not [lukewarm](http://biblehub.com/revelation/3-16.htm)<sup>1</sup>. \\\\r\\\\n\\\\r\\\\nHypothesis:\\\\r\\\\n> The world is a large place.  Exercising creative freedom and following passion will lead to blow back but also growth and purpose.\\\\r\\\\n\\\\r\\\\nThis site will serve as a herald of both my professional *and* personal brand.\\\\r\\\\n\\\\r\\\\n### Creation of the site\\\\r\\\\nThe creation of this site is a story of curiosity, conjecture and a meandering path exploring what open source has to offer.  This post covers up to the initial step of publishing the source code.\\\\r\\\\n\\\\r\\\\nTime at LinkedIn was spent engaged with a Java (EE) centric environment with tooling written mostly in Python.  In response to some time sensitive needs I had decided to use Python scripting and was impressed by how quickly a solution came together for a seemingly overwhelming task.  To boot, Python has been a rising star in the industry.  Python was chosen be the central language of the site.\\\\r\\\\n\\\\r\\\\nTechnologies that encapsulate process have recently spoken to my soul.  Having spent hundreds of hours in my career dealing with development environment issues the ability to encapsulate a the creation of a development environment is particularly appealing.  Dabbling across open source projects you will see many share virtual machine environments (eg using [Vagrant](https://www.vagrantup.com/)) but this approach is still fairly heavyweight (long download times, complexity).  [Docker](https://www.docker.com/) captured my attention as a lightweight alternative to full virtual machines.  Turns out Docker natively supports orchestrating multiple Docker containers into a complete system. Sold!\\\\r\\\\n\\\\r\\\\nThe goal at this point was to create the website within a Docker container so it could be worked on anywhere.  Some poking around led to [Flask](http://flask.pocoo.org/) which promises to be minimal (meaning to me ease of use) but extensible. [Nginx](https://nginx.org/) soon came into focus since the built in Flask webserver does not support serving [more than 1 request at a time](http://flask.pocoo.org/docs/0.12/deploying/).  Nginx is advertised as a lightwight server with a built in [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) - basically a cache to serve up commonly requested pages that have already been created by the (heavyweight) app framework (Flask).\\\\r\\\\n\\\\r\\\\nInitial Thoughts:\\\", \\\"id\\\": \\\"000b5b3f-71df-4853-be49-127ed59479fd\\\"}, {\\\"type\\\": \\\"image\\\", \\\"value\\\": 1, \\\"id\\\": \\\"7940ebfc-de7d-432a-b3a6-2ebe999a43f3\\\"}, {\\\"type\\\": \\\"markdown\\\", \\\"value\\\": \\\"The efficiency promised by Nginx led to dreams of hosting the site on a [Raspberry Pi](https://www.raspberrypi.org/).  Not everything is available for ARM machines, but [Docker seems to be available on the Pi](https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/).  The magic sauce to have Nginx serve with Flask is [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), an API specification. [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) looked like the best choice to most efficiently provide that glue since it supports native communication over sockets (instead of via HTTP or some other relatively heavy layer).\\\\r\\\\n\\\\r\\\\nThe uWSGI implementation is not just code included in a final executable, it works as a (daemon) service.  This threw a monkey wrench in the plan; a typical Docker container generally runs a single process which is tied to the lifecycle of the container.  First attempt began with the [Nginx Docker base image](https://hub.docker.com/_/nginx/) but led to creating and modifying init scripts to bring up uWSGI in addition to Nginx.  After much effort uWSGI would still not be running upon container deployment, time for a different approach.\\\\r\\\\n\\\\r\\\\nSome searching led to a question that bore fruit: how does one correctly manage multiple services within a Docker container?  A solution is provided by [phusion.nl](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/).  After reading the [story](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) behind the base image there was a wave of relief.  Had my init script hacks worked strange issues would probably have appeared later on.  Thankfully the Nginx Docker base image rejected my hacks by following the design principle\\\\r\\\\n> [Make it easy to use correctly and hard to use incorrectly](http://principles-wiki.net/principles:easy_to_use_and_hard_to_misuse)\\\\r\\\\n\\\\r\\\\n### Sharing the site source code\\\\r\\\\nWhat drives people often isn't the what but the why.  While searching for the meaning of life it's become clear that the path to happiness involves sharing.  Open source has been a central part of my life since installing [Free BSD](https://www.freebsd.org/) on an old computer in the late 90's.  Shortly after that and up to the present [Gentoo Linux](https://gentoo.org/) has served my personal computing needs.  Having received so much from the open source community there's an itch to give back.  My hope is that others may follow the story of this site via these blog posts (more coming soon) and gain a bit of perspective on the open source landscape and the opportunities available to them.\\\\r\\\\n\\\\r\\\\n[Current source code for this site](https://github.com/RandyMoore/website)\\\\r\\\\n\\\\r\\\\n[The commit for a minimal Nginx - uWSGI - Flask Docker container](https://github.com/RandyMoore/website/commit/9690a8908408cc87c52aaed007decd276c7e01e6) (See this [README](https://github.com/RandyMoore/website/blob/f3d5d8f4a006206d8359218ba8544cdc5f8c1224/README.md) for directions)\\\\r\\\\n\\\\r\\\\n###<em>Footnotes</em>\\\\r\\\\n1.  I am spiritual but do not subscribe to a particular religion.\\\", \\\"id\\\": \\\"2b881364-9599-4b21-8d18-0ecf4b0bb04b\\\"}]\", \"subheading\": \"How easy is it to create a personal website using open source?  Why build a personal website?\", \"date\": \"2017-06-05\"}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 4,
+    "fields": {
+      "page": 4,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-29T21:09:44.086Z",
+      "user": 1,
+      "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 0, \"title\": \"Genesis\", \"slug\": \"genesis\", \"content_type\": 33, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/randy-moore/genesis/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2017-07-29T21:08:52.805Z\", \"live_revision\": null, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"value\\\": \\\"### Why build a personal site?\\\\r\\\\nMany folks have an online identity through sources such as Facebook or [LinkedIn](https://www.linkedin.com/in/randy-moore-b552b014/).  Profiles such as these have the benefit of a network engine but limit creative expression.  \\\\r\\\\n\\\\r\\\\nLinkedIn serves as an excellent host to one's professional profile.  The features are tailored to a professional perspective and include an automatic and personalized connection to LinkedIn's ecosystem.  Shortly after creating my LinkedIn profile I was contacted by a LinkedIn recruiter and wound up spending 5 most excellent career years there.  Similarly Facebook automatically provides opportunity to connect to people in your social circles.\\\\r\\\\n\\\\r\\\\nPreexisting sites with a particular focus come with the downside of limiting creative expression.  LinkedIn and Facebook will hold your hand and guide you through creating a profile.  This scripted creation is easy and potentially rewarding but limits you to the purpose and environment of the platform.  Creating a personal website from lower level building blocks offers greater freedom of expression but in the same vein is a daunting endeavor.  Beyond the technical challenges you need to think about content and purpose.  Will it serve as a herald of your professional brand?  You run into tough questions: is it wise to include your personal views as a part of your professional brand?\\\\r\\\\n\\\\r\\\\nFrom experience I have faith in open source to solve the technical challenges.  A plethora of proven building blocks exist.  The greater challenge is content and purpose.  This website will serve as an experiment. From life experience I've noticed many sources recommend to be either hot or cold, not [lukewarm](http://biblehub.com/revelation/3-16.htm)<sup>1</sup>. \\\\r\\\\n\\\\r\\\\nHypothesis:\\\\r\\\\n> The world is a large place.  Exercising creative freedom and following passion will lead to blow back but also growth and purpose.\\\\r\\\\n\\\\r\\\\nThis site will serve as a herald of both my professional *and* personal brand.\\\\r\\\\n\\\\r\\\\n### Creation of the site\\\\r\\\\nThe creation of this site is a story of curiosity, conjecture and a meandering path exploring what open source has to offer.  This post covers up to the initial step of publishing the source code.\\\\r\\\\n\\\\r\\\\nTime at LinkedIn was spent engaged with a Java (EE) centric environment with tooling written mostly in Python.  In response to some time sensitive needs I had decided to use Python scripting and was impressed by how quickly a solution came together for a seemingly overwhelming task.  To boot, Python has been a rising star in the industry.  Python was chosen be the central language of the site.\\\\r\\\\n\\\\r\\\\nTechnologies that encapsulate process have recently spoken to my soul.  Having spent hundreds of hours in my career dealing with development environment issues the ability to encapsulate a the creation of a development environment is particularly appealing.  Dabbling across open source projects you will see many share virtual machine environments (eg using [Vagrant](https://www.vagrantup.com/)) but this approach is still fairly heavyweight (long download times, complexity).  [Docker](https://www.docker.com/) captured my attention as a lightweight alternative to full virtual machines.  Turns out Docker natively supports orchestrating multiple Docker containers into a complete system. Sold!\\\\r\\\\n\\\\r\\\\nThe goal at this point was to create the website within a Docker container so it could be worked on anywhere.  Some poking around led to [Flask](http://flask.pocoo.org/) which promises to be minimal (meaning to me ease of use) but extensible. [Nginx](https://nginx.org/) soon came into focus since the built in Flask webserver does not support serving [more than 1 request at a time](http://flask.pocoo.org/docs/0.12/deploying/).  Nginx is advertised as a lightwight server with a built in [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) - basically a cache to serve up commonly requested pages that have already been created by the (heavyweight) app framework (Flask).\\\\r\\\\n\\\\r\\\\nInitial Thoughts:\\\", \\\"id\\\": \\\"000b5b3f-71df-4853-be49-127ed59479fd\\\"}, {\\\"type\\\": \\\"image\\\", \\\"value\\\": 1, \\\"id\\\": \\\"7940ebfc-de7d-432a-b3a6-2ebe999a43f3\\\"}, {\\\"type\\\": \\\"markdown\\\", \\\"value\\\": \\\"The efficiency promised by Nginx led to dreams of hosting the site on a [Raspberry Pi](https://www.raspberrypi.org/).  Not everything is available for ARM machines, but [Docker seems to be available on the Pi](https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/).  The magic sauce to have Nginx serve with Flask is [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), an API specification. [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) looked like the best choice to most efficiently provide that glue since it supports native communication over sockets (instead of via HTTP or some other relatively heavy layer).\\\\r\\\\n\\\\r\\\\nThe uWSGI implementation is not just code included in a final executable, it works as a (daemon) service.  This threw a monkey wrench in the plan; a typical Docker container generally runs a single process which is tied to the lifecycle of the container.  First attempt began with the [Nginx Docker base image](https://hub.docker.com/_/nginx/) but led to creating and modifying init scripts to bring up uWSGI in addition to Nginx.  After much effort uWSGI would still not be running upon container deployment, time for a different approach.\\\\r\\\\n\\\\r\\\\nSome searching led to a question that bore fruit: how does one correctly manage multiple services within a Docker container?  A solution is provided by [phusion.nl](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/).  After reading the [story](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) behind the base image there was a wave of relief.  Had my init script hacks worked strange issues would probably have appeared later on.  Thankfully the Nginx Docker base image rejected my hacks by following the design principle\\\\r\\\\n> [Make it easy to use correctly and hard to use incorrectly](http://principles-wiki.net/principles:easy_to_use_and_hard_to_misuse)\\\\r\\\\n\\\\r\\\\n### Sharing the site source code\\\\r\\\\nWhat drives people often isn't the what but the why.  While searching for the meaning of life it's become clear that the path to happiness involves sharing.  Open source has been a central part of my life since installing [Free BSD](https://www.freebsd.org/) on an old computer in the late 90's.  Shortly after that and up to the present [Gentoo Linux](https://gentoo.org/) has served my personal computing needs.  Having received so much from the open source community there's an itch to give back.  My hope is that others may follow the story of this site via these blog posts (more coming soon) and gain a bit of perspective on the open source landscape and the opportunities available to them.\\\\r\\\\n\\\\r\\\\n[Current source code for this site](https://github.com/RandyMoore/website)\\\\r\\\\n\\\\r\\\\n[The commit for a minimal Nginx - uWSGI - Flask Docker container](https://github.com/RandyMoore/website/commit/9690a8908408cc87c52aaed007decd276c7e01e6) (See this [README](https://github.com/RandyMoore/website/blob/f3d5d8f4a006206d8359218ba8544cdc5f8c1224/README.md) for directions)\\\\r\\\\n\\\\r\\\\n###<em>Footnotes</em>\\\\r\\\\n1.  I am spiritual but do not subscribe to a particular religion.\\\", \\\"id\\\": \\\"2b881364-9599-4b21-8d18-0ecf4b0bb04b\\\"}]\", \"subheading\": \"How easy is it to create a personal website using open source?  Why build a personal website?\", \"date\": \"2017-06-05\"}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 5,
+    "fields": {
+      "page": 4,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-29T21:11:03.777Z",
+      "user": 1,
+      "content_json": "{\"pk\": 4, \"path\": \"000100020001\", \"depth\": 3, \"numchild\": 0, \"title\": \"Genesis\", \"slug\": \"genesis\", \"content_type\": 33, \"live\": false, \"has_unpublished_changes\": true, \"url_path\": \"/randy-moore/genesis/\", \"owner\": 1, \"seo_title\": \"\", \"show_in_menus\": false, \"search_description\": \"\", \"go_live_at\": null, \"expire_at\": null, \"expired\": false, \"locked\": false, \"first_published_at\": null, \"last_published_at\": null, \"latest_revision_created_at\": \"2017-07-29T21:09:44.086Z\", \"live_revision\": null, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"value\\\": \\\"### Why build a personal site?\\\\r\\\\nMany folks have an online identity through sources such as Facebook or [LinkedIn](https://www.linkedin.com/in/randy-moore-b552b014/).  Profiles such as these have the benefit of a network engine but limit creative expression.  \\\\r\\\\n\\\\r\\\\nLinkedIn serves as an excellent host to one's professional profile.  The features are tailored to a professional perspective and include an automatic and personalized connection to LinkedIn's ecosystem.  Shortly after creating my LinkedIn profile I was contacted by a LinkedIn recruiter and wound up spending 5 most excellent career years there.  Similarly Facebook automatically provides opportunity to connect to people in your social circles.\\\\r\\\\n\\\\r\\\\nPreexisting sites with a particular focus come with the downside of limiting creative expression.  LinkedIn and Facebook will hold your hand and guide you through creating a profile.  This scripted creation is easy and potentially rewarding but limits you to the purpose and environment of the platform.  Creating a personal website from lower level building blocks offers greater freedom of expression but in the same vein is a daunting endeavor.  Beyond the technical challenges you need to think about content and purpose.  Will it serve as a herald of your professional brand?  You run into tough questions: is it wise to include your personal views as a part of your professional brand?\\\\r\\\\n\\\\r\\\\nFrom experience I have faith in open source to solve the technical challenges.  A plethora of proven building blocks exist.  The greater challenge is content and purpose.  This website will serve as an experiment. From life experience I've noticed many sources recommend to be either hot or cold, not [lukewarm](http://biblehub.com/revelation/3-16.htm)<sup>1</sup>. \\\\r\\\\n\\\\r\\\\nHypothesis:\\\\r\\\\n> The world is a large place.  Exercising creative freedom and following passion will lead to blow back but also growth and purpose.\\\\r\\\\n\\\\r\\\\nThis site will serve as a herald of both my professional *and* personal brand.\\\\r\\\\n\\\\r\\\\n### Creation of the site\\\\r\\\\nThe creation of this site is a story of curiosity, conjecture and a meandering path exploring what open source has to offer.  This post covers up to the initial step of publishing the source code.\\\\r\\\\n\\\\r\\\\nTime at LinkedIn was spent engaged with a Java (EE) centric environment with tooling written mostly in Python.  In response to some time sensitive needs I had decided to use Python scripting and was impressed by how quickly a solution came together for a seemingly overwhelming task.  To boot, Python has been a rising star in the industry.  Python was chosen be the central language of the site.\\\\r\\\\n\\\\r\\\\nTechnologies that encapsulate process have recently spoken to my soul.  Having spent hundreds of hours in my career dealing with development environment issues the ability to encapsulate a the creation of a development environment is particularly appealing.  Dabbling across open source projects you will see many share virtual machine environments (eg using [Vagrant](https://www.vagrantup.com/)) but this approach is still fairly heavyweight (long download times, complexity).  [Docker](https://www.docker.com/) captured my attention as a lightweight alternative to full virtual machines.  Turns out Docker natively supports orchestrating multiple Docker containers into a complete system. Sold!\\\\r\\\\n\\\\r\\\\nThe goal at this point was to create the website within a Docker container so it could be worked on anywhere.  Some poking around led to [Flask](http://flask.pocoo.org/) which promises to be minimal (meaning to me ease of use) but extensible. [Nginx](https://nginx.org/) soon came into focus since the built in Flask webserver does not support serving [more than 1 request at a time](http://flask.pocoo.org/docs/0.12/deploying/).  Nginx is advertised as a lightwight server with a built in [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) - basically a cache to serve up commonly requested pages that have already been created by the (heavyweight) app framework (Flask).\\\\r\\\\n\\\\r\\\\nInitial Thoughts:\\\", \\\"id\\\": \\\"000b5b3f-71df-4853-be49-127ed59479fd\\\"}, {\\\"type\\\": \\\"image\\\", \\\"value\\\": 1, \\\"id\\\": \\\"7940ebfc-de7d-432a-b3a6-2ebe999a43f3\\\"}, {\\\"type\\\": \\\"markdown\\\", \\\"value\\\": \\\"The efficiency promised by Nginx led to dreams of hosting the site on a [Raspberry Pi](https://www.raspberrypi.org/).  Not everything is available for ARM machines, but [Docker seems to be available on the Pi](https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/).  The magic sauce to have Nginx serve with Flask is [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), an API specification. [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) looked like the best choice to most efficiently provide that glue since it supports native communication over sockets (instead of via HTTP or some other relatively heavy layer).\\\\r\\\\n\\\\r\\\\nThe uWSGI implementation is not just code included in a final executable, it works as a (daemon) service.  This threw a monkey wrench in the plan; a typical Docker container generally runs a single process which is tied to the lifecycle of the container.  First attempt began with the [Nginx Docker base image](https://hub.docker.com/_/nginx/) but led to creating and modifying init scripts to bring up uWSGI in addition to Nginx.  After much effort uWSGI would still not be running upon container deployment, time for a different approach.\\\\r\\\\n\\\\r\\\\nSome searching led to a question that bore fruit: how does one correctly manage multiple services within a Docker container?  A solution is provided by [phusion.nl](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/).  After reading the [story](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) behind the base image there was a wave of relief.  Had my init script hacks worked strange issues would probably have appeared later on.  Thankfully the Nginx Docker base image rejected my hacks by following the design principle\\\\r\\\\n> [Make it easy to use correctly and hard to use incorrectly](http://principles-wiki.net/principles:easy_to_use_and_hard_to_misuse)\\\\r\\\\n\\\\r\\\\n### Sharing the site source code\\\\r\\\\nWhat drives people often isn't the what but the why.  While searching for the meaning of life it's become clear that the path to happiness involves sharing.  Open source has been a central part of my life since installing [Free BSD](https://www.freebsd.org/) on an old computer in the late 90's.  Shortly after that and up to the present [Gentoo Linux](https://gentoo.org/) has served my personal computing needs.  Having received so much from the open source community there's an itch to give back.  My hope is that others may follow the story of this site via these blog posts (more coming soon) and gain a bit of perspective on the open source landscape and the opportunities available to them.\\\\r\\\\n\\\\r\\\\n[Current source code for this site](https://github.com/RandyMoore/website)\\\\r\\\\n\\\\r\\\\n[The commit for a minimal Nginx - uWSGI - Flask Docker container](https://github.com/RandyMoore/website/commit/9690a8908408cc87c52aaed007decd276c7e01e6) (See this [README](https://github.com/RandyMoore/website/blob/f3d5d8f4a006206d8359218ba8544cdc5f8c1224/README.md) for directions)\\\\r\\\\n\\\\r\\\\n###<em>Footnotes</em>\\\\r\\\\n1.  I am spiritual but do not subscribe to a particular religion.\\\", \\\"id\\\": \\\"2b881364-9599-4b21-8d18-0ecf4b0bb04b\\\"}]\", \"subheading\": \"How easy is it to create a personal website using open source?  Why build a personal website?\", \"date\": \"2017-06-05\"}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 6,
+    "fields": {
+      "page": 4,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-30T18:13:37.744Z",
+      "user": 1,
+      "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": \"2017-07-29T21:11:03.777Z\", \"go_live_at\": null, \"title\": \"Genesis\", \"seo_title\": \"\", \"subheading\": \"How easy is it to create a personal website using open source?  Why build a personal website?\", \"slug\": \"genesis\", \"live\": true, \"last_published_at\": \"2017-07-29T21:11:03.825Z\", \"has_unpublished_changes\": false, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"000b5b3f-71df-4853-be49-127ed59479fd\\\", \\\"value\\\": \\\"### Why build a personal site?\\\\r\\\\nMany folks have an online identity through sources such as Facebook or [LinkedIn](https://www.linkedin.com/in/randy-moore-b552b014/).  Profiles such as these have the benefit of a network engine but limit creative expression.  \\\\r\\\\n\\\\r\\\\nLinkedIn serves as an excellent host to one's professional profile.  The features are tailored to a professional perspective and include an automatic and personalized connection to LinkedIn's ecosystem.  Shortly after creating my LinkedIn profile I was contacted by a LinkedIn recruiter and wound up spending 5 most excellent career years there.  Similarly Facebook automatically provides opportunity to connect to people in your social circles.\\\\r\\\\n\\\\r\\\\nPreexisting sites with a particular focus come with the downside of limiting creative expression.  LinkedIn and Facebook will hold your hand and guide you through creating a profile.  This scripted creation is easy and potentially rewarding but limits you to the purpose and environment of the platform.  Creating a personal website from lower level building blocks offers greater freedom of expression but in the same vein is a daunting endeavor.  Beyond the technical challenges you need to think about content and purpose.  Will it serve as a herald of your professional brand?  You run into tough questions: is it wise to include your personal views as a part of your professional brand?\\\\r\\\\n\\\\r\\\\nFrom experience I have faith in open source to solve the technical challenges.  A plethora of proven building blocks exist.  The greater challenge is content and purpose.  This website will serve as an experiment. From life experience I've noticed many sources recommend to be either hot or cold, not [lukewarm](http://biblehub.com/revelation/3-16.htm)<sup>1</sup>. \\\\r\\\\n\\\\r\\\\nHypothesis:\\\\r\\\\n> The world is a large place.  Exercising creative freedom and following passion will lead to blow back but also growth and purpose.\\\\r\\\\n\\\\r\\\\nThis site will serve as a herald of both my professional *and* personal brand.\\\\r\\\\n\\\\r\\\\n### Creation of the site\\\\r\\\\nThe creation of this site is a story of curiosity, conjecture and a meandering path exploring what open source has to offer.  This post covers up to the initial step of publishing the source code.\\\\r\\\\n\\\\r\\\\nTime at LinkedIn was spent engaged with a Java (EE) centric environment with tooling written mostly in Python.  In response to some time sensitive needs I had decided to use Python scripting and was impressed by how quickly a solution came together for a seemingly overwhelming task.  To boot, Python has been a rising star in the industry.  Python was chosen be the central language of the site.\\\\r\\\\n\\\\r\\\\nTechnologies that encapsulate process have recently spoken to my soul.  Having spent hundreds of hours in my career dealing with development environment issues the ability to encapsulate a the creation of a development environment is particularly appealing.  Dabbling across open source projects you will see many share virtual machine environments (eg using [Vagrant](https://www.vagrantup.com/)) but this approach is still fairly heavyweight (long download times, complexity).  [Docker](https://www.docker.com/) captured my attention as a lightweight alternative to full virtual machines.  Turns out Docker natively supports orchestrating multiple Docker containers into a complete system. Sold!\\\\r\\\\n\\\\r\\\\nThe goal at this point was to create the website within a Docker container so it could be worked on anywhere.  Some poking around led to [Flask](http://flask.pocoo.org/) which promises to be minimal (meaning to me ease of use) but extensible. [Nginx](https://nginx.org/) soon came into focus since the built in Flask webserver does not support serving [more than 1 request at a time](http://flask.pocoo.org/docs/0.12/deploying/).  Nginx is advertised as a lightwight server with a built in [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) - basically a cache to serve up commonly requested pages that have already been created by the (heavyweight) app framework (Flask).\\\\r\\\\n\\\\r\\\\nInitial Thoughts:\\\"}, {\\\"type\\\": \\\"image\\\", \\\"id\\\": \\\"7940ebfc-de7d-432a-b3a6-2ebe999a43f3\\\", \\\"value\\\": 2}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"2b881364-9599-4b21-8d18-0ecf4b0bb04b\\\", \\\"value\\\": \\\"The efficiency promised by Nginx led to dreams of hosting the site on a [Raspberry Pi](https://www.raspberrypi.org/).  Not everything is available for ARM machines, but [Docker seems to be available on the Pi](https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/).  The magic sauce to have Nginx serve with Flask is [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), an API specification. [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) looked like the best choice to most efficiently provide that glue since it supports native communication over sockets (instead of via HTTP or some other relatively heavy layer).\\\\r\\\\n\\\\r\\\\nThe uWSGI implementation is not just code included in a final executable, it works as a (daemon) service.  This threw a monkey wrench in the plan; a typical Docker container generally runs a single process which is tied to the lifecycle of the container.  First attempt began with the [Nginx Docker base image](https://hub.docker.com/_/nginx/) but led to creating and modifying init scripts to bring up uWSGI in addition to Nginx.  After much effort uWSGI would still not be running upon container deployment, time for a different approach.\\\\r\\\\n\\\\r\\\\nSome searching led to a question that bore fruit: how does one correctly manage multiple services within a Docker container?  A solution is provided by [phusion.nl](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/).  After reading the [story](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) behind the base image there was a wave of relief.  Had my init script hacks worked strange issues would probably have appeared later on.  Thankfully the Nginx Docker base image rejected my hacks by following the design principle\\\\r\\\\n> [Make it easy to use correctly and hard to use incorrectly](http://principles-wiki.net/principles:easy_to_use_and_hard_to_misuse)\\\\r\\\\n\\\\r\\\\n### Sharing the site source code\\\\r\\\\nWhat drives people often isn't the what but the why.  While searching for the meaning of life it's become clear that the path to happiness involves sharing.  Open source has been a central part of my life since installing [Free BSD](https://www.freebsd.org/) on an old computer in the late 90's.  Shortly after that and up to the present [Gentoo Linux](https://gentoo.org/) has served my personal computing needs.  Having received so much from the open source community there's an itch to give back.  My hope is that others may follow the story of this site via these blog posts (more coming soon) and gain a bit of perspective on the open source landscape and the opportunities available to them.\\\\r\\\\n\\\\r\\\\n[Current source code for this site](https://github.com/RandyMoore/website)\\\\r\\\\n\\\\r\\\\n[The commit for a minimal Nginx - uWSGI - Flask Docker container](https://github.com/RandyMoore/website/commit/9690a8908408cc87c52aaed007decd276c7e01e6) (See this [README](https://github.com/RandyMoore/website/blob/f3d5d8f4a006206d8359218ba8544cdc5f8c1224/README.md) for directions)\\\\r\\\\n\\\\r\\\\n###<em>Footnotes</em>\\\\r\\\\n1.  I am spiritual but do not subscribe to a particular religion.\\\"}]\", \"numchild\": 0, \"content_type\": 33, \"show_in_menus\": false, \"date\": \"2017-06-05\", \"path\": \"000100020001\", \"url_path\": \"/randy-moore/genesis/\", \"expired\": false, \"pk\": 4, \"locked\": false, \"depth\": 3, \"first_published_at\": \"2017-07-29T21:11:03.825Z\", \"expire_at\": null, \"live_revision\": 5}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 7,
+    "fields": {
+      "page": 4,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-30T18:13:41.035Z",
+      "user": 1,
+      "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": \"2017-07-30T18:13:37.744Z\", \"go_live_at\": null, \"title\": \"Genesis\", \"seo_title\": \"\", \"subheading\": \"How easy is it to create a personal website using open source?  Why build a personal website?\", \"slug\": \"genesis\", \"live\": true, \"last_published_at\": \"2017-07-29T21:11:03.825Z\", \"has_unpublished_changes\": true, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"000b5b3f-71df-4853-be49-127ed59479fd\\\", \\\"value\\\": \\\"### Why build a personal site?\\\\r\\\\nMany folks have an online identity through sources such as Facebook or [LinkedIn](https://www.linkedin.com/in/randy-moore-b552b014/).  Profiles such as these have the benefit of a network engine but limit creative expression.  \\\\r\\\\n\\\\r\\\\nLinkedIn serves as an excellent host to one's professional profile.  The features are tailored to a professional perspective and include an automatic and personalized connection to LinkedIn's ecosystem.  Shortly after creating my LinkedIn profile I was contacted by a LinkedIn recruiter and wound up spending 5 most excellent career years there.  Similarly Facebook automatically provides opportunity to connect to people in your social circles.\\\\r\\\\n\\\\r\\\\nPreexisting sites with a particular focus come with the downside of limiting creative expression.  LinkedIn and Facebook will hold your hand and guide you through creating a profile.  This scripted creation is easy and potentially rewarding but limits you to the purpose and environment of the platform.  Creating a personal website from lower level building blocks offers greater freedom of expression but in the same vein is a daunting endeavor.  Beyond the technical challenges you need to think about content and purpose.  Will it serve as a herald of your professional brand?  You run into tough questions: is it wise to include your personal views as a part of your professional brand?\\\\r\\\\n\\\\r\\\\nFrom experience I have faith in open source to solve the technical challenges.  A plethora of proven building blocks exist.  The greater challenge is content and purpose.  This website will serve as an experiment. From life experience I've noticed many sources recommend to be either hot or cold, not [lukewarm](http://biblehub.com/revelation/3-16.htm)<sup>1</sup>. \\\\r\\\\n\\\\r\\\\nHypothesis:\\\\r\\\\n> The world is a large place.  Exercising creative freedom and following passion will lead to blow back but also growth and purpose.\\\\r\\\\n\\\\r\\\\nThis site will serve as a herald of both my professional *and* personal brand.\\\\r\\\\n\\\\r\\\\n### Creation of the site\\\\r\\\\nThe creation of this site is a story of curiosity, conjecture and a meandering path exploring what open source has to offer.  This post covers up to the initial step of publishing the source code.\\\\r\\\\n\\\\r\\\\nTime at LinkedIn was spent engaged with a Java (EE) centric environment with tooling written mostly in Python.  In response to some time sensitive needs I had decided to use Python scripting and was impressed by how quickly a solution came together for a seemingly overwhelming task.  To boot, Python has been a rising star in the industry.  Python was chosen be the central language of the site.\\\\r\\\\n\\\\r\\\\nTechnologies that encapsulate process have recently spoken to my soul.  Having spent hundreds of hours in my career dealing with development environment issues the ability to encapsulate a the creation of a development environment is particularly appealing.  Dabbling across open source projects you will see many share virtual machine environments (eg using [Vagrant](https://www.vagrantup.com/)) but this approach is still fairly heavyweight (long download times, complexity).  [Docker](https://www.docker.com/) captured my attention as a lightweight alternative to full virtual machines.  Turns out Docker natively supports orchestrating multiple Docker containers into a complete system. Sold!\\\\r\\\\n\\\\r\\\\nThe goal at this point was to create the website within a Docker container so it could be worked on anywhere.  Some poking around led to [Flask](http://flask.pocoo.org/) which promises to be minimal (meaning to me ease of use) but extensible. [Nginx](https://nginx.org/) soon came into focus since the built in Flask webserver does not support serving [more than 1 request at a time](http://flask.pocoo.org/docs/0.12/deploying/).  Nginx is advertised as a lightwight server with a built in [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) - basically a cache to serve up commonly requested pages that have already been created by the (heavyweight) app framework (Flask).\\\\r\\\\n\\\\r\\\\nInitial Thoughts:\\\"}, {\\\"type\\\": \\\"image\\\", \\\"id\\\": \\\"7940ebfc-de7d-432a-b3a6-2ebe999a43f3\\\", \\\"value\\\": 2}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"2b881364-9599-4b21-8d18-0ecf4b0bb04b\\\", \\\"value\\\": \\\"The efficiency promised by Nginx led to dreams of hosting the site on a [Raspberry Pi](https://www.raspberrypi.org/).  Not everything is available for ARM machines, but [Docker seems to be available on the Pi](https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/).  The magic sauce to have Nginx serve with Flask is [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), an API specification. [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) looked like the best choice to most efficiently provide that glue since it supports native communication over sockets (instead of via HTTP or some other relatively heavy layer).\\\\r\\\\n\\\\r\\\\nThe uWSGI implementation is not just code included in a final executable, it works as a (daemon) service.  This threw a monkey wrench in the plan; a typical Docker container generally runs a single process which is tied to the lifecycle of the container.  First attempt began with the [Nginx Docker base image](https://hub.docker.com/_/nginx/) but led to creating and modifying init scripts to bring up uWSGI in addition to Nginx.  After much effort uWSGI would still not be running upon container deployment, time for a different approach.\\\\r\\\\n\\\\r\\\\nSome searching led to a question that bore fruit: how does one correctly manage multiple services within a Docker container?  A solution is provided by [phusion.nl](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/).  After reading the [story](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) behind the base image there was a wave of relief.  Had my init script hacks worked strange issues would probably have appeared later on.  Thankfully the Nginx Docker base image rejected my hacks by following the design principle\\\\r\\\\n> [Make it easy to use correctly and hard to use incorrectly](http://principles-wiki.net/principles:easy_to_use_and_hard_to_misuse)\\\\r\\\\n\\\\r\\\\n### Sharing the site source code\\\\r\\\\nWhat drives people often isn't the what but the why.  While searching for the meaning of life it's become clear that the path to happiness involves sharing.  Open source has been a central part of my life since installing [Free BSD](https://www.freebsd.org/) on an old computer in the late 90's.  Shortly after that and up to the present [Gentoo Linux](https://gentoo.org/) has served my personal computing needs.  Having received so much from the open source community there's an itch to give back.  My hope is that others may follow the story of this site via these blog posts (more coming soon) and gain a bit of perspective on the open source landscape and the opportunities available to them.\\\\r\\\\n\\\\r\\\\n[Current source code for this site](https://github.com/RandyMoore/website)\\\\r\\\\n\\\\r\\\\n[The commit for a minimal Nginx - uWSGI - Flask Docker container](https://github.com/RandyMoore/website/commit/9690a8908408cc87c52aaed007decd276c7e01e6) (See this [README](https://github.com/RandyMoore/website/blob/f3d5d8f4a006206d8359218ba8544cdc5f8c1224/README.md) for directions)\\\\r\\\\n\\\\r\\\\n###<em>Footnotes</em>\\\\r\\\\n1.  I am spiritual but do not subscribe to a particular religion.\\\"}]\", \"numchild\": 0, \"content_type\": 33, \"show_in_menus\": false, \"date\": \"2017-06-05\", \"path\": \"000100020001\", \"url_path\": \"/randy-moore/genesis/\", \"expired\": false, \"pk\": 4, \"locked\": false, \"depth\": 3, \"first_published_at\": \"2017-07-29T21:11:03.825Z\", \"expire_at\": null, \"live_revision\": 5}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 8,
+    "fields": {
+      "page": 5,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-30T18:19:15.867Z",
+      "user": 1,
+      "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"Asynchronous Programming\", \"seo_title\": \"\", \"subheading\": \"(and why it's all the rage for web services)\", \"slug\": \"asynchronous-programming\", \"live\": false, \"last_published_at\": null, \"has_unpublished_changes\": false, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"eda162bf-482c-4e97-a2cd-d800a63710a8\\\", \\\"value\\\": \\\"### Why Care?\\\\r\\\\nBrowsing through job postings you often notice a job requirement along the lines of: \\\\r\\\\n> Able to write highly efficient asynchronous code.  \\\\r\\\\n\\\\r\\\\nA fleeting thought:\\\\r\\\\n\\\\r\\\\n\\\\\\\"Ah this just means writing efficient code in terms of Big-O and then split and farm out work to it by using a solution (language feature, library, framework, ...) someone else has already come up with.\\\\\\\"\\\\r\\\\n\\\\r\\\\nYou skip over this requirement without much more thought.  A few days later you are in an interview and get asked the seminal \\\\\\\"What's the difference between a process and a thread?\\\\\\\".   Huh? Why is that a relevant question?  You already know processes and threads are low level OS stuff.  We don't program in assembly language any more - why be concerned with OS primitives?\\\\r\\\\n\\\\r\\\\nWriting efficient asynchronous code does have the prerequisite that your code is efficient and you are skilled at using pre-existing code.  But there is (at least) one additional skill required here: choosing and effectively implementing the asynchronous paradigm that fits the problem you are trying to solve.  When the interviewer asked you about process vs thread they were quickly checking the tip of the iceberg of what they hope you already know about asynchronous programming.  Hopefully you know this stuff, otherwise in the design interview you will be yielding blank stares instead of solutions.\\\\r\\\\n\\\\r\\\\n### Problem Space\\\\r\\\\n\\\\r\\\\nSo what is the high level problem to be solved with the skill of writing \\\\\\\"Efficient Asynchronous Code\\\\\\\"?  Just writing efficient code in terms of algorithmic complexity will optimize resource usage: CPU cycles and / or memory.  The addition of \\\\\\\"Asynchronous\\\\\\\" implies that different parts of your code may more freely execute when needed, less constrained by their location in the source code file.\\\\r\\\\n\\\\r\\\\nThe asynchronous aspect is expected to yield scalar benefit because all it considers is when code executes given the same input, using the same algorithms.  In contrast, the goal of algorithmic efficiency tuning is an asymptotic benefit given increasing input size.  So why bother with a mere scalar increase?  At some point processing takes a minimum amount of time.  When you have many tasks taking some non-trivial amount of time, the ability to order and potentially parallelize them can have a significant impact on overall (calendar) run time.\\\\r\\\\n\\\\r\\\\nThere are 2 categories of what causes calendar wait times:\\\\r\\\\n\\\\r\\\\n1.  CPU Bound - Time required to process data\\\\r\\\\n    *  Can alternatively be addressed by a more efficient algorithm\\\\r\\\\n2.  I/O Bound - Time required to move data\\\\r\\\\n    *  Can alternatively be addressed by caching\\\\r\\\\n\\\\r\\\\nSkillful application of asynchronous processing technique allows you to parallelize such time bound tasks to reduce overall calendar wait time as much as possible.  In the world of a web service platform scalar gains (2X, 3X etc) would be seen as phenomenal wins.  Even marginal gains (10%) are [valuable](https://blog.kissmetrics.com/loading-time/).\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n### Building Blocks\\\\r\\\\nThat interview question about process vs thread is checking the relationship between 2 nodes in a knowledge graph required to select the building blocks required for an overall solution.\\\\r\\\\n\\\\r\\\\nIn a nutshell:  The operating system creates and manages processes, each having it's own address space.  The operating system may also create additional threads within a process (this is generally done using the language of your choice interfacing with the OS).  Threads share the address space of the process, allocating off the same heap and also able to share references to arbitrary memory in the address space.  Some languages additionally support [coroutines](https://en.wikipedia.org/wiki/Coroutine) which have their own stack but which execute within a thread.  This leads to 3 choices each of where to allocate execution and data: Processes, Threads, or Coroutines.\\\"}, {\\\"type\\\": \\\"image\\\", \\\"id\\\": \\\"389ea35a-6ce0-4cb8-b25c-f59883aabe18\\\", \\\"value\\\": 3}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"ea192bd0-251a-4892-97c1-460731b8ade6\\\", \\\"value\\\": \\\"Of course this diagram is a simplification only showing a small subset of possibilities for the instances of {Process, Thread, Coroutine} that could exist.  For example there could be many processes, processes can spawn child processes, and there can be many instances of coroutines.  Only stacks are shown but of course other local data such as the program counter for each executable instance would need to exist.  Additionally different computing environments have different setups; e.g. a particular programming language implementation may manage threads instead of the OS (known as \\\\\\\"green\\\\\\\" threads).  Always read the docs (and blogs, tutorials, etc) related to your particular environment.\\\\r\\\\n\\\\r\\\\nSo how do you decide where to allocate processing?  Here are some pros and cons to consider for each:\\\\r\\\\n\\\\r\\\\n1.  Multiple processes\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  True parallelism, will work for increasing overall performance of CPU bound tasks.\\\\r\\\\n    *  Separate address space for each process instance, no need to worry about resource contention within the program (external resource contention may still exist, e.g. multiple processes writing to a single file).\\\\r\\\\n    *  Easiest to reason about.  Only 1 entry point for execution.\\\\r\\\\n    *  For *nix platform easiest to reuse as a modular component with OS provided IPC mechanisms (eg combining small programs with pipe '|' on the command prompt).\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Heavy weight.  Each process has it's own copy of program data, etc.  In addition to memory processes generally use other limited OS resources more heavily than the other options.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n2.  Multiple threads\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  Lighter weight than processes.  Threads share the data and heap portion of process memory.\\\\r\\\\n    *  May offer true parallelism for CPU bound tasks.  Check your computing environment implementation docs to be sure.\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Resource contention within the process address space may be complicated to deal with, especially if the threads can be run in parallel and / or are scheduled by the OS.\\\\r\\\\n    *  Difficult to reason about because a thread may be suspended at any time and have another thread change it's environment.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n3.  Coroutines\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  Explicit control of when code is executing and when it is not executing, easier to reason about because you don't have to account for suspension in every possible location.\\\\r\\\\n    *  Language support reduces complexity of gathering results.  Generally the result replaces the task in your code.  i.e. a list of tasks becomes a list of results from those tasks; no need to implement code to collect results (ie callbacks, global data structures, etc).\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Does not offer local parallelism.  Only 1 coroutine may be running at a given time in the thread it shares with other coroutines.\\\\r\\\\n    *  Requires implementation discipline.  It is easy to introduce blocking code which freezes your thread and subsequently all other coroutines on the thread for that duration.  Blocking code could even be part of a 3rd party library - the libraries you use need to be compatible!\\\\r\\\\n\\\\r\\\\nOnce the nature of the tasks (IO or CPU bound?) are identified along with the usability features desired for the code some combination of these options should surface as a winner.\\\\r\\\\n\\\\r\\\\nHere are two code examples (at least Python 3.5 is required) to illustrate the execution difference between threads and coroutines.  Specifically these examples illustrate how coroutine execution is more explicit and deterministic as opposed to the willy-nilly execution that threads enjoy (but the rest of us don't). Thread and process execution is similar (both willy-nilly) so a process example is not included here.  Each example contains 3 kinds of tasks.  A CPU bound task, 4 IO bound tasks of varying lengths, and a polling task that wants to recur.\\\\r\\\\n\\\\r\\\\nFirst, multi threading:\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"898aa91e-0ae1-42da-830d-48410990f74c\\\", \\\"value\\\": {\\\"code\\\": \\\"#! /usr/bin/env python3\\\\r\\\\n    from random import sample\\\\r\\\\n    from time import sleep, time\\\\r\\\\n    from threading import Thread\\\\r\\\\n    \\\\r\\\\n    def io_bound(s, label=\\\\\\\"IO bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        sleep(s)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    def cpu_bound(s, label=\\\\\\\"CPU bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        end = time() + s\\\\r\\\\n        while time() < end:\\\\r\\\\n            sample(range(1000), 1000)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    child_threads = [Thread(target=io_bound, args=(s, str(s) + \\\\\\\"s IO Bound\\\\\\\")) for s in range(4)]\\\\r\\\\n    child_threads.append(Thread(target=cpu_bound, args=(2, \\\\\\\"2s CPU Bound\\\\\\\")))\\\\r\\\\n    \\\\r\\\\n    print(\\\\\\\"Start child threads\\\\\\\")\\\\r\\\\n    for t in child_threads:\\\\r\\\\n        t.start()\\\\r\\\\n    \\\\r\\\\n    # We are in a main thread, so this is the equivalent of the poll task from async_example\\\\r\\\\n    while True:\\\\r\\\\n        print(\\\\\\\"Poll\\\\\\\")\\\\r\\\\n        live_threads = [t for t in child_threads if t.is_alive()]\\\\r\\\\n        if len(live_threads) > 0:\\\\r\\\\n            sleep(0.5)\\\\r\\\\n        else:\\\\r\\\\n            break\\\\r\\\\n\\\\r\\\\n    print(\\\\\\\"Main thread completed\\\\\\\")\\\", \\\"language\\\": \\\"python\\\"}}, {\\\"type\\\": \\\"paragraph\\\", \\\"id\\\": \\\"61b07605-ded1-4aab-930d-e93d0bf3d54f\\\", \\\"value\\\": \\\"<ul><li>Output:<br/></li></ul>\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"b8020f4c-9935-4379-870c-4b7edae0ad73\\\", \\\"value\\\": {\\\"code\\\": \\\"Start child threads\\\\r\\\\n    0s IO Bound started\\\\r\\\\n    0s IO Bound finished\\\\r\\\\n    1s IO Bound started\\\\r\\\\n    2s IO Bound started\\\\r\\\\n    3s IO Bound started\\\\r\\\\n    2s CPU Bound started\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    1s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    2s CPU Bound finished\\\\r\\\\n    2s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    3s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Main thread completed\\\", \\\"language\\\": \\\"bash\\\"}}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"47d3561d-0999-415a-8f9b-66f088a6e6e9\\\", \\\"value\\\": \\\"Here all threads are running independently spread throughout time.  The drawback is seen when considering the CPU bound task.  While it is running other threads are allowed to run.  It can be preempted mid operation and have things change under it's feet.  If this task needed to access resources also accessible to the other tasks then potentially complex synchronization implementation is required.  If for example it was placing partial results in a shared global location there would need to be additional code to synchronize access to that location across threads.  One positive aspect here is shown by the polling task: it is allowed to run without being starved by the CPU bound task.\\\\r\\\\n\\\\r\\\\nNow the asynchronous version using asyncio - Python's coroutine support.\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"b6600f3d-7ca9-4c56-bb90-8dd87d0aec8e\\\", \\\"value\\\": {\\\"code\\\": \\\"#! /usr/bin/env python3\\\\r\\\\n    import asyncio\\\\r\\\\n    from random import sample\\\\r\\\\n    from time import time\\\\r\\\\n    \\\\r\\\\n    async def io_bound(s, label=\\\\\\\"IO bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        await asyncio.sleep(s)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    # Example of a blocking task\\\\r\\\\n    async def cpu_bound(s, label=\\\\\\\"CPU bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        end = time() + s\\\\r\\\\n        while time() < end:\\\\r\\\\n            sample(range(1000), 1000)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    async def poll(s):\\\\r\\\\n        while True:\\\\r\\\\n            print(\\\\\\\"Poll\\\\\\\")\\\\r\\\\n            await asyncio.sleep(s)\\\\r\\\\n            active_tasks = [task for task in asyncio.Task.all_tasks() if not task.done()]\\\\r\\\\n            if  len(active_tasks) < 3: # this poll() and wait() for run_until_complete will always exist\\\\r\\\\n                return\\\\r\\\\n    \\\\r\\\\n    loop = asyncio.get_event_loop()\\\\r\\\\n    tasks = [asyncio.ensure_future(io_bound(s, str(s) + \\\\\\\"s IO Bound\\\\\\\")) for s in range(4)]\\\\r\\\\n    tasks.append(asyncio.ensure_future(cpu_bound(2, \\\\\\\"2s CPU Bound\\\\\\\")))\\\\r\\\\n    tasks.append(asyncio.ensure_future(poll(.5)))\\\\r\\\\n    \\\\r\\\\n    loop.run_until_complete(asyncio.wait(tasks))\\\\r\\\\n    \\\\r\\\\n    print(\\\\\\\"Event loop completed\\\\\\\")\\\", \\\"language\\\": \\\"python\\\"}}, {\\\"type\\\": \\\"paragraph\\\", \\\"id\\\": \\\"4da01b5b-cfdf-4ebe-ae78-c678471fe147\\\", \\\"value\\\": \\\"<p>Output:</p>\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"d46a0c4f-babc-4785-96b6-6b42995cf6c3\\\", \\\"value\\\": {\\\"code\\\": \\\"0s IO Bound started\\\\r\\\\n    1s IO Bound started\\\\r\\\\n    2s IO Bound started\\\\r\\\\n    3s IO Bound started\\\\r\\\\n    2s CPU Bound started\\\\r\\\\n    2s CPU Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    0s IO Bound finished\\\\r\\\\n    1s IO Bound finished\\\\r\\\\n    2s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    3s IO Bound finished\\\\r\\\\n    Event loop completed\\\", \\\"language\\\": \\\"bash\\\"}}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"354bf569-3602-486b-a45c-0772bd732962\\\", \\\"value\\\": \\\"The difference here is that the CPU bound tasks runs to completion without being interrupted.  You may ask yourself - isn't this a bad thing?  Yes it is for CPU bound tasks and that's why you shouldn't use coroutines to parallelize those.  But it illustrates the point that your code will not be interrupted willy-nilly!  Since execution won't be preempted you don't have to deal with implementing a synchronization strategy for shared resources.  All the tasks that have to wait for _external_ IO bound processing to complete effectively have the work processed in parallel - slashing the overall wait time.  All of this is done very efficiently and without the headache of resource synchronization!  Waiting on IO bound external tasks is very common in web development, which is why this form of asynchronous processing has become all the rage.\\\"}]\", \"numchild\": 0, \"content_type\": 33, \"show_in_menus\": false, \"date\": \"2017-06-19\", \"path\": \"000100020002\", \"url_path\": \"/randy-moore/asynchronous-programming/\", \"expired\": false, \"pk\": 5, \"locked\": false, \"depth\": 3, \"first_published_at\": null, \"expire_at\": null, \"live_revision\": null}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 9,
+    "fields": {
+      "page": 5,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-30T18:20:07.822Z",
+      "user": 1,
+      "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": \"2017-07-30T18:19:15.867Z\", \"go_live_at\": null, \"title\": \"Asynchronous Programming\", \"seo_title\": \"\", \"subheading\": \"(and why it's all the rage for web services)\", \"slug\": \"asynchronous-programming\", \"live\": false, \"last_published_at\": null, \"has_unpublished_changes\": true, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"eda162bf-482c-4e97-a2cd-d800a63710a8\\\", \\\"value\\\": \\\"### Why Care?\\\\r\\\\nBrowsing through job postings you often notice a job requirement along the lines of: \\\\r\\\\n> Able to write highly efficient asynchronous code.  \\\\r\\\\n\\\\r\\\\nA fleeting thought:\\\\r\\\\n\\\\r\\\\n\\\\\\\"Ah this just means writing efficient code in terms of Big-O and then split and farm out work to it by using a solution (language feature, library, framework, ...) someone else has already come up with.\\\\\\\"\\\\r\\\\n\\\\r\\\\nYou skip over this requirement without much more thought.  A few days later you are in an interview and get asked the seminal \\\\\\\"What's the difference between a process and a thread?\\\\\\\".   Huh? Why is that a relevant question?  You already know processes and threads are low level OS stuff.  We don't program in assembly language any more - why be concerned with OS primitives?\\\\r\\\\n\\\\r\\\\nWriting efficient asynchronous code does have the prerequisite that your code is efficient and you are skilled at using pre-existing code.  But there is (at least) one additional skill required here: choosing and effectively implementing the asynchronous paradigm that fits the problem you are trying to solve.  When the interviewer asked you about process vs thread they were quickly checking the tip of the iceberg of what they hope you already know about asynchronous programming.  Hopefully you know this stuff, otherwise in the design interview you will be yielding blank stares instead of solutions.\\\\r\\\\n\\\\r\\\\n### Problem Space\\\\r\\\\n\\\\r\\\\nSo what is the high level problem to be solved with the skill of writing \\\\\\\"Efficient Asynchronous Code\\\\\\\"?  Just writing efficient code in terms of algorithmic complexity will optimize resource usage: CPU cycles and / or memory.  The addition of \\\\\\\"Asynchronous\\\\\\\" implies that different parts of your code may more freely execute when needed, less constrained by their location in the source code file.\\\\r\\\\n\\\\r\\\\nThe asynchronous aspect is expected to yield scalar benefit because all it considers is when code executes given the same input, using the same algorithms.  In contrast, the goal of algorithmic efficiency tuning is an asymptotic benefit given increasing input size.  So why bother with a mere scalar increase?  At some point processing takes a minimum amount of time.  When you have many tasks taking some non-trivial amount of time, the ability to order and potentially parallelize them can have a significant impact on overall (calendar) run time.\\\\r\\\\n\\\\r\\\\nThere are 2 categories of what causes calendar wait times:\\\\r\\\\n\\\\r\\\\n1.  CPU Bound - Time required to process data\\\\r\\\\n    *  Can alternatively be addressed by a more efficient algorithm\\\\r\\\\n2.  I/O Bound - Time required to move data\\\\r\\\\n    *  Can alternatively be addressed by caching\\\\r\\\\n\\\\r\\\\nSkillful application of asynchronous processing technique allows you to parallelize such time bound tasks to reduce overall calendar wait time as much as possible.  In the world of a web service platform scalar gains (2X, 3X etc) would be seen as phenomenal wins.  Even marginal gains (10%) are [valuable](https://blog.kissmetrics.com/loading-time/).\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n### Building Blocks\\\\r\\\\nThat interview question about process vs thread is checking the relationship between 2 nodes in a knowledge graph required to select the building blocks required for an overall solution.\\\\r\\\\n\\\\r\\\\nIn a nutshell:  The operating system creates and manages processes, each having it's own address space.  The operating system may also create additional threads within a process (this is generally done using the language of your choice interfacing with the OS).  Threads share the address space of the process, allocating off the same heap and also able to share references to arbitrary memory in the address space.  Some languages additionally support [coroutines](https://en.wikipedia.org/wiki/Coroutine) which have their own stack but which execute within a thread.  This leads to 3 choices each of where to allocate execution and data: Processes, Threads, or Coroutines.\\\"}, {\\\"type\\\": \\\"image\\\", \\\"id\\\": \\\"389ea35a-6ce0-4cb8-b25c-f59883aabe18\\\", \\\"value\\\": 3}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"ea192bd0-251a-4892-97c1-460731b8ade6\\\", \\\"value\\\": \\\"Of course this diagram is a simplification only showing a small subset of possibilities for the instances of {Process, Thread, Coroutine} that could exist.  For example there could be many processes, processes can spawn child processes, and there can be many instances of coroutines.  Only stacks are shown but of course other local data such as the program counter for each executable instance would need to exist.  Additionally different computing environments have different setups; e.g. a particular programming language implementation may manage threads instead of the OS (known as \\\\\\\"green\\\\\\\" threads).  Always read the docs (and blogs, tutorials, etc) related to your particular environment.\\\\r\\\\n\\\\r\\\\nSo how do you decide where to allocate processing?  Here are some pros and cons to consider for each:\\\\r\\\\n\\\\r\\\\n1.  Multiple processes\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  True parallelism, will work for increasing overall performance of CPU bound tasks.\\\\r\\\\n    *  Separate address space for each process instance, no need to worry about resource contention within the program (external resource contention may still exist, e.g. multiple processes writing to a single file).\\\\r\\\\n    *  Easiest to reason about.  Only 1 entry point for execution.\\\\r\\\\n    *  For *nix platform easiest to reuse as a modular component with OS provided IPC mechanisms (eg combining small programs with pipe '|' on the command prompt).\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Heavy weight.  Each process has it's own copy of program data, etc.  In addition to memory processes generally use other limited OS resources more heavily than the other options.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n2.  Multiple threads\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  Lighter weight than processes.  Threads share the data and heap portion of process memory.\\\\r\\\\n    *  May offer true parallelism for CPU bound tasks.  Check your computing environment implementation docs to be sure.\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Resource contention within the process address space may be complicated to deal with, especially if the threads can be run in parallel and / or are scheduled by the OS.\\\\r\\\\n    *  Difficult to reason about because a thread may be suspended at any time and have another thread change it's environment.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n3.  Coroutines\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  Explicit control of when code is executing and when it is not executing, easier to reason about because you don't have to account for suspension in every possible location.\\\\r\\\\n    *  Language support reduces complexity of gathering results.  Generally the result replaces the task in your code.  i.e. a list of tasks becomes a list of results from those tasks; no need to implement code to collect results (ie callbacks, global data structures, etc).\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Does not offer local parallelism.  Only 1 coroutine may be running at a given time in the thread it shares with other coroutines.\\\\r\\\\n    *  Requires implementation discipline.  It is easy to introduce blocking code which freezes your thread and subsequently all other coroutines on the thread for that duration.  Blocking code could even be part of a 3rd party library - the libraries you use need to be compatible!\\\\r\\\\n\\\\r\\\\nOnce the nature of the tasks (IO or CPU bound?) are identified along with the usability features desired for the code some combination of these options should surface as a winner.\\\\r\\\\n\\\\r\\\\nHere are two code examples (at least Python 3.5 is required) to illustrate the execution difference between threads and coroutines.  Specifically these examples illustrate how coroutine execution is more explicit and deterministic as opposed to the willy-nilly execution that threads enjoy (but the rest of us don't). Thread and process execution is similar (both willy-nilly) so a process example is not included here.  Each example contains 3 kinds of tasks.  A CPU bound task, 4 IO bound tasks of varying lengths, and a polling task that wants to recur.\\\\r\\\\n\\\\r\\\\nFirst, multi threading:\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"898aa91e-0ae1-42da-830d-48410990f74c\\\", \\\"value\\\": {\\\"code\\\": \\\"#! /usr/bin/env python3\\\\r\\\\n    from random import sample\\\\r\\\\n    from time import sleep, time\\\\r\\\\n    from threading import Thread\\\\r\\\\n    \\\\r\\\\n    def io_bound(s, label=\\\\\\\"IO bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        sleep(s)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    def cpu_bound(s, label=\\\\\\\"CPU bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        end = time() + s\\\\r\\\\n        while time() < end:\\\\r\\\\n            sample(range(1000), 1000)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    child_threads = [Thread(target=io_bound, args=(s, str(s) + \\\\\\\"s IO Bound\\\\\\\")) for s in range(4)]\\\\r\\\\n    child_threads.append(Thread(target=cpu_bound, args=(2, \\\\\\\"2s CPU Bound\\\\\\\")))\\\\r\\\\n    \\\\r\\\\n    print(\\\\\\\"Start child threads\\\\\\\")\\\\r\\\\n    for t in child_threads:\\\\r\\\\n        t.start()\\\\r\\\\n    \\\\r\\\\n    # We are in a main thread, so this is the equivalent of the poll task from async_example\\\\r\\\\n    while True:\\\\r\\\\n        print(\\\\\\\"Poll\\\\\\\")\\\\r\\\\n        live_threads = [t for t in child_threads if t.is_alive()]\\\\r\\\\n        if len(live_threads) > 0:\\\\r\\\\n            sleep(0.5)\\\\r\\\\n        else:\\\\r\\\\n            break\\\\r\\\\n\\\\r\\\\n    print(\\\\\\\"Main thread completed\\\\\\\")\\\", \\\"language\\\": \\\"python\\\"}}, {\\\"type\\\": \\\"paragraph\\\", \\\"id\\\": \\\"61b07605-ded1-4aab-930d-e93d0bf3d54f\\\", \\\"value\\\": \\\"<p>Output:</p>\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"b8020f4c-9935-4379-870c-4b7edae0ad73\\\", \\\"value\\\": {\\\"code\\\": \\\"Start child threads\\\\r\\\\n    0s IO Bound started\\\\r\\\\n    0s IO Bound finished\\\\r\\\\n    1s IO Bound started\\\\r\\\\n    2s IO Bound started\\\\r\\\\n    3s IO Bound started\\\\r\\\\n    2s CPU Bound started\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    1s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    2s CPU Bound finished\\\\r\\\\n    2s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    3s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Main thread completed\\\", \\\"language\\\": \\\"bash\\\"}}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"47d3561d-0999-415a-8f9b-66f088a6e6e9\\\", \\\"value\\\": \\\"Here all threads are running independently spread throughout time.  The drawback is seen when considering the CPU bound task.  While it is running other threads are allowed to run.  It can be preempted mid operation and have things change under it's feet.  If this task needed to access resources also accessible to the other tasks then potentially complex synchronization implementation is required.  If for example it was placing partial results in a shared global location there would need to be additional code to synchronize access to that location across threads.  One positive aspect here is shown by the polling task: it is allowed to run without being starved by the CPU bound task.\\\\r\\\\n\\\\r\\\\nNow the asynchronous version using asyncio - Python's coroutine support.\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"b6600f3d-7ca9-4c56-bb90-8dd87d0aec8e\\\", \\\"value\\\": {\\\"code\\\": \\\"#! /usr/bin/env python3\\\\r\\\\n    import asyncio\\\\r\\\\n    from random import sample\\\\r\\\\n    from time import time\\\\r\\\\n    \\\\r\\\\n    async def io_bound(s, label=\\\\\\\"IO bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        await asyncio.sleep(s)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    # Example of a blocking task\\\\r\\\\n    async def cpu_bound(s, label=\\\\\\\"CPU bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        end = time() + s\\\\r\\\\n        while time() < end:\\\\r\\\\n            sample(range(1000), 1000)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    async def poll(s):\\\\r\\\\n        while True:\\\\r\\\\n            print(\\\\\\\"Poll\\\\\\\")\\\\r\\\\n            await asyncio.sleep(s)\\\\r\\\\n            active_tasks = [task for task in asyncio.Task.all_tasks() if not task.done()]\\\\r\\\\n            if  len(active_tasks) < 3: # this poll() and wait() for run_until_complete will always exist\\\\r\\\\n                return\\\\r\\\\n    \\\\r\\\\n    loop = asyncio.get_event_loop()\\\\r\\\\n    tasks = [asyncio.ensure_future(io_bound(s, str(s) + \\\\\\\"s IO Bound\\\\\\\")) for s in range(4)]\\\\r\\\\n    tasks.append(asyncio.ensure_future(cpu_bound(2, \\\\\\\"2s CPU Bound\\\\\\\")))\\\\r\\\\n    tasks.append(asyncio.ensure_future(poll(.5)))\\\\r\\\\n    \\\\r\\\\n    loop.run_until_complete(asyncio.wait(tasks))\\\\r\\\\n    \\\\r\\\\n    print(\\\\\\\"Event loop completed\\\\\\\")\\\", \\\"language\\\": \\\"python\\\"}}, {\\\"type\\\": \\\"paragraph\\\", \\\"id\\\": \\\"4da01b5b-cfdf-4ebe-ae78-c678471fe147\\\", \\\"value\\\": \\\"<p>Output:</p>\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"d46a0c4f-babc-4785-96b6-6b42995cf6c3\\\", \\\"value\\\": {\\\"code\\\": \\\"0s IO Bound started\\\\r\\\\n    1s IO Bound started\\\\r\\\\n    2s IO Bound started\\\\r\\\\n    3s IO Bound started\\\\r\\\\n    2s CPU Bound started\\\\r\\\\n    2s CPU Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    0s IO Bound finished\\\\r\\\\n    1s IO Bound finished\\\\r\\\\n    2s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    3s IO Bound finished\\\\r\\\\n    Event loop completed\\\", \\\"language\\\": \\\"bash\\\"}}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"354bf569-3602-486b-a45c-0772bd732962\\\", \\\"value\\\": \\\"The difference here is that the CPU bound tasks runs to completion without being interrupted.  You may ask yourself - isn't this a bad thing?  Yes it is for CPU bound tasks and that's why you shouldn't use coroutines to parallelize those.  But it illustrates the point that your code will not be interrupted willy-nilly!  Since execution won't be preempted you don't have to deal with implementing a synchronization strategy for shared resources.  All the tasks that have to wait for _external_ IO bound processing to complete effectively have the work processed in parallel - slashing the overall wait time.  All of this is done very efficiently and without the headache of resource synchronization!  Waiting on IO bound external tasks is very common in web development, which is why this form of asynchronous processing has become all the rage.\\\"}]\", \"numchild\": 0, \"content_type\": 33, \"show_in_menus\": false, \"date\": \"2017-06-19\", \"path\": \"000100020002\", \"url_path\": \"/randy-moore/asynchronous-programming/\", \"expired\": false, \"pk\": 5, \"locked\": false, \"depth\": 3, \"first_published_at\": null, \"expire_at\": null, \"live_revision\": null}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 10,
+    "fields": {
+      "page": 5,
+      "submitted_for_moderation": false,
+      "created_at": "2017-07-30T18:20:11.631Z",
+      "user": 1,
+      "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": \"2017-07-30T18:20:07.822Z\", \"go_live_at\": null, \"title\": \"Asynchronous Programming\", \"seo_title\": \"\", \"subheading\": \"(and why it's all the rage for web services)\", \"slug\": \"asynchronous-programming\", \"live\": false, \"last_published_at\": null, \"has_unpublished_changes\": true, \"body\": \"[{\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"eda162bf-482c-4e97-a2cd-d800a63710a8\\\", \\\"value\\\": \\\"### Why Care?\\\\r\\\\nBrowsing through job postings you often notice a job requirement along the lines of: \\\\r\\\\n> Able to write highly efficient asynchronous code.  \\\\r\\\\n\\\\r\\\\nA fleeting thought:\\\\r\\\\n\\\\r\\\\n\\\\\\\"Ah this just means writing efficient code in terms of Big-O and then split and farm out work to it by using a solution (language feature, library, framework, ...) someone else has already come up with.\\\\\\\"\\\\r\\\\n\\\\r\\\\nYou skip over this requirement without much more thought.  A few days later you are in an interview and get asked the seminal \\\\\\\"What's the difference between a process and a thread?\\\\\\\".   Huh? Why is that a relevant question?  You already know processes and threads are low level OS stuff.  We don't program in assembly language any more - why be concerned with OS primitives?\\\\r\\\\n\\\\r\\\\nWriting efficient asynchronous code does have the prerequisite that your code is efficient and you are skilled at using pre-existing code.  But there is (at least) one additional skill required here: choosing and effectively implementing the asynchronous paradigm that fits the problem you are trying to solve.  When the interviewer asked you about process vs thread they were quickly checking the tip of the iceberg of what they hope you already know about asynchronous programming.  Hopefully you know this stuff, otherwise in the design interview you will be yielding blank stares instead of solutions.\\\\r\\\\n\\\\r\\\\n### Problem Space\\\\r\\\\n\\\\r\\\\nSo what is the high level problem to be solved with the skill of writing \\\\\\\"Efficient Asynchronous Code\\\\\\\"?  Just writing efficient code in terms of algorithmic complexity will optimize resource usage: CPU cycles and / or memory.  The addition of \\\\\\\"Asynchronous\\\\\\\" implies that different parts of your code may more freely execute when needed, less constrained by their location in the source code file.\\\\r\\\\n\\\\r\\\\nThe asynchronous aspect is expected to yield scalar benefit because all it considers is when code executes given the same input, using the same algorithms.  In contrast, the goal of algorithmic efficiency tuning is an asymptotic benefit given increasing input size.  So why bother with a mere scalar increase?  At some point processing takes a minimum amount of time.  When you have many tasks taking some non-trivial amount of time, the ability to order and potentially parallelize them can have a significant impact on overall (calendar) run time.\\\\r\\\\n\\\\r\\\\nThere are 2 categories of what causes calendar wait times:\\\\r\\\\n\\\\r\\\\n1.  CPU Bound - Time required to process data\\\\r\\\\n    *  Can alternatively be addressed by a more efficient algorithm\\\\r\\\\n2.  I/O Bound - Time required to move data\\\\r\\\\n    *  Can alternatively be addressed by caching\\\\r\\\\n\\\\r\\\\nSkillful application of asynchronous processing technique allows you to parallelize such time bound tasks to reduce overall calendar wait time as much as possible.  In the world of a web service platform scalar gains (2X, 3X etc) would be seen as phenomenal wins.  Even marginal gains (10%) are [valuable](https://blog.kissmetrics.com/loading-time/).\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n### Building Blocks\\\\r\\\\nThat interview question about process vs thread is checking the relationship between 2 nodes in a knowledge graph required to select the building blocks required for an overall solution.\\\\r\\\\n\\\\r\\\\nIn a nutshell:  The operating system creates and manages processes, each having it's own address space.  The operating system may also create additional threads within a process (this is generally done using the language of your choice interfacing with the OS).  Threads share the address space of the process, allocating off the same heap and also able to share references to arbitrary memory in the address space.  Some languages additionally support [coroutines](https://en.wikipedia.org/wiki/Coroutine) which have their own stack but which execute within a thread.  This leads to 3 choices each of where to allocate execution and data: Processes, Threads, or Coroutines.\\\"}, {\\\"type\\\": \\\"image\\\", \\\"id\\\": \\\"389ea35a-6ce0-4cb8-b25c-f59883aabe18\\\", \\\"value\\\": 3}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"ea192bd0-251a-4892-97c1-460731b8ade6\\\", \\\"value\\\": \\\"Of course this diagram is a simplification only showing a small subset of possibilities for the instances of {Process, Thread, Coroutine} that could exist.  For example there could be many processes, processes can spawn child processes, and there can be many instances of coroutines.  Only stacks are shown but of course other local data such as the program counter for each executable instance would need to exist.  Additionally different computing environments have different setups; e.g. a particular programming language implementation may manage threads instead of the OS (known as \\\\\\\"green\\\\\\\" threads).  Always read the docs (and blogs, tutorials, etc) related to your particular environment.\\\\r\\\\n\\\\r\\\\nSo how do you decide where to allocate processing?  Here are some pros and cons to consider for each:\\\\r\\\\n\\\\r\\\\n1.  Multiple processes\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  True parallelism, will work for increasing overall performance of CPU bound tasks.\\\\r\\\\n    *  Separate address space for each process instance, no need to worry about resource contention within the program (external resource contention may still exist, e.g. multiple processes writing to a single file).\\\\r\\\\n    *  Easiest to reason about.  Only 1 entry point for execution.\\\\r\\\\n    *  For *nix platform easiest to reuse as a modular component with OS provided IPC mechanisms (eg combining small programs with pipe '|' on the command prompt).\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Heavy weight.  Each process has it's own copy of program data, etc.  In addition to memory processes generally use other limited OS resources more heavily than the other options.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n2.  Multiple threads\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  Lighter weight than processes.  Threads share the data and heap portion of process memory.\\\\r\\\\n    *  May offer true parallelism for CPU bound tasks.  Check your computing environment implementation docs to be sure.\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Resource contention within the process address space may be complicated to deal with, especially if the threads can be run in parallel and / or are scheduled by the OS.\\\\r\\\\n    *  Difficult to reason about because a thread may be suspended at any time and have another thread change it's environment.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\n3.  Coroutines\\\\r\\\\n\\\\r\\\\n    Pros\\\\r\\\\n\\\\r\\\\n    *  Explicit control of when code is executing and when it is not executing, easier to reason about because you don't have to account for suspension in every possible location.\\\\r\\\\n    *  Language support reduces complexity of gathering results.  Generally the result replaces the task in your code.  i.e. a list of tasks becomes a list of results from those tasks; no need to implement code to collect results (ie callbacks, global data structures, etc).\\\\r\\\\n\\\\r\\\\n    Cons\\\\r\\\\n\\\\r\\\\n    *  Does not offer local parallelism.  Only 1 coroutine may be running at a given time in the thread it shares with other coroutines.\\\\r\\\\n    *  Requires implementation discipline.  It is easy to introduce blocking code which freezes your thread and subsequently all other coroutines on the thread for that duration.  Blocking code could even be part of a 3rd party library - the libraries you use need to be compatible!\\\\r\\\\n\\\\r\\\\nOnce the nature of the tasks (IO or CPU bound?) are identified along with the usability features desired for the code some combination of these options should surface as a winner.\\\\r\\\\n\\\\r\\\\nHere are two code examples (at least Python 3.5 is required) to illustrate the execution difference between threads and coroutines.  Specifically these examples illustrate how coroutine execution is more explicit and deterministic as opposed to the willy-nilly execution that threads enjoy (but the rest of us don't). Thread and process execution is similar (both willy-nilly) so a process example is not included here.  Each example contains 3 kinds of tasks.  A CPU bound task, 4 IO bound tasks of varying lengths, and a polling task that wants to recur.\\\\r\\\\n\\\\r\\\\nFirst, multi threading:\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"898aa91e-0ae1-42da-830d-48410990f74c\\\", \\\"value\\\": {\\\"code\\\": \\\"#! /usr/bin/env python3\\\\r\\\\n    from random import sample\\\\r\\\\n    from time import sleep, time\\\\r\\\\n    from threading import Thread\\\\r\\\\n    \\\\r\\\\n    def io_bound(s, label=\\\\\\\"IO bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        sleep(s)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    def cpu_bound(s, label=\\\\\\\"CPU bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        end = time() + s\\\\r\\\\n        while time() < end:\\\\r\\\\n            sample(range(1000), 1000)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    child_threads = [Thread(target=io_bound, args=(s, str(s) + \\\\\\\"s IO Bound\\\\\\\")) for s in range(4)]\\\\r\\\\n    child_threads.append(Thread(target=cpu_bound, args=(2, \\\\\\\"2s CPU Bound\\\\\\\")))\\\\r\\\\n    \\\\r\\\\n    print(\\\\\\\"Start child threads\\\\\\\")\\\\r\\\\n    for t in child_threads:\\\\r\\\\n        t.start()\\\\r\\\\n    \\\\r\\\\n    # We are in a main thread, so this is the equivalent of the poll task from async_example\\\\r\\\\n    while True:\\\\r\\\\n        print(\\\\\\\"Poll\\\\\\\")\\\\r\\\\n        live_threads = [t for t in child_threads if t.is_alive()]\\\\r\\\\n        if len(live_threads) > 0:\\\\r\\\\n            sleep(0.5)\\\\r\\\\n        else:\\\\r\\\\n            break\\\\r\\\\n\\\\r\\\\n    print(\\\\\\\"Main thread completed\\\\\\\")\\\", \\\"language\\\": \\\"python\\\"}}, {\\\"type\\\": \\\"paragraph\\\", \\\"id\\\": \\\"61b07605-ded1-4aab-930d-e93d0bf3d54f\\\", \\\"value\\\": \\\"<p>Output:</p>\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"b8020f4c-9935-4379-870c-4b7edae0ad73\\\", \\\"value\\\": {\\\"code\\\": \\\"Start child threads\\\\r\\\\n    0s IO Bound started\\\\r\\\\n    0s IO Bound finished\\\\r\\\\n    1s IO Bound started\\\\r\\\\n    2s IO Bound started\\\\r\\\\n    3s IO Bound started\\\\r\\\\n    2s CPU Bound started\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    1s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    2s CPU Bound finished\\\\r\\\\n    2s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Poll\\\\r\\\\n    3s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    Main thread completed\\\", \\\"language\\\": \\\"bash\\\"}}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"47d3561d-0999-415a-8f9b-66f088a6e6e9\\\", \\\"value\\\": \\\"Here all threads are running independently spread throughout time.  The drawback is seen when considering the CPU bound task.  While it is running other threads are allowed to run.  It can be preempted mid operation and have things change under it's feet.  If this task needed to access resources also accessible to the other tasks then potentially complex synchronization implementation is required.  If for example it was placing partial results in a shared global location there would need to be additional code to synchronize access to that location across threads.  One positive aspect here is shown by the polling task: it is allowed to run without being starved by the CPU bound task.\\\\r\\\\n\\\\r\\\\nNow the asynchronous version using asyncio - Python's coroutine support.\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"b6600f3d-7ca9-4c56-bb90-8dd87d0aec8e\\\", \\\"value\\\": {\\\"code\\\": \\\"#! /usr/bin/env python3\\\\r\\\\n    import asyncio\\\\r\\\\n    from random import sample\\\\r\\\\n    from time import time\\\\r\\\\n    \\\\r\\\\n    async def io_bound(s, label=\\\\\\\"IO bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        await asyncio.sleep(s)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    # Example of a blocking task\\\\r\\\\n    async def cpu_bound(s, label=\\\\\\\"CPU bound\\\\\\\"):\\\\r\\\\n        print(label + \\\\\\\" started\\\\\\\")\\\\r\\\\n        end = time() + s\\\\r\\\\n        while time() < end:\\\\r\\\\n            sample(range(1000), 1000)\\\\r\\\\n        print(label + \\\\\\\" finished\\\\\\\")\\\\r\\\\n    \\\\r\\\\n    async def poll(s):\\\\r\\\\n        while True:\\\\r\\\\n            print(\\\\\\\"Poll\\\\\\\")\\\\r\\\\n            await asyncio.sleep(s)\\\\r\\\\n            active_tasks = [task for task in asyncio.Task.all_tasks() if not task.done()]\\\\r\\\\n            if  len(active_tasks) < 3: # this poll() and wait() for run_until_complete will always exist\\\\r\\\\n                return\\\\r\\\\n    \\\\r\\\\n    loop = asyncio.get_event_loop()\\\\r\\\\n    tasks = [asyncio.ensure_future(io_bound(s, str(s) + \\\\\\\"s IO Bound\\\\\\\")) for s in range(4)]\\\\r\\\\n    tasks.append(asyncio.ensure_future(cpu_bound(2, \\\\\\\"2s CPU Bound\\\\\\\")))\\\\r\\\\n    tasks.append(asyncio.ensure_future(poll(.5)))\\\\r\\\\n    \\\\r\\\\n    loop.run_until_complete(asyncio.wait(tasks))\\\\r\\\\n    \\\\r\\\\n    print(\\\\\\\"Event loop completed\\\\\\\")\\\", \\\"language\\\": \\\"python\\\"}}, {\\\"type\\\": \\\"paragraph\\\", \\\"id\\\": \\\"4da01b5b-cfdf-4ebe-ae78-c678471fe147\\\", \\\"value\\\": \\\"<p>Output:</p>\\\"}, {\\\"type\\\": \\\"code\\\", \\\"id\\\": \\\"d46a0c4f-babc-4785-96b6-6b42995cf6c3\\\", \\\"value\\\": {\\\"code\\\": \\\"0s IO Bound started\\\\r\\\\n    1s IO Bound started\\\\r\\\\n    2s IO Bound started\\\\r\\\\n    3s IO Bound started\\\\r\\\\n    2s CPU Bound started\\\\r\\\\n    2s CPU Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    0s IO Bound finished\\\\r\\\\n    1s IO Bound finished\\\\r\\\\n    2s IO Bound finished\\\\r\\\\n    Poll\\\\r\\\\n    3s IO Bound finished\\\\r\\\\n    Event loop completed\\\", \\\"language\\\": \\\"bash\\\"}}, {\\\"type\\\": \\\"markdown\\\", \\\"id\\\": \\\"354bf569-3602-486b-a45c-0772bd732962\\\", \\\"value\\\": \\\"The difference here is that the CPU bound tasks runs to completion without being interrupted.  You may ask yourself - isn't this a bad thing?  Yes it is for CPU bound tasks and that's why you shouldn't use coroutines to parallelize those.  But it illustrates the point that your code will not be interrupted willy-nilly!  Since execution won't be preempted you don't have to deal with implementing a synchronization strategy for shared resources.  All the tasks that have to wait for _external_ IO bound processing to complete effectively have the work processed in parallel - slashing the overall wait time.  All of this is done very efficiently and without the headache of resource synchronization!  Waiting on IO bound external tasks is very common in web development, which is why this form of asynchronous processing has become all the rage.\\\"}]\", \"numchild\": 0, \"content_type\": 33, \"show_in_menus\": false, \"date\": \"2017-06-19\", \"path\": \"000100020002\", \"url_path\": \"/randy-moore/asynchronous-programming/\", \"expired\": false, \"pk\": 5, \"locked\": false, \"depth\": 3, \"first_published_at\": null, \"expire_at\": null, \"live_revision\": null}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.pagerevision",
+    "pk": 11,
+    "fields": {
+      "page": 6,
+      "submitted_for_moderation": false,
+      "created_at": "2017-08-01T20:51:42.310Z",
+      "user": 1,
+      "content_json": "{\"search_description\": \"\", \"owner\": 1, \"latest_revision_created_at\": null, \"go_live_at\": null, \"title\": \"Website Relaunch\", \"seo_title\": \"\", \"subheading\": \"Django, Wagtail, Docker, AWS, Domain Registration\", \"slug\": \"website-relaunch\", \"live\": false, \"last_published_at\": null, \"has_unpublished_changes\": false, \"body\": \"[]\", \"numchild\": 0, \"content_type\": 33, \"show_in_menus\": false, \"date\": \"2017-08-02\", \"path\": \"000100020003\", \"url_path\": \"/randy-moore/website-relaunch/\", \"expired\": false, \"pk\": 6, \"locked\": false, \"depth\": 3, \"first_published_at\": null, \"expire_at\": null, \"live_revision\": null}",
+      "approved_go_live_at": null
+    }
+  },
+  {
+    "model": "wagtailcore.grouppagepermission",
+    "pk": 1,
+    "fields": {
+      "group": 1,
+      "page": 1,
+      "permission_type": "add"
+    }
+  },
+  {
+    "model": "wagtailcore.grouppagepermission",
+    "pk": 2,
+    "fields": {
+      "group": 1,
+      "page": 1,
+      "permission_type": "edit"
+    }
+  },
+  {
+    "model": "wagtailcore.grouppagepermission",
+    "pk": 3,
+    "fields": {
+      "group": 1,
+      "page": 1,
+      "permission_type": "publish"
+    }
+  },
+  {
+    "model": "wagtailcore.grouppagepermission",
+    "pk": 4,
+    "fields": {
+      "group": 2,
+      "page": 1,
+      "permission_type": "add"
+    }
+  },
+  {
+    "model": "wagtailcore.grouppagepermission",
+    "pk": 5,
+    "fields": {
+      "group": 2,
+      "page": 1,
+      "permission_type": "edit"
+    }
+  },
+  {
+    "model": "wagtailcore.grouppagepermission",
+    "pk": 6,
+    "fields": {
+      "group": 1,
+      "page": 1,
+      "permission_type": "lock"
+    }
+  },
+  {
+    "model": "weblog.blogindexpage",
+    "pk": 3,
+    "fields": {
+      "subheading": "Software Engineer Passionate about Quality and Impact"
+    }
+  },
+  {
+    "model": "weblog.weblogpage",
+    "pk": 4,
+    "fields": {
+      "body": "[{\"type\": \"markdown\", \"value\": \"### Why build a personal site?\\r\\nMany folks have an online identity through sources such as Facebook or [LinkedIn](https://www.linkedin.com/in/randy-moore-b552b014/).  Profiles such as these have the benefit of a network engine but limit creative expression.  \\r\\n\\r\\nLinkedIn serves as an excellent host to one's professional profile.  The features are tailored to a professional perspective and include an automatic and personalized connection to LinkedIn's ecosystem.  Shortly after creating my LinkedIn profile I was contacted by a LinkedIn recruiter and wound up spending 5 most excellent career years there.  Similarly Facebook automatically provides opportunity to connect to people in your social circles.\\r\\n\\r\\nPreexisting sites with a particular focus come with the downside of limiting creative expression.  LinkedIn and Facebook will hold your hand and guide you through creating a profile.  This scripted creation is easy and potentially rewarding but limits you to the purpose and environment of the platform.  Creating a personal website from lower level building blocks offers greater freedom of expression but in the same vein is a daunting endeavor.  Beyond the technical challenges you need to think about content and purpose.  Will it serve as a herald of your professional brand?  You run into tough questions: is it wise to include your personal views as a part of your professional brand?\\r\\n\\r\\nFrom experience I have faith in open source to solve the technical challenges.  A plethora of proven building blocks exist.  The greater challenge is content and purpose.  This website will serve as an experiment. From life experience I've noticed many sources recommend to be either hot or cold, not [lukewarm](http://biblehub.com/revelation/3-16.htm)<sup>1</sup>. \\r\\n\\r\\nHypothesis:\\r\\n> The world is a large place.  Exercising creative freedom and following passion will lead to blow back but also growth and purpose.\\r\\n\\r\\nThis site will serve as a herald of both my professional *and* personal brand.\\r\\n\\r\\n### Creation of the site\\r\\nThe creation of this site is a story of curiosity, conjecture and a meandering path exploring what open source has to offer.  This post covers up to the initial step of publishing the source code.\\r\\n\\r\\nTime at LinkedIn was spent engaged with a Java (EE) centric environment with tooling written mostly in Python.  In response to some time sensitive needs I had decided to use Python scripting and was impressed by how quickly a solution came together for a seemingly overwhelming task.  To boot, Python has been a rising star in the industry.  Python was chosen be the central language of the site.\\r\\n\\r\\nTechnologies that encapsulate process have recently spoken to my soul.  Having spent hundreds of hours in my career dealing with development environment issues the ability to encapsulate a the creation of a development environment is particularly appealing.  Dabbling across open source projects you will see many share virtual machine environments (eg using [Vagrant](https://www.vagrantup.com/)) but this approach is still fairly heavyweight (long download times, complexity).  [Docker](https://www.docker.com/) captured my attention as a lightweight alternative to full virtual machines.  Turns out Docker natively supports orchestrating multiple Docker containers into a complete system. Sold!\\r\\n\\r\\nThe goal at this point was to create the website within a Docker container so it could be worked on anywhere.  Some poking around led to [Flask](http://flask.pocoo.org/) which promises to be minimal (meaning to me ease of use) but extensible. [Nginx](https://nginx.org/) soon came into focus since the built in Flask webserver does not support serving [more than 1 request at a time](http://flask.pocoo.org/docs/0.12/deploying/).  Nginx is advertised as a lightwight server with a built in [reverse proxy](https://en.wikipedia.org/wiki/Reverse_proxy) - basically a cache to serve up commonly requested pages that have already been created by the (heavyweight) app framework (Flask).\\r\\n\\r\\nInitial Thoughts:\", \"id\": \"000b5b3f-71df-4853-be49-127ed59479fd\"}, {\"type\": \"image\", \"value\": 2, \"id\": \"7940ebfc-de7d-432a-b3a6-2ebe999a43f3\"}, {\"type\": \"markdown\", \"value\": \"The efficiency promised by Nginx led to dreams of hosting the site on a [Raspberry Pi](https://www.raspberrypi.org/).  Not everything is available for ARM machines, but [Docker seems to be available on the Pi](https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/).  The magic sauce to have Nginx serve with Flask is [WSGI](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface), an API specification. [uWSGI](https://uwsgi-docs.readthedocs.io/en/latest/) looked like the best choice to most efficiently provide that glue since it supports native communication over sockets (instead of via HTTP or some other relatively heavy layer).\\r\\n\\r\\nThe uWSGI implementation is not just code included in a final executable, it works as a (daemon) service.  This threw a monkey wrench in the plan; a typical Docker container generally runs a single process which is tied to the lifecycle of the container.  First attempt began with the [Nginx Docker base image](https://hub.docker.com/_/nginx/) but led to creating and modifying init scripts to bring up uWSGI in addition to Nginx.  After much effort uWSGI would still not be running upon container deployment, time for a different approach.\\r\\n\\r\\nSome searching led to a question that bore fruit: how does one correctly manage multiple services within a Docker container?  A solution is provided by [phusion.nl](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/).  After reading the [story](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) behind the base image there was a wave of relief.  Had my init script hacks worked strange issues would probably have appeared later on.  Thankfully the Nginx Docker base image rejected my hacks by following the design principle\\r\\n> [Make it easy to use correctly and hard to use incorrectly](http://principles-wiki.net/principles:easy_to_use_and_hard_to_misuse)\\r\\n\\r\\n### Sharing the site source code\\r\\nWhat drives people often isn't the what but the why.  While searching for the meaning of life it's become clear that the path to happiness involves sharing.  Open source has been a central part of my life since installing [Free BSD](https://www.freebsd.org/) on an old computer in the late 90's.  Shortly after that and up to the present [Gentoo Linux](https://gentoo.org/) has served my personal computing needs.  Having received so much from the open source community there's an itch to give back.  My hope is that others may follow the story of this site via these blog posts (more coming soon) and gain a bit of perspective on the open source landscape and the opportunities available to them.\\r\\n\\r\\n[Current source code for this site](https://github.com/RandyMoore/website)\\r\\n\\r\\n[The commit for a minimal Nginx - uWSGI - Flask Docker container](https://github.com/RandyMoore/website/commit/9690a8908408cc87c52aaed007decd276c7e01e6) (See this [README](https://github.com/RandyMoore/website/blob/f3d5d8f4a006206d8359218ba8544cdc5f8c1224/README.md) for directions)\\r\\n\\r\\n###<em>Footnotes</em>\\r\\n1.  I am spiritual but do not subscribe to a particular religion.\", \"id\": \"2b881364-9599-4b21-8d18-0ecf4b0bb04b\"}]",
+      "subheading": "How easy is it to create a personal website using open source?  Why build a personal website?",
+      "date": "2017-06-05"
+    }
+  },
+  {
+    "model": "weblog.weblogpage",
+    "pk": 5,
+    "fields": {
+      "body": "[{\"type\": \"markdown\", \"value\": \"### Why Care?\\r\\nBrowsing through job postings you often notice a job requirement along the lines of: \\r\\n> Able to write highly efficient asynchronous code.  \\r\\n\\r\\nA fleeting thought:\\r\\n\\r\\n\\\"Ah this just means writing efficient code in terms of Big-O and then split and farm out work to it by using a solution (language feature, library, framework, ...) someone else has already come up with.\\\"\\r\\n\\r\\nYou skip over this requirement without much more thought.  A few days later you are in an interview and get asked the seminal \\\"What's the difference between a process and a thread?\\\".   Huh? Why is that a relevant question?  You already know processes and threads are low level OS stuff.  We don't program in assembly language any more - why be concerned with OS primitives?\\r\\n\\r\\nWriting efficient asynchronous code does have the prerequisite that your code is efficient and you are skilled at using pre-existing code.  But there is (at least) one additional skill required here: choosing and effectively implementing the asynchronous paradigm that fits the problem you are trying to solve.  When the interviewer asked you about process vs thread they were quickly checking the tip of the iceberg of what they hope you already know about asynchronous programming.  Hopefully you know this stuff, otherwise in the design interview you will be yielding blank stares instead of solutions.\\r\\n\\r\\n### Problem Space\\r\\n\\r\\nSo what is the high level problem to be solved with the skill of writing \\\"Efficient Asynchronous Code\\\"?  Just writing efficient code in terms of algorithmic complexity will optimize resource usage: CPU cycles and / or memory.  The addition of \\\"Asynchronous\\\" implies that different parts of your code may more freely execute when needed, less constrained by their location in the source code file.\\r\\n\\r\\nThe asynchronous aspect is expected to yield scalar benefit because all it considers is when code executes given the same input, using the same algorithms.  In contrast, the goal of algorithmic efficiency tuning is an asymptotic benefit given increasing input size.  So why bother with a mere scalar increase?  At some point processing takes a minimum amount of time.  When you have many tasks taking some non-trivial amount of time, the ability to order and potentially parallelize them can have a significant impact on overall (calendar) run time.\\r\\n\\r\\nThere are 2 categories of what causes calendar wait times:\\r\\n\\r\\n1.  CPU Bound - Time required to process data\\r\\n    *  Can alternatively be addressed by a more efficient algorithm\\r\\n2.  I/O Bound - Time required to move data\\r\\n    *  Can alternatively be addressed by caching\\r\\n\\r\\nSkillful application of asynchronous processing technique allows you to parallelize such time bound tasks to reduce overall calendar wait time as much as possible.  In the world of a web service platform scalar gains (2X, 3X etc) would be seen as phenomenal wins.  Even marginal gains (10%) are [valuable](https://blog.kissmetrics.com/loading-time/).\\r\\n\\r\\n\\r\\n### Building Blocks\\r\\nThat interview question about process vs thread is checking the relationship between 2 nodes in a knowledge graph required to select the building blocks required for an overall solution.\\r\\n\\r\\nIn a nutshell:  The operating system creates and manages processes, each having it's own address space.  The operating system may also create additional threads within a process (this is generally done using the language of your choice interfacing with the OS).  Threads share the address space of the process, allocating off the same heap and also able to share references to arbitrary memory in the address space.  Some languages additionally support [coroutines](https://en.wikipedia.org/wiki/Coroutine) which have their own stack but which execute within a thread.  This leads to 3 choices each of where to allocate execution and data: Processes, Threads, or Coroutines.\", \"id\": \"eda162bf-482c-4e97-a2cd-d800a63710a8\"}, {\"type\": \"image\", \"value\": 3, \"id\": \"389ea35a-6ce0-4cb8-b25c-f59883aabe18\"}, {\"type\": \"markdown\", \"value\": \"Of course this diagram is a simplification only showing a small subset of possibilities for the instances of {Process, Thread, Coroutine} that could exist.  For example there could be many processes, processes can spawn child processes, and there can be many instances of coroutines.  Only stacks are shown but of course other local data such as the program counter for each executable instance would need to exist.  Additionally different computing environments have different setups; e.g. a particular programming language implementation may manage threads instead of the OS (known as \\\"green\\\" threads).  Always read the docs (and blogs, tutorials, etc) related to your particular environment.\\r\\n\\r\\nSo how do you decide where to allocate processing?  Here are some pros and cons to consider for each:\\r\\n\\r\\n1.  Multiple processes\\r\\n\\r\\n    Pros\\r\\n\\r\\n    *  True parallelism, will work for increasing overall performance of CPU bound tasks.\\r\\n    *  Separate address space for each process instance, no need to worry about resource contention within the program (external resource contention may still exist, e.g. multiple processes writing to a single file).\\r\\n    *  Easiest to reason about.  Only 1 entry point for execution.\\r\\n    *  For *nix platform easiest to reuse as a modular component with OS provided IPC mechanisms (eg combining small programs with pipe '|' on the command prompt).\\r\\n\\r\\n    Cons\\r\\n\\r\\n    *  Heavy weight.  Each process has it's own copy of program data, etc.  In addition to memory processes generally use other limited OS resources more heavily than the other options.\\r\\n\\r\\n\\r\\n2.  Multiple threads\\r\\n\\r\\n    Pros\\r\\n\\r\\n    *  Lighter weight than processes.  Threads share the data and heap portion of process memory.\\r\\n    *  May offer true parallelism for CPU bound tasks.  Check your computing environment implementation docs to be sure.\\r\\n\\r\\n    Cons\\r\\n\\r\\n    *  Resource contention within the process address space may be complicated to deal with, especially if the threads can be run in parallel and / or are scheduled by the OS.\\r\\n    *  Difficult to reason about because a thread may be suspended at any time and have another thread change it's environment.\\r\\n\\r\\n\\r\\n3.  Coroutines\\r\\n\\r\\n    Pros\\r\\n\\r\\n    *  Explicit control of when code is executing and when it is not executing, easier to reason about because you don't have to account for suspension in every possible location.\\r\\n    *  Language support reduces complexity of gathering results.  Generally the result replaces the task in your code.  i.e. a list of tasks becomes a list of results from those tasks; no need to implement code to collect results (ie callbacks, global data structures, etc).\\r\\n\\r\\n    Cons\\r\\n\\r\\n    *  Does not offer local parallelism.  Only 1 coroutine may be running at a given time in the thread it shares with other coroutines.\\r\\n    *  Requires implementation discipline.  It is easy to introduce blocking code which freezes your thread and subsequently all other coroutines on the thread for that duration.  Blocking code could even be part of a 3rd party library - the libraries you use need to be compatible!\\r\\n\\r\\nOnce the nature of the tasks (IO or CPU bound?) are identified along with the usability features desired for the code some combination of these options should surface as a winner.\\r\\n\\r\\nHere are two code examples (at least Python 3.5 is required) to illustrate the execution difference between threads and coroutines.  Specifically these examples illustrate how coroutine execution is more explicit and deterministic as opposed to the willy-nilly execution that threads enjoy (but the rest of us don't). Thread and process execution is similar (both willy-nilly) so a process example is not included here.  Each example contains 3 kinds of tasks.  A CPU bound task, 4 IO bound tasks of varying lengths, and a polling task that wants to recur.\\r\\n\\r\\nFirst, multi threading:\", \"id\": \"ea192bd0-251a-4892-97c1-460731b8ade6\"}, {\"type\": \"code\", \"value\": {\"language\": \"python\", \"code\": \"#! /usr/bin/env python3\\r\\n    from random import sample\\r\\n    from time import sleep, time\\r\\n    from threading import Thread\\r\\n    \\r\\n    def io_bound(s, label=\\\"IO bound\\\"):\\r\\n        print(label + \\\" started\\\")\\r\\n        sleep(s)\\r\\n        print(label + \\\" finished\\\")\\r\\n    \\r\\n    def cpu_bound(s, label=\\\"CPU bound\\\"):\\r\\n        print(label + \\\" started\\\")\\r\\n        end = time() + s\\r\\n        while time() < end:\\r\\n            sample(range(1000), 1000)\\r\\n        print(label + \\\" finished\\\")\\r\\n    \\r\\n    child_threads = [Thread(target=io_bound, args=(s, str(s) + \\\"s IO Bound\\\")) for s in range(4)]\\r\\n    child_threads.append(Thread(target=cpu_bound, args=(2, \\\"2s CPU Bound\\\")))\\r\\n    \\r\\n    print(\\\"Start child threads\\\")\\r\\n    for t in child_threads:\\r\\n        t.start()\\r\\n    \\r\\n    # We are in a main thread, so this is the equivalent of the poll task from async_example\\r\\n    while True:\\r\\n        print(\\\"Poll\\\")\\r\\n        live_threads = [t for t in child_threads if t.is_alive()]\\r\\n        if len(live_threads) > 0:\\r\\n            sleep(0.5)\\r\\n        else:\\r\\n            break\\r\\n\\r\\n    print(\\\"Main thread completed\\\")\"}, \"id\": \"898aa91e-0ae1-42da-830d-48410990f74c\"}, {\"type\": \"paragraph\", \"value\": \"<p>Output:</p>\", \"id\": \"61b07605-ded1-4aab-930d-e93d0bf3d54f\"}, {\"type\": \"code\", \"value\": {\"language\": \"bash\", \"code\": \"Start child threads\\r\\n    0s IO Bound started\\r\\n    0s IO Bound finished\\r\\n    1s IO Bound started\\r\\n    2s IO Bound started\\r\\n    3s IO Bound started\\r\\n    2s CPU Bound started\\r\\n    Poll\\r\\n    Poll\\r\\n    1s IO Bound finished\\r\\n    Poll\\r\\n    Poll\\r\\n    2s CPU Bound finished\\r\\n    2s IO Bound finished\\r\\n    Poll\\r\\n    Poll\\r\\n    3s IO Bound finished\\r\\n    Poll\\r\\n    Main thread completed\"}, \"id\": \"b8020f4c-9935-4379-870c-4b7edae0ad73\"}, {\"type\": \"markdown\", \"value\": \"Here all threads are running independently spread throughout time.  The drawback is seen when considering the CPU bound task.  While it is running other threads are allowed to run.  It can be preempted mid operation and have things change under it's feet.  If this task needed to access resources also accessible to the other tasks then potentially complex synchronization implementation is required.  If for example it was placing partial results in a shared global location there would need to be additional code to synchronize access to that location across threads.  One positive aspect here is shown by the polling task: it is allowed to run without being starved by the CPU bound task.\\r\\n\\r\\nNow the asynchronous version using asyncio - Python's coroutine support.\", \"id\": \"47d3561d-0999-415a-8f9b-66f088a6e6e9\"}, {\"type\": \"code\", \"value\": {\"language\": \"python\", \"code\": \"#! /usr/bin/env python3\\r\\n    import asyncio\\r\\n    from random import sample\\r\\n    from time import time\\r\\n    \\r\\n    async def io_bound(s, label=\\\"IO bound\\\"):\\r\\n        print(label + \\\" started\\\")\\r\\n        await asyncio.sleep(s)\\r\\n        print(label + \\\" finished\\\")\\r\\n    \\r\\n    # Example of a blocking task\\r\\n    async def cpu_bound(s, label=\\\"CPU bound\\\"):\\r\\n        print(label + \\\" started\\\")\\r\\n        end = time() + s\\r\\n        while time() < end:\\r\\n            sample(range(1000), 1000)\\r\\n        print(label + \\\" finished\\\")\\r\\n    \\r\\n    async def poll(s):\\r\\n        while True:\\r\\n            print(\\\"Poll\\\")\\r\\n            await asyncio.sleep(s)\\r\\n            active_tasks = [task for task in asyncio.Task.all_tasks() if not task.done()]\\r\\n            if  len(active_tasks) < 3: # this poll() and wait() for run_until_complete will always exist\\r\\n                return\\r\\n    \\r\\n    loop = asyncio.get_event_loop()\\r\\n    tasks = [asyncio.ensure_future(io_bound(s, str(s) + \\\"s IO Bound\\\")) for s in range(4)]\\r\\n    tasks.append(asyncio.ensure_future(cpu_bound(2, \\\"2s CPU Bound\\\")))\\r\\n    tasks.append(asyncio.ensure_future(poll(.5)))\\r\\n    \\r\\n    loop.run_until_complete(asyncio.wait(tasks))\\r\\n    \\r\\n    print(\\\"Event loop completed\\\")\"}, \"id\": \"b6600f3d-7ca9-4c56-bb90-8dd87d0aec8e\"}, {\"type\": \"paragraph\", \"value\": \"<p>Output:</p>\", \"id\": \"4da01b5b-cfdf-4ebe-ae78-c678471fe147\"}, {\"type\": \"code\", \"value\": {\"language\": \"bash\", \"code\": \"0s IO Bound started\\r\\n    1s IO Bound started\\r\\n    2s IO Bound started\\r\\n    3s IO Bound started\\r\\n    2s CPU Bound started\\r\\n    2s CPU Bound finished\\r\\n    Poll\\r\\n    0s IO Bound finished\\r\\n    1s IO Bound finished\\r\\n    2s IO Bound finished\\r\\n    Poll\\r\\n    3s IO Bound finished\\r\\n    Event loop completed\"}, \"id\": \"d46a0c4f-babc-4785-96b6-6b42995cf6c3\"}, {\"type\": \"markdown\", \"value\": \"The difference here is that the CPU bound tasks runs to completion without being interrupted.  You may ask yourself - isn't this a bad thing?  Yes it is for CPU bound tasks and that's why you shouldn't use coroutines to parallelize those.  But it illustrates the point that your code will not be interrupted willy-nilly!  Since execution won't be preempted you don't have to deal with implementing a synchronization strategy for shared resources.  All the tasks that have to wait for _external_ IO bound processing to complete effectively have the work processed in parallel - slashing the overall wait time.  All of this is done very efficiently and without the headache of resource synchronization!  Waiting on IO bound external tasks is very common in web development, which is why this form of asynchronous processing has become all the rage.\", \"id\": \"354bf569-3602-486b-a45c-0772bd732962\"}]",
+      "subheading": "(and why it's all the rage for web services)",
+      "date": "2017-06-19"
+    }
+  },
+  {
+    "model": "weblog.weblogpage",
+    "pk": 6,
+    "fields": {
+      "body": "[]",
+      "subheading": "Django, Wagtail, Docker, AWS, Domain Registration",
+      "date": "2017-08-02"
+    }
+  }
+]

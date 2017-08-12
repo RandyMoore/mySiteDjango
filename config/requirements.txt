@@ -5,3 +5,4 @@ uwsgi
 django-contrib-comments
 django_mptt
 django_tagging
+psycopg2
