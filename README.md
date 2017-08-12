@@ -14,7 +14,7 @@
  The blog content is exported as a data fixture (.json format) and checked into version control here.
  Upon deployment the data is loaded into the database using Django migrations.
  This isn't recommended for real world projects - I wanted to separate content from technology.
- For real project [Docker volumes](https://docs.docker.com/engine/admin/volumes/volumes/) would be a better choice.
+ For a real project [Docker volumes](https://docs.docker.com/engine/admin/volumes/volumes/) would be a better choice.
  Other _interesting_ choices have been made in this project. 
   
  ### Docker
@@ -22,7 +22,7 @@
   as painless and repeatable as possible.
  
  ### Nginx
- Nginx is used as the high performance web server and is connected to Django using 
+ Nginx is used as a high performance web server and is connected to Django using 
   uWSGI.  Nginx serves static files without resorting to calling the Django code.
   
  ### AWS
@@ -118,7 +118,8 @@ ecs-cli compose --file docker-compose-AWS.yml --verbose up
 cluster (click around on the AWS management site to find this).
   * (Optional) You can use AWS Elastic IP to link your site to a registered DNS entry using a "type A" record.
 
-How to SSH into the instance and view logs etc:
+### How to view webserver logs and poke around:
+**(Start here for AWS deployment)**
 1. Open AWS EC2 (not EC2 Container Service) management in your browser and click on
 the instance hosting your site.
 2. Click on the security group link for your instance.
@@ -129,6 +130,8 @@ you used to view the site in the browser)
 5. After SSHing into the EC2 instance you will have landed in an Amazon virtual machine 
  image which is running Docker with your two containers plus a third amazon-ecs-agent 
  container.
+ 
+**(Start here for a local Docker deployment)**
 6. Find the container id running your website image
 ```bash
 docker ps
