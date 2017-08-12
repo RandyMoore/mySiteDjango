@@ -1,13 +1,15 @@
-version: '2' # AWS only supports up to v2
+version: '2'
 
 services:
   db:
     image: postgres
+    cpu_shares: 100
+    mem_limit: 209715200
   web:
-  # AWS does not support the build directive.
-  # You must do a 'docker build -t website . --build-arg django_secret_key='<your secret key>' first
-    image: website
+    image: 300338791355.dkr.ecr.us-east-1.amazonaws.com/website:latest
+    cpu_shares: 100
+    mem_limit: 524288000
     ports:
       - "80:80"
-    depends_on:
+    links:
       - db
