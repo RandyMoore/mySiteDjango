@@ -114,9 +114,10 @@ ecs-cli compose --file docker-compose-AWS.yml --verbose up
 > INFO[0007] Started container...                          container=".../web" desiredStatus=RUNNING lastStatus=RUNNING taskDefinition="ecscompose-..."
 > 
 >INFO[0007] Started container...                          container=".../db" desiredStatus=RUNNING lastStatus=RUNNING taskDefinition="ecscompose-..."
-8. Access your site on AWS using the EC2 instance public DNS name that is hosting your
-cluster (click around on the AWS management site to find this).
+8. Now you should be able to access your site on a web browser using the EC2 instance public DNS name that is hosting your
+cluster (click around on the AWS management site to find this). For example [http://ec2-34-231-146-137.compute-1.amazonaws.com/](http://ec2-34-231-146-137.compute-1.amazonaws.com/)
   * (Optional) You can use AWS Elastic IP to link your site to a registered DNS entry using a "type A" record.
+  This makes it so your DNS name (e.g. randalmoore.me) appears in the browser address bar instead of the ugly generated EC2 DNS name.
 
 ### How to view webserver logs and poke around:
 **(Start here for AWS deployment)**
@@ -132,6 +133,7 @@ you used to view the site in the browser)
  container.
  
 **(Start here for a local Docker deployment)**
+
 6. Find the container id running your website image
 ```bash
 docker ps
