@@ -2,7 +2,7 @@ version: '2'
 
 services:
   db:
-    image: postgres
+    image: mdillon/postgis
     cpu_shares: 100
     mem_limit: 209715200
   web:

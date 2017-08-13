@@ -5,5 +5,6 @@ from django.contrib import admin
 from weblog import urls as weblog_urls
 
 urlpatterns = ([] if settings.PRODUCTION else [url(r'^admin/', admin.site.urls)]) + [
+    url(r'^gallery/', include('gallery.urls')),
     url(r'', include(weblog_urls)),
 ]
