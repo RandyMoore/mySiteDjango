@@ -58,6 +58,10 @@ INSTALLED_APPS = [
     'taggit',
 
     'weblog.apps.WeblogConfig',
+
+    'rest_framework',
+
+    'government_audit.apps.GovernmentAuditConfig'
 ]
 
 MIDDLEWARE = [
@@ -98,14 +102,17 @@ WSGI_APPLICATION = 'my_site_django.wsgi.application'
 
 
 # Database
+# Expects local postgres - see run_dev_postgres.sh at project root
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
