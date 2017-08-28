@@ -3,6 +3,11 @@ from django.db.models import CharField, DateTimeField, TextField
 
 
 class LexemesField(models.Field):
+    description = "Lexemes resulting from PostGres text search pre-processing on a body of text"
+
+    def __init__(self, *args, **kwargs):
+        super(LexemesField, self).__init__(*args, **kwargs)
+
     def db_type(self, connection):
         return 'tsvector'
 
