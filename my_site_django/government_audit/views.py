@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import AuditDocument
+from .serializers import AuditDocumentSerializer
+
+
+class AuditDocumentList(generics.ListCreateAPIView):
+    queryset = AuditDocument.objects.all()
+    serializer_class = AuditDocumentSerializer
+
+class AuditDocument(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AuditDocument.objects.all()
+    serializer_class = AuditDocumentSerializer
