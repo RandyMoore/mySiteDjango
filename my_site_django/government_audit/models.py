@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import CharField, DateTimeField, TextField
+from django.db.models import CharField, DateTimeField, F, Func, TextField, Value
 
 
 class LexemesField(models.Field):
@@ -18,8 +18,12 @@ class AuditDocument(models.Model):
     )
 
     publication_date = DateTimeField(auto_now_add=False)
-    title = CharField(max_length=100, blank=False)
+    title = CharField(max_length=1024, blank=False)
     source = CharField(max_length=2, blank=False, choices=SOURCES)
     external_identifier = CharField(max_length=100, blank=False)
     lexemes = LexemesField(null=True)
     text = TextField(default='')
+
+    def save(self, *args, **kwargs):
+        self.lexemes = Func(Value('english'), Value(self.text), function='to_tsvector')
+        super(AuditDocument, self).save(*args, **kwargs)
