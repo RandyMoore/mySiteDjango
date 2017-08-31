@@ -15,6 +15,7 @@ if __name__ == "__main__":
     django.setup()
 
     from government_audit.models import AuditDocument
+    from django.db import connection
 
     existing_titles = set([x[0] for x in AuditDocument.objects.values_list('title')])
 
@@ -34,7 +35,7 @@ if __name__ == "__main__":
 
             doc = AuditDocument()
             doc.title = meta['title']
-            doc.publication_date = meta['published_on'] + "T00:00"
+            doc.publication_date = meta['published_on']
             doc.source = 'AO'
             doc.external_identifier = meta['report_id']
 
@@ -50,3 +51,7 @@ if __name__ == "__main__":
                 print("Saved " + meta_path)
             except BaseException as e:
                 print("Failed to save " + meta_path + " : " + str(e))
+
+    with connection.cursor() as cursor:
+        cursor.execute("DROP INDEX IF EXISTS textsearch_idx")
+        cursor.execute("CREATE INDEX textsearch_idx ON government_audit_auditdocument USING GIN(lexemes)")

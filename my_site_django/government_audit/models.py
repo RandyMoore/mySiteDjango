@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import CharField, DateTimeField, F, Func, TextField, Value
+from django.db.models import CharField, DateField, Func, TextField, Value
 
 
 class LexemesField(models.Field):
@@ -11,19 +11,19 @@ class LexemesField(models.Field):
     def db_type(self, connection):
         return 'tsvector'
 
-
 class AuditDocument(models.Model):
     SOURCES = (
         ('AO', 'archive.org'),
     )
 
-    publication_date = DateTimeField(auto_now_add=False)
+    publication_date = DateField(auto_now_add=False)
     title = CharField(max_length=1024, blank=False)
     source = CharField(max_length=2, blank=False, choices=SOURCES)
-    external_identifier = CharField(max_length=100, blank=False)
+    external_identifier = CharField(max_length=256, blank=False)
     lexemes = LexemesField(null=True)
     text = TextField(default='')
 
     def save(self, *args, **kwargs):
-        self.lexemes = Func(Value('english'), Value(self.text), function='to_tsvector')
+        self.lexemes = Func(Value('english'), Value(self.title + ' ' + self.text), function='to_tsvector')
+        self.text = '' # Not needed for search only
         super(AuditDocument, self).save(*args, **kwargs)
