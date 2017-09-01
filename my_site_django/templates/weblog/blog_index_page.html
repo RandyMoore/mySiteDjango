@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% load staticfiles %}
+{% extends "weblog/weblog_base.html" %}
 
 {% block heading %}
     {{ title }}
@@ -10,7 +8,7 @@
     {{ subheading }}
 {% endblock %}
 
-{% block main %}
+{% block content %}
     {% for blog in blogs %}
         {% include "weblog/includes/blog_list_item.html" %}
     {% empty %}
