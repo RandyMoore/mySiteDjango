@@ -1,8 +1,9 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
 {% load staticfiles %}
 
-{% block main %}
+<body>
     <div id="react">
         <i class="pending">Loading components...</i><br><br>
     </div>
@@ -12,4 +13,5 @@
         window.react_mount = document.getElementById('react');
     </script>
     <script src="{% static '/government_audit/audit_search.js' %}"></script>
-{% endblock %}
+</body>
+
