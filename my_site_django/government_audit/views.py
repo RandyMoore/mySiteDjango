@@ -10,7 +10,16 @@ from .serializers import AuditDocumentSerializer
 def search(request):
     query = request.GET['query'] if 'query' in request.GET else None
     if query:
-        return JsonResponse({'results': [{'title': 'The Greatest Awesome', 'url': 'http://fakeone.com'}]})
+        # TODO: Figure out how to express @@ expression without raw SQL
+        matches = AuditDocument.objects.raw(f'''
+        SELECT id, title, publication_date, url
+        FROM government_audit_auditdocument
+        WHERE lexemes @@ plainto_tsquery('{ query }')
+        LIMIT 10''')
+
+        results = [{'title': m.title, 'url': m.url} for m in matches]
+
+        return JsonResponse({'results': results, 'query': query})
     else:
         return render(request, 'government_audit/audit_search.html', {'props': {}})
 

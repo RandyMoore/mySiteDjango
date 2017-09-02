@@ -11,6 +11,7 @@ class LexemesField(models.Field):
     def db_type(self, connection):
         return 'tsvector'
 
+
 class AuditDocument(models.Model):
     SOURCES = (
         ('AO', 'archive.org'),
@@ -19,9 +20,9 @@ class AuditDocument(models.Model):
     publication_date = DateField(auto_now_add=False)
     title = CharField(max_length=1024, blank=False)
     source = CharField(max_length=2, blank=False, choices=SOURCES)
-    external_identifier = CharField(max_length=256, blank=False)
     lexemes = LexemesField(null=True)
     text = TextField(default='')
+    url = CharField(max_length=256, blank=False)
 
     def save(self, *args, **kwargs):
         self.lexemes = Func(Value('english'), Value(self.title + ' ' + self.text), function='to_tsvector')

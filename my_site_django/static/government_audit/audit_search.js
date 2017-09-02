@@ -22629,29 +22629,13 @@ var SearchInput = (function (_React$Component) {
   return SearchInput;
 })(_react2['default'].Component);
 
-var SearchResult = (function (_React$Component2) {
-  _inherits(SearchResult, _React$Component2);
-
-  function SearchResult() {
-    _classCallCheck(this, SearchResult);
-
-    _React$Component2.apply(this, arguments);
-  }
-
-  SearchResult.prototype.render = function render() {
-    _react2['default'].createElement('li', null);
-  };
-
-  return SearchResult;
-})(_react2['default'].Component);
-
-var AuditSearch = (function (_React$Component3) {
-  _inherits(AuditSearch, _React$Component3);
+var AuditSearch = (function (_React$Component2) {
+  _inherits(AuditSearch, _React$Component2);
 
   function AuditSearch(props) {
     _classCallCheck(this, AuditSearch);
 
-    _React$Component3.call(this, props);
+    _React$Component2.call(this, props);
     this.state = { query: '', results: [] };
   }
 
@@ -22664,8 +22648,10 @@ var AuditSearch = (function (_React$Component3) {
 
     _axios2['default'].get('/audits/search/?query=' + this.state.query).then(function (res) {
       var results = res.data.results;
-      _this.setState({ query: '', results: results });
+      var query = res.data.query;
+      _this.setState({ query: query, results: results });
     });
+
     event.preventDefault();
   };
 

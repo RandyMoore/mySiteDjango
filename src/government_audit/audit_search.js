@@ -16,14 +16,6 @@ class SearchInput extends React.Component {
   }
 }
 
-class SearchResult extends React.Component {
-  render() {
-    <li>
-
-    </li>
-  }
-}
-
 class AuditSearch extends React.Component {
   constructor(props) {
     super(props);
@@ -38,8 +30,10 @@ class AuditSearch extends React.Component {
     axios.get(`/audits/search/?query=${this.state.query}`)
       .then(res => {
         const results = res.data.results;
-        this.setState({ query: '', results: results });
+        const query = res.data.query;
+        this.setState({ query: query, results: results });
       });
+
     event.preventDefault();
   }
 

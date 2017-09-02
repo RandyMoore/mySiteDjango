@@ -37,7 +37,7 @@ if __name__ == "__main__":
             doc.title = meta['title']
             doc.publication_date = meta['published_on']
             doc.source = 'AO'
-            doc.external_identifier = meta['report_id']
+            doc.url = meta['url']
 
             text_path = meta_path.replace('report.json', 'report.txt')
             if os.path.exists(text_path):
