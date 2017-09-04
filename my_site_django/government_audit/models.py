@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import CharField, DateField, Func, TextField, Value
+from django.db.models import CharField, DateField, FloatField, Func, TextField, Value
 
 
 class LexemesField(models.Field):
@@ -23,6 +23,7 @@ class AuditDocument(models.Model):
     lexemes = LexemesField(null=True)
     text = TextField(default='')
     url = CharField(max_length=256, blank=False)
+    rank = FloatField()
 
     def save(self, *args, **kwargs):
         self.lexemes = Func(Value('english'), Value(self.title + ' ' + self.text), function='to_tsvector')
