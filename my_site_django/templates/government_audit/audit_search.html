@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
 {% load staticfiles %}
 
-<body>
-    <div id="react">
+{% block main %}
+    <link href="{% static '/government_audit/audit_search.css' %}" rel="stylesheet">
+
+    <h1 class="heading">
+        Government Audit Documents
+    </h1>
+
+    <p>
+        Text search index of US Inspector General Reports from
+        <a href="https://archive.org/details/usinspectorsgeneral">archive.org</a>
+        <br />
+        Utilizes <a href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html">Postgres text search</a>
+    </p>
+
+    <div id="react" class="main-content" >
         <i class="pending">Loading components...</i><br><br>
     </div>
 
@@ -13,5 +25,5 @@
         window.react_mount = document.getElementById('react');
     </script>
     <script src="{% static '/government_audit/audit_search.js' %}"></script>
-</body>
+{% endblock %}
 
