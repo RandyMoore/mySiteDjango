@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import ReactPaginate from 'react-paginate'
 import axios from 'axios'
 
@@ -45,16 +44,15 @@ class ResultsList extends React.Component {
    )}
 }
 
-class AuditSearch extends React.Component {
+export default class AuditSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       query: '',
-      queryParser:'plain',
+      queryParser: 'plain',
       results: [],
       resultsOffset: 0,
       resultsLimit: 10,
-      pageCount: 0
     };
   }
 
@@ -70,6 +68,9 @@ class AuditSearch extends React.Component {
     if (this.state.query === '') {
         return
     }
+
+    // Mark the fetch as attempted (regardless of result)
+    this.state.fetchedQuery = this.state.query;
 
     axios.get('/audits/search/', {
       params: {
@@ -122,7 +123,7 @@ class AuditSearch extends React.Component {
           <ReactPaginate
             previousLabel={"previous"}
             nextLabel={"next"}
-            breakLabel={<a href="">...</a>} // TODO update href to retain state
+            breakLabel={<a>...</a>}
             breakClassName={"break-me"}
             pageCount={this.state.pageCount}
             marginPagesDisplayed={2}
@@ -135,8 +136,3 @@ class AuditSearch extends React.Component {
     )
   }
 }
-
-ReactDOM.render(
-    React.createElement(AuditSearch, window.props),
-    window.react_mount,
-)
