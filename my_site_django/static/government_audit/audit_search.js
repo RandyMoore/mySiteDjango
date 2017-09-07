@@ -103,29 +103,62 @@ var SearchInput = function (_React$Component2) {
   return SearchInput;
 }(_react2.default.Component);
 
-var ResultsList = function (_React$Component3) {
-  _inherits(ResultsList, _React$Component3);
+var ResultsTable = function (_React$Component3) {
+  _inherits(ResultsTable, _React$Component3);
 
-  function ResultsList() {
-    _classCallCheck(this, ResultsList);
+  function ResultsTable() {
+    _classCallCheck(this, ResultsTable);
 
-    return _possibleConstructorReturn(this, (ResultsList.__proto__ || Object.getPrototypeOf(ResultsList)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ResultsTable.__proto__ || Object.getPrototypeOf(ResultsTable)).apply(this, arguments));
   }
 
-  _createClass(ResultsList, [{
+  _createClass(ResultsTable, [{
     key: 'render',
     value: function render() {
+      var resultsOffset = this.props.resultsOffset;
+
       return _react2.default.createElement(
-        'ul',
-        null,
+        'table',
+        { className: 'results-table' },
+        _react2.default.createElement(
+          'tr',
+          null,
+          _react2.default.createElement('th', null),
+          _react2.default.createElement(
+            'th',
+            { width: '80%' },
+            'Title'
+          ),
+          _react2.default.createElement(
+            'th',
+            null,
+            'Publication Date'
+          )
+        ),
         this.props.results.map(function (result, index) {
           return _react2.default.createElement(
-            'li',
+            'tr',
             { key: index },
             _react2.default.createElement(
-              'a',
-              { href: result.url },
-              result.title
+              'td',
+              null,
+              resultsOffset + index + 1
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              _react2.default.createElement(
+                'a',
+                { href: result.url },
+                result.title
+              )
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              ' ',
+              result.date,
+              ' '
             )
           );
         })
@@ -133,7 +166,7 @@ var ResultsList = function (_React$Component3) {
     }
   }]);
 
-  return ResultsList;
+  return ResultsTable;
 }(_react2.default.Component);
 
 var AuditSearch = function (_React$Component4) {
@@ -235,8 +268,9 @@ var AuditSearch = function (_React$Component4) {
           onChange: function onChange(event) {
             return _this7.handleQueryTypeChange(event);
           } }),
-        _react2.default.createElement(ResultsList, {
-          results: results }),
+        _react2.default.createElement(ResultsTable, {
+          results: results,
+          resultsOffset: this.state.resultsOffset }),
         this.state.pageCount > 1 && _react2.default.createElement(_reactPaginate2.default, {
           previousLabel: "previous",
           nextLabel: "next",

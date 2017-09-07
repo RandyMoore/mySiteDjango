@@ -7,7 +7,14 @@
   color: black;
 }
 
+.results-table {
+  font-size: 18px;
+}
 
-.main-content {
+table, th, td {
+  border: 1px solid black;
+}
 
+.pagination {
+  font-size: 18px;
 }

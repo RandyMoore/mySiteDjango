@@ -31,16 +31,27 @@ class SearchInput extends React.Component {
   }
 }
 
-class ResultsList extends React.Component {
+class ResultsTable extends React.Component {
  render() {
+   const resultsOffset = this.props.resultsOffset;
+
    return (
-   <ul>
-      {this.props.results.map(function(result, index) {
-       return <li key={ index }>
-          <a href={ result.url }>{ result.title }</a>
-        </li>;
-      })}
-    </ul>
+     <table className="results-table">
+       <tr>
+        <th/>
+        <th width="80%">Title</th>
+        <th>Publication Date</th>
+       </tr>
+        {this.props.results.map(function(result, index) {
+          return <tr key={ index }>
+            <td>{ resultsOffset + index + 1 }</td>
+            <td>
+              <a href={ result.url }>{ result.title }</a>
+            </td>
+            <td> {result.date} </td>
+          </tr>;
+        })}
+    </table>
    )}
 }
 
@@ -117,8 +128,9 @@ export default class AuditSearch extends React.Component {
         <Options
           queryParser={queryParser}
           onChange={event => this.handleQueryTypeChange(event)} />
-        <ResultsList
-          results= {results} />
+        <ResultsTable
+          results={results}
+          resultsOffset={this.state.resultsOffset} />
         { this.state.pageCount > 1 &&
           <ReactPaginate
             previousLabel={"previous"}

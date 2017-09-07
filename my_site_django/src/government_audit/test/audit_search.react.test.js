@@ -10,7 +10,7 @@ test('Default render', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Render with supplied props', () => {
+test('Render with pagination visible', () => {
   const component = renderer.create(
     <AuditSearch
       query='Ooglie booglie'

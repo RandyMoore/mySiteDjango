@@ -46,11 +46,25 @@ exports[`Default render 1`] = `
       </option>
     </select>
   </div>
-  <ul />
+  <table
+    className="results-table"
+  >
+    <tr>
+      <th />
+      <th
+        width="80%"
+      >
+        Title
+      </th>
+      <th>
+        Publication Date
+      </th>
+    </tr>
+  </table>
 </div>
 `;
 
-exports[`Render with supplied props 1`] = `
+exports[`Render with pagination visible 1`] = `
 <div>
   <form
     onSubmit={[Function]}
@@ -96,6 +110,20 @@ exports[`Render with supplied props 1`] = `
       </option>
     </select>
   </div>
-  <ul />
+  <table
+    className="results-table"
+  >
+    <tr>
+      <th />
+      <th
+        width="80%"
+      >
+        Title
+      </th>
+      <th>
+        Publication Date
+      </th>
+    </tr>
+  </table>
 </div>
 `;

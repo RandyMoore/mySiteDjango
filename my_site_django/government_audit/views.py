@@ -37,7 +37,7 @@ def search(request):
             ORDER BY rank, id desc
             LIMIT { limit } OFFSET { offset } ''')
 
-            results = [{'title': m.title, 'url': m.url, 'rank': m.rank } for m in matches]
+            results = [{'title': m.title, 'url': m.url, 'date': m.publication_date, 'rank': m.rank} for m in matches]
 
             return JsonResponse({'results': results, 'size': size, 'query': query})
         except Error as e:
