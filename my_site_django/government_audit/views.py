@@ -39,7 +39,7 @@ def search(request):
 
             results = [{'title': m.title, 'url': m.url, 'date': m.publication_date, 'rank': m.rank} for m in matches]
 
-            return JsonResponse({'results': results, 'size': size, 'query': query})
+            return JsonResponse({'results': results, 'offset': offset, 'size': size, 'query': query})
         except Error as e:
             return JsonResponse({'error': e.pgerror})
 

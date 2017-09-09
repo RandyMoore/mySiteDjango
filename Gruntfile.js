@@ -9,8 +9,10 @@ module.exports = function (grunt) {
                ]
             },
             src: [
-                "./my_site_django/src/government_audit/audit_search.react.js",
-                "./my_site_django/src/government_audit/main.react.js"],
+                "./my_site_django/src/government_audit/containers/*.js",
+                "./my_site_django/src/government_audit/data/*.js",
+                "./my_site_django/src/government_audit/views/*.js",
+                "./my_site_django/src/government_audit/root.js"],
             dest: "./my_site_django/static/government_audit/audit_search.js"
          }
       },

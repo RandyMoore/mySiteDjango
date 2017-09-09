@@ -1,22 +1,32 @@
 import React from 'react';
-import AuditSearch from '../audit_search.react.js';
 import renderer from 'react-test-renderer';
+import AuditSearchView from '../views/AuditSearchView.js';
 
 test('Default render', () => {
+  const searchResults = {
+    'resultsSize': 0,
+    'resultsLimit': 10
+  }
+
   const component = renderer.create(
-    <AuditSearch />);
+    <AuditSearchView
+      searchResults={searchResults}
+    />);
 
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('Render with pagination visible', () => {
+  const searchResults = {
+    'resultsSize': 11,
+    'resultsLimit': 10
+  }
+
   const component = renderer.create(
-    <AuditSearch
-      query='Ooglie booglie'
-      pageCount={3}
-      resultsOffset={10}
-     />);
+    <AuditSearchView
+      searchResults={searchResults}
+    />);
 
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();

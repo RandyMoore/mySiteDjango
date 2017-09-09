@@ -3,6 +3,8 @@
     "version": "1.0.0",
     "description": "Front end tooling",
     "dependencies": {
+      "flux": "*",
+      "immutable": "*",
       "react": "~15.6.1",
       "react-dom": "~15.6.1",
       "react-paginate": "*"
