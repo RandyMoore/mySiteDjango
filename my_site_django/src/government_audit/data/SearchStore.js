@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {ReduceStore} from 'flux/utils';
-import Immutable from 'immutable';
 import Dispatcher from './Dispatcher';
 import SearchActions from './SearchActions'
 import SearchActionTypes from './SearchActionTypes';
@@ -37,13 +36,14 @@ class AuditSearchStore extends ReduceStore {
 
         return state;
 
-      case SearchActionTypes.LOAD_QUERY_RESPONSE:
+      case SearchActionTypes.LOAD_QUERY_RESPONSE: {
         const response = action.response.data;
         return state.merge({
           'results': response.results,
           'resultsSize': response.size,
           'resultsOffset': response.offset,
         });
+      }
 
       case SearchActionTypes.CHANGE_PAGE:
         this.fetchResults(state.set('resultsOffset', Math.ceil(action.data.selected * state.resultsLimit)));
