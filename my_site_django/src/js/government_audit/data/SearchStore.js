@@ -1,5 +1,7 @@
 import axios from 'axios'
-import {ReduceStore} from 'flux/utils';
+import {
+  ReduceStore
+} from 'flux/utils';
 import Dispatcher from './Dispatcher';
 import SearchActions from './SearchActions'
 import SearchActionTypes from './SearchActionTypes';
@@ -29,21 +31,22 @@ class AuditSearchStore extends ReduceStore {
         }
 
         if (state.query === '') {
-            return state
+          return state
         }
 
         this.fetchResults(state);
 
         return state;
 
-      case SearchActionTypes.LOAD_QUERY_RESPONSE: {
-        const response = action.response.data;
-        return state.merge({
-          'results': response.results,
-          'resultsSize': response.size,
-          'resultsOffset': response.offset,
-        });
-      }
+      case SearchActionTypes.LOAD_QUERY_RESPONSE:
+        {
+          const response = action.response.data;
+          return state.merge({
+            'results': response.results,
+            'resultsSize': response.size,
+            'resultsOffset': response.offset,
+          });
+        }
 
       case SearchActionTypes.CHANGE_PAGE:
         this.fetchResults(state.set('resultsOffset', Math.ceil(action.data.selected * state.resultsLimit)));
@@ -54,7 +57,7 @@ class AuditSearchStore extends ReduceStore {
     }
   }
 
-// Helper functions
+  // Helper functions
   fetchResults(state) {
     axios.get('/audits/search/', {
       params: {

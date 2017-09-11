@@ -1,4 +1,6 @@
-import {Container} from 'flux/utils';
+import {
+  Container
+} from 'flux/utils';
 import SearchActions from '../data/SearchActions';
 import AuditSearchStore from '../data/SearchStore';
 import AuditSearch from '../views/AuditSearchView'
