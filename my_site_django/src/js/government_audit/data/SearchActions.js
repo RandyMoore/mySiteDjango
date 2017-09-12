@@ -35,7 +35,7 @@ const SearchActions = {
       type: SearchActionTypes.CHANGE_PAGE,
       data,
     });
-  }
+  },
 };
 
 export default SearchActions;

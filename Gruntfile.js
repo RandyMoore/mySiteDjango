@@ -1,9 +1,11 @@
 module.exports = function(grunt) {
-  // All JS goes into a single file, ordering doesn't matter.
-  const jsSrc = "my_site_django/src/**/*.js";
+  const jsSrc = [
+    "my_site_django/src/js/my_site_django/jquery.min.js",
+    "my_site_django/src/js/my_site_django/bootstrap.min.js",
+    "my_site_django/src/**/*.js",
+    "!my_site_django/src/**/*.test.js*"];
   const jsDest = "my_site_django/static/min.js";
 
-  // CSS must be kept separate and ordered.
   const mainCssSrc = [
     "my_site_django/src/css/my_site_django/bootstrap.min.css",
     "my_site_django/src/css/my_site_django/font-awesome.min.css",
