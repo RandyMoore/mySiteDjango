@@ -1,7 +1,5 @@
 module.exports = function(grunt) {
   const jsSrc = [
-    "my_site_django/src/js/my_site_django/jquery.min.js",
-    "my_site_django/src/js/my_site_django/bootstrap.min.js",
     "my_site_django/src/**/*.js",
     "!my_site_django/src/**/*.test.js*"];
   const jsDest = "my_site_django/static/min.js";
