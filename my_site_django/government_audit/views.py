@@ -1,13 +1,14 @@
+import asyncio
+
+import functools
+import requests
 from django.db import connection
 from django.http import JsonResponse
 from django.shortcuts import render
-from requests_threads import AsyncSession
 from psycopg2 import Error
-import asyncio
-import requests
-import functools
 
 from .models import AuditDocument
+
 
 def search(request):
     query = request.GET['query'] if 'query' in request.GET else None
