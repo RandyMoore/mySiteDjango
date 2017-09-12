@@ -8,3 +8,4 @@ django_tagging
 psycopg2
 djangorestframework
 requests
+requests_threads

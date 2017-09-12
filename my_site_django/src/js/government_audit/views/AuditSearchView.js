@@ -41,7 +41,10 @@ function ResultsTable(props) {
            return <tr key={ index }>
              <td>{ props.searchResults.resultsOffset + index + 1 }</td>
              <td>
-               <a href={ result.get('url') }>{ result.get('title') }</a>
+               <a href={ result.get('url') }>
+                { result.get('urlActive') ?
+                  result.get('title') : <del> {result.get('title')} </del> }
+              </a>
              </td>
              <td> {result.get('date')} </td>
            </tr>;

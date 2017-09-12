@@ -23,7 +23,7 @@ class AuditDocument(models.Model):
     lexemes = LexemesField(null=True)
     text = TextField(default='')
     url = CharField(max_length=256, blank=False)
-    rank = FloatField()
+    rank = FloatField(null=True)
 
     def save(self, *args, **kwargs):
         self.lexemes = Func(Value('english'), Value(self.title + ' ' + self.text), function='to_tsvector')
