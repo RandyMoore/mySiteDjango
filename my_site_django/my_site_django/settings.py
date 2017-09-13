@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import tornado.wsgi
+from django.core.wsgi import get_wsgi_application
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -61,7 +63,9 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
-    'government_audit.apps.GovernmentAuditConfig'
+    'government_audit.apps.GovernmentAuditConfig',
+
+    'tornado_websockets',
 ]
 
 MIDDLEWARE = [
@@ -99,7 +103,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'my_site_django.wsgi.application'
-
 
 # Database
 # Expects local postgres - see run_dev_postgres.sh at project root
@@ -156,7 +159,7 @@ STATICFILES_FINDERS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/run/www/static'
+STATIC_ROOT = './static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -167,6 +170,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 WAGTAIL_SITE_NAME = 'Blog of Randy Moore'
 
 COMMENTS_PLUGINS = []
+
+wsgi_app = get_wsgi_application()
+container = tornado.wsgi.WSGIContainer(wsgi_app)
+TORNADO = {
+    'port': 8000,  # 8000 by default
+    'handlers': [
+        (r'%s(.*)' % STATIC_URL, tornado.web.StaticFileHandler, {'path': STATIC_ROOT}, 'static'),
+        (r'/.*', tornado.web.FallbackHandler, {'fallback': container}, 'root'),
+    ],  # [] by default
+    'settings': {
+        'debug': True,
+    },  # {} by default
+}
 
 # Self defined settings
 PRODUCTION = False

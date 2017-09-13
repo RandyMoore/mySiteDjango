@@ -1,8 +1,10 @@
 module.exports = function(grunt) {
-  const jsSrc = [
-    "my_site_django/src/**/*.js",
-    "!my_site_django/src/**/*.test.js*"];
-  const jsDest = "my_site_django/static/min.js";
+  const mainJsSrc = "my_site_django/src/js/my_site_django/**/*.js";
+  const mainJsDest = "my_site_django/static/min.js";
+  const auditJsSrc = [
+    "my_site_django/src/js/government_audit/**/*.js",
+    "!my_site_django/src/js/government_audit/**/*.test.js*"];
+  const auditJsDest = "my_site_django/static/government_audit/min.js";
 
   const mainCssSrc = [
     "my_site_django/src/css/my_site_django/bootstrap.min.css",
@@ -20,7 +22,7 @@ module.exports = function(grunt) {
     ],
     concat: {
       options: {separator: '\n'},
-      css: {
+      dist: {
         files: {
           [mainCssDest]: mainCssSrc,
           [auditCssDest]: auditCssSrc,
@@ -40,16 +42,18 @@ module.exports = function(grunt) {
           ]
         ]
       },
-      files: {
-        src: jsSrc,
-        dest: jsDest
+      dist: {
+        files: {
+          [mainJsDest]: mainJsSrc,
+          [auditJsDest]: auditJsSrc,
+        }
       }
     },
     uglify: {
       options: {banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'},
-      build: {
-        src: jsDest,
-        dest: jsDest,
+      files: {
+        [mainJsDest]: mainJsSrc,
+        [auditJsDest]: auditJsSrc,
       }
     },
     cssmin: {
@@ -63,8 +67,8 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: [jsSrc, mainCssSrc, auditCssSrc],
-        tasks: ["clean", "browserify", "concat:css"]
+        files: [mainJsSrc, auditJsSrc, mainCssSrc, auditCssSrc],
+        tasks: ["clean", "browserify", "concat"]
       }
     }
   });
