@@ -8,4 +8,5 @@ django_tagging
 psycopg2
 djangorestframework
 requests
-django-tornado-websockets
+channels
+asgi_redis

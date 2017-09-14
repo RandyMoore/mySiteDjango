@@ -60,7 +60,8 @@ var SearchActionTypes = {
   CHANGE_PARSER: 'CHANGE_PARSER',
   SUBMIT_QUERY: 'SUBMIT_QUERY',
   LOAD_QUERY_RESPONSE: 'LOAD_QUERY_RESPONSE',
-  CHANGE_PAGE: 'CHANGE_PAGE'
+  CHANGE_PAGE: 'CHANGE_PAGE',
+  RECEIVE_URL_CHECK: 'RECEIVE_URL_CHECK'
 };
 
 exports.default = SearchActionTypes;
@@ -112,23 +113,35 @@ var SearchActions = {
       type: _SearchActionTypes2.default.CHANGE_PAGE,
       data: data
     });
+  },
+  receiveUrlCheck: function receiveUrlCheck(event) {
+    _Dispatcher2.default.dispatch({
+      type: _SearchActionTypes2.default.RECEIVE_URL_CHECK,
+      event: event
+    });
   }
 };
 
 exports.default = SearchActions;
 
 },{"./Dispatcher":2,"./SearchActionTypes":3}],5:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _immutable = require('immutable');
+var _immutable = require("immutable");
 
 var _immutable2 = _interopRequireDefault(_immutable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getWebSocket() {
+  if (typeof WebSocket !== "undefined") {
+    return new WebSocket("ws://" + window.location.host + "/verifyUrl");
+  }
+};
 
 var SearchResults = _immutable2.default.Record({
   query: '',
@@ -136,7 +149,8 @@ var SearchResults = _immutable2.default.Record({
   results: _immutable2.default.List(),
   resultsOffset: 0,
   resultsLimit: 10,
-  resultsSize: 0
+  resultsSize: 0,
+  verifyUrlSocket: getWebSocket()
 });
 
 exports.default = SearchResults;
@@ -153,6 +167,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
+
+var _immutable = require('immutable');
+
+var _immutable2 = _interopRequireDefault(_immutable);
 
 var _utils = require('flux/utils');
 
@@ -192,7 +210,13 @@ var AuditSearchStore = function (_ReduceStore) {
   _createClass(AuditSearchStore, [{
     key: 'getInitialState',
     value: function getInitialState() {
-      return new _SearchResults2.default();
+      var searchResults = new _SearchResults2.default();
+
+      searchResults.verifyUrlSocket.onmessage = function (response) {
+        _SearchActions2.default.receiveUrlCheck(response);
+      };
+
+      return searchResults;
     }
   }, {
     key: 'reduce',
@@ -221,8 +245,23 @@ var AuditSearchStore = function (_ReduceStore) {
           {
             var response = action.response.data;
 
+            // Check the url of each result.  Can't do this browser side due to
+            //  XRSF restrictions
+            response.results.forEach(function (result) {
+              var message = JSON.stringify({
+                'id': result[0],
+                'url': result[1]['url']
+              });
+
+              if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
+                state.verifyUrlSocket.send(message);
+              } else {
+                console.log("Websocket is not open, skipping URL checks");
+              }
+            });
+
             return state.merge({
-              'results': response.results,
+              'results': _immutable2.default.OrderedMap(response.results),
               'resultsSize': response.size,
               'resultsOffset': response.offset
             });
@@ -231,6 +270,22 @@ var AuditSearchStore = function (_ReduceStore) {
         case _SearchActionTypes2.default.CHANGE_PAGE:
           this.fetchResults(state.set('resultsOffset', Math.ceil(action.data.selected * state.resultsLimit)));
           return state; // original state without page changed.
+
+        case _SearchActionTypes2.default.RECEIVE_URL_CHECK:
+          {
+            action.event.preventDefault();
+
+            var result = JSON.parse(action.event.data);
+            var original = state.results.get(result['id']);
+            if (original) {
+              // Must completely replace Immutable.Record
+              state = new _SearchResults2.default(Object.assign(state.toJS(), {
+                results: state.results.set(result['id'], Object.assign(original, result))
+              }));
+            }
+
+            return state;
+          }
 
         default:
           return state;
@@ -260,7 +315,7 @@ var AuditSearchStore = function (_ReduceStore) {
 
 exports.default = new AuditSearchStore();
 
-},{"./Dispatcher":2,"./SearchActionTypes":3,"./SearchActions":4,"./SearchResults":5,"axios":9,"flux/utils":75}],7:[function(require,module,exports){
+},{"./Dispatcher":2,"./SearchActionTypes":3,"./SearchActions":4,"./SearchResults":5,"axios":9,"flux/utils":75,"immutable":76}],7:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -344,7 +399,54 @@ function SearchInput(props) {
   );
 }
 
+function ResultRow(props) {
+  return _react2.default.createElement(
+    'tr',
+    null,
+    _react2.default.createElement(
+      'td',
+      null,
+      props.resultsOffset + props.rowNumber
+    ),
+    _react2.default.createElement(
+      'td',
+      null,
+      _react2.default.createElement(
+        'a',
+        { href: props.result.url, style: props.style },
+        ' ',
+        props.result.title
+      )
+    ),
+    _react2.default.createElement(
+      'td',
+      null,
+      ' ',
+      props.result.date,
+      ' '
+    )
+  );
+}
+
 function ResultsTable(props) {
+  var results = props.searchResults.results.toJS();
+  var checkUrlStyles = {
+    'checkingUrl': { color: '#708090', fontStyle: 'italic' },
+    'validUrl': { color: '#0000FF', fontStyle: 'normal' },
+    'invalidUrl': { color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through' }
+  };
+  var resultStyles = Object.keys(results).map(function (key) {
+    switch (results[key].isActive) {
+      case true:
+        return 'validUrl';
+      case false:
+        return 'invalidUrl';
+      default:
+        return 'checkingUrl';
+    }
+  });
+
+  var counter = 0;
   return _react2.default.createElement(
     'table',
     { className: 'results-table' },
@@ -370,38 +472,15 @@ function ResultsTable(props) {
     _react2.default.createElement(
       'tbody',
       null,
-      props.searchResults.results && props.searchResults.results.map(function (result, index) {
-        return _react2.default.createElement(
-          'tr',
-          { key: index },
-          _react2.default.createElement(
-            'td',
-            null,
-            props.searchResults.resultsOffset + index + 1
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement(
-              'a',
-              { href: result.get('url') },
-              result.get('urlActive') ? result.get('title') : _react2.default.createElement(
-                'del',
-                null,
-                ' ',
-                result.get('title'),
-                ' '
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            ' ',
-            result.get('date'),
-            ' '
-          )
-        );
+      results && Object.keys(results).map(function (key) {
+        var jsx = _react2.default.createElement(ResultRow, {
+          key: counter,
+          style: checkUrlStyles[resultStyles[counter]],
+          rowNumber: counter + 1,
+          result: results[key],
+          resultsOffset: props.searchResults.resultsOffset });
+        counter += 1;
+        return jsx;
       })
     )
   );

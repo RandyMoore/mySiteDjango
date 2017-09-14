@@ -11,7 +11,7 @@ exports[`Default render 1`] = `
       <input
         onChange={undefined}
         type="text"
-        value={undefined}
+        value=""
       />
     </label>
     <input
@@ -78,7 +78,7 @@ exports[`Render with pagination visible 1`] = `
       <input
         onChange={undefined}
         type="text"
-        value={undefined}
+        value=""
       />
     </label>
     <input

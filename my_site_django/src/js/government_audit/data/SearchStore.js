@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Immutable from 'immutable';
 import {
   ReduceStore
 } from 'flux/utils';
@@ -13,8 +14,14 @@ class AuditSearchStore extends ReduceStore {
     super(Dispatcher);
   }
 
-  getInitialState() {
-    return new SearchResults();
+  getInitialState() {    
+    let searchResults = new SearchResults();
+
+    searchResults.verifyUrlSocket.onmessage = function(response) {
+      SearchActions.receiveUrlCheck(response);
+    };
+
+    return searchResults;
   }
 
   reduce(state, action) {
@@ -42,8 +49,23 @@ class AuditSearchStore extends ReduceStore {
         {
           const response = action.response.data;
 
+          // Check the url of each result.  Can't do this browser side due to
+          //  XRSF restrictions
+          response.results.forEach(result => {
+            const message = JSON.stringify({
+              'id': result[0],
+              'url': result[1]['url'],
+            });
+
+            if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
+              state.verifyUrlSocket.send(message);
+            } else {
+              console.log("Websocket is not open, skipping URL checks");
+            }
+          });
+
           return state.merge({
-            'results': response.results,
+            'results': Immutable.OrderedMap(response.results),
             'resultsSize': response.size,
             'resultsOffset': response.offset,
           });
@@ -52,6 +74,22 @@ class AuditSearchStore extends ReduceStore {
       case SearchActionTypes.CHANGE_PAGE:
         this.fetchResults(state.set('resultsOffset', Math.ceil(action.data.selected * state.resultsLimit)));
         return state; // original state without page changed.
+
+      case SearchActionTypes.RECEIVE_URL_CHECK:
+      {
+        action.event.preventDefault();
+
+        const result = JSON.parse(action.event.data);
+        let original = state.results.get(result['id']);
+        if (original) {
+          // Must completely replace Immutable.Record
+          state = new SearchResults(Object.assign(state.toJS(), {
+            results: state.results.set(result['id'], Object.assign(original, result)),
+          }));
+        }
+
+        return state;
+      }
 
       default:
         return state;

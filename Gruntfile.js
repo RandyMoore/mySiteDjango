@@ -1,17 +1,9 @@
 module.exports = function(grunt) {
-  const mainJsSrc = "my_site_django/src/js/my_site_django/**/*.js";
-  const mainJsDest = "my_site_django/static/min.js";
   const auditJsSrc = [
     "my_site_django/src/js/government_audit/**/*.js",
     "!my_site_django/src/js/government_audit/**/*.test.js*"];
   const auditJsDest = "my_site_django/static/government_audit/min.js";
 
-  const mainCssSrc = [
-    "my_site_django/src/css/my_site_django/bootstrap.min.css",
-    "my_site_django/src/css/my_site_django/font-awesome.min.css",
-    "my_site_django/src/css/my_site_django/clean-blog.css"
-  ];
-  const mainCssDest = "my_site_django/static/min.css";
   const auditCssSrc = "my_site_django/src/css/government_audit/audit_search.css";
   const auditCssDest = "my_site_django/static/government_audit/min.css";
 
@@ -22,12 +14,10 @@ module.exports = function(grunt) {
     ],
     concat: {
       options: {separator: '\n'},
-      dist: {
-        files: {
-          [mainCssDest]: mainCssSrc,
-          [auditCssDest]: auditCssSrc,
-        },
-      }
+      files: {
+        src: auditCssSrc,
+        dest: auditCssDest
+      },
     },
     browserify: {
       options: {
@@ -42,32 +32,28 @@ module.exports = function(grunt) {
           ]
         ]
       },
-      dist: {
-        files: {
-          [mainJsDest]: mainJsSrc,
-          [auditJsDest]: auditJsSrc,
-        }
-      }
+      files: {
+         src: auditJsSrc,
+         dest: auditJsDest
+      },
     },
     uglify: {
       options: {banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'},
       files: {
-        [mainJsDest]: mainJsSrc,
-        [auditJsDest]: auditJsSrc,
+        src: auditJsSrc,
+        dest: auditJsDest
       }
     },
     cssmin: {
       options: {banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'},
-      dist: {
-        files: {
-          [mainCssDest]: mainCssSrc,
-          [auditCssDest]: auditCssSrc,
-        }
-      }
+      files: {
+        src: auditCssSrc,
+        dest: auditCssDest
+      },
     },
     watch: {
       scripts: {
-        files: [mainJsSrc, auditJsSrc, mainCssSrc, auditCssSrc],
+        files: [auditJsSrc, auditCssSrc],
         tasks: ["clean", "browserify", "concat"]
       }
     }

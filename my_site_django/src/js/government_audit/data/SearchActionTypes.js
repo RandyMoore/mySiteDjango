@@ -4,6 +4,7 @@ const SearchActionTypes = {
   SUBMIT_QUERY: 'SUBMIT_QUERY',
   LOAD_QUERY_RESPONSE: 'LOAD_QUERY_RESPONSE',
   CHANGE_PAGE: 'CHANGE_PAGE',
+  RECEIVE_URL_CHECK: 'RECEIVE_URL_CHECK',
 };
 
 export default SearchActionTypes;

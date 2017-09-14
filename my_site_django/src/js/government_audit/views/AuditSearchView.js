@@ -26,7 +26,37 @@ function SearchInput(props) {
   );
 }
 
+function ResultRow(props) {
+  return (
+    <tr>
+      <td>{ props.resultsOffset + props.rowNumber}</td>
+      <td>
+        <a href={ props.result.url } style={ props.style }> { props.result.title }</a>
+      </td>
+      <td> { props.result.date } </td>
+    </tr>
+  );
+}
+
 function ResultsTable(props) {
+  const results = props.searchResults.results.toJS();
+  const checkUrlStyles = {
+    'checkingUrl': {color: '#708090', fontStyle: 'italic'},
+    'validUrl': {color: '#0000FF', fontStyle: 'normal'},
+    'invalidUrl': {color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through'},
+  };
+  const resultStyles = Object.keys(results).map(key => {
+    switch(results[key].isActive) {
+      case true:
+        return 'validUrl';
+      case false:
+        return 'invalidUrl';
+      default:
+        return 'checkingUrl';
+    }
+  });
+
+  let counter = 0;
   return (
     <table className="results-table">
       <thead>
@@ -35,20 +65,20 @@ function ResultsTable(props) {
           <th width="80%">Title</th>
           <th>Publication Date</th>
          </tr>
-       </thead>
-       <tbody>
-         {props.searchResults.results && props.searchResults.results.map(function(result, index) {
-           return <tr key={ index }>
-             <td>{ props.searchResults.resultsOffset + index + 1 }</td>
-             <td>
-               <a href={ result.get('url') }>
-                { result.get('urlActive') ?
-                  result.get('title') : <del> {result.get('title')} </del> }
-              </a>
-             </td>
-             <td> {result.get('date')} </td>
-           </tr>;
-         })}
+        </thead>
+        <tbody>
+          {results && Object.keys(results).map(key => {
+            const jsx = (
+              <ResultRow
+                key={counter}
+                style={ checkUrlStyles[resultStyles[counter]] }
+                rowNumber={counter + 1}
+                result={ results[key] }
+                resultsOffset={ props.searchResults.resultsOffset } />
+            );
+            counter += 1;
+            return jsx;
+          })}
        </tbody>
     </table>
   );

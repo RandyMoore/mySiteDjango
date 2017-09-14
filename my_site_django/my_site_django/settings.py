@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import tornado.wsgi
-from django.core.wsgi import get_wsgi_application
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -65,7 +63,7 @@ INSTALLED_APPS = [
 
     'government_audit.apps.GovernmentAuditConfig',
 
-    'tornado_websockets',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -159,7 +157,7 @@ STATICFILES_FINDERS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = './static'
+STATIC_ROOT = '/var/run/www/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -171,17 +169,14 @@ WAGTAIL_SITE_NAME = 'Blog of Randy Moore'
 
 COMMENTS_PLUGINS = []
 
-wsgi_app = get_wsgi_application()
-container = tornado.wsgi.WSGIContainer(wsgi_app)
-TORNADO = {
-    'port': 8000,  # 8000 by default
-    'handlers': [
-        (r'%s(.*)' % STATIC_URL, tornado.web.StaticFileHandler, {'path': STATIC_ROOT}, 'static'),
-        (r'/.*', tornado.web.FallbackHandler, {'fallback': container}, 'root'),
-    ],  # [] by default
-    'settings': {
-        'debug': True,
-    },  # {} by default
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+        "ROUTING": "my_site_django.routing.channel_routing",
+    },
 }
 
 # Self defined settings
