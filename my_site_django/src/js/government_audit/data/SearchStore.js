@@ -14,7 +14,7 @@ class AuditSearchStore extends ReduceStore {
     super(Dispatcher);
   }
 
-  getInitialState() {    
+  getInitialState() {
     let searchResults = new SearchResults();
 
     searchResults.verifyUrlSocket.onmessage = function(response) {
@@ -50,7 +50,7 @@ class AuditSearchStore extends ReduceStore {
           const response = action.response.data;
 
           // Check the url of each result.  Can't do this browser side due to
-          //  XRSF restrictions
+          //  XSRF restrictions
           response.results.forEach(result => {
             const message = JSON.stringify({
               'id': result[0],
