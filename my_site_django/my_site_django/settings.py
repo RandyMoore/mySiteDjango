@@ -171,10 +171,7 @@ COMMENTS_PLUGINS = []
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("localhost", 6379)],
-        },
+        "BACKEND": "asgi_ipc.IPCChannelLayer",
         "ROUTING": "my_site_django.routing.channel_routing",
     },
 }
