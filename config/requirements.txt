@@ -7,6 +7,6 @@ django_mptt
 django_tagging
 psycopg2
 djangorestframework
-requests
 channels
 asgi_ipc
+aiohttp

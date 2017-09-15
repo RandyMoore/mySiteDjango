@@ -238,7 +238,7 @@ var AuditSearchStore = function (_ReduceStore) {
             return state;
           }
 
-          this.fetchResults(state);
+          this.fetchResults(state.set('resultsOffset', 0));
 
           return state;
 
