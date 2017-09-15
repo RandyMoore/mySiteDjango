@@ -27,11 +27,24 @@ function SearchInput(props) {
 }
 
 function ResultRow(props) {
+  function getCSSForTitle(urlActive) {
+    switch(props.result.isActive) {
+      case true:
+        return {color: '#0000FF', fontStyle: 'normal'};
+      case false:
+        return {color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through'};
+      default: // Not known if url is active yet, initial state
+        return {color: '#708090', fontStyle: 'italic'};
+    }
+  };
+
+  const resultStyle = getCSSForTitle(props.result.isActive);
+
   return (
     <tr>
       <td>{ props.resultsOffset + props.rowNumber}</td>
       <td>
-        <a href={ props.result.url } style={ props.style }> { props.result.title }</a>
+        <a href={ props.result.url } style={ resultStyle }> { props.result.title }</a>
       </td>
       <td> { props.result.date } </td>
     </tr>
@@ -40,21 +53,6 @@ function ResultRow(props) {
 
 function ResultsTable(props) {
   const results = props.searchResults.results.toJS();
-  const checkUrlStyles = {
-    'checkingUrl': {color: '#708090', fontStyle: 'italic'},
-    'validUrl': {color: '#0000FF', fontStyle: 'normal'},
-    'invalidUrl': {color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through'},
-  };
-  const resultStyles = Object.keys(results).map(key => {
-    switch(results[key].isActive) {
-      case true:
-        return 'validUrl';
-      case false:
-        return 'invalidUrl';
-      default:
-        return 'checkingUrl';
-    }
-  });
 
   let counter = 0;
   return (
@@ -71,11 +69,11 @@ function ResultsTable(props) {
             const jsx = (
               <ResultRow
                 key={counter}
-                style={ checkUrlStyles[resultStyles[counter]] }
                 rowNumber={counter + 1}
                 result={ results[key] }
                 resultsOffset={ props.searchResults.resultsOffset } />
             );
+
             counter += 1;
             return jsx;
           })}

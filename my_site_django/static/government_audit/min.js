@@ -138,6 +138,7 @@ var _immutable2 = _interopRequireDefault(_immutable);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getWebSocket() {
+  // TODO: This is a hack to get unit testing to work... fix and update the tests.
   if (typeof WebSocket !== "undefined") {
     return new WebSocket("ws://" + window.location.host + "/verifyUrl");
   }
@@ -246,7 +247,7 @@ var AuditSearchStore = function (_ReduceStore) {
             var response = action.response.data;
 
             // Check the url of each result.  Can't do this browser side due to
-            //  XRSF restrictions
+            //  XSRF restrictions
             response.results.forEach(function (result) {
               var message = JSON.stringify({
                 'id': result[0],
@@ -400,6 +401,20 @@ function SearchInput(props) {
 }
 
 function ResultRow(props) {
+  function getCSSForTitle(urlActive) {
+    switch (props.result.isActive) {
+      case true:
+        return { color: '#0000FF', fontStyle: 'normal' };
+      case false:
+        return { color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through' };
+      default:
+        // Not known if url is active yet, initial state
+        return { color: '#708090', fontStyle: 'italic' };
+    }
+  };
+
+  var resultStyle = getCSSForTitle(props.result.isActive);
+
   return _react2.default.createElement(
     'tr',
     null,
@@ -413,7 +428,7 @@ function ResultRow(props) {
       null,
       _react2.default.createElement(
         'a',
-        { href: props.result.url, style: props.style },
+        { href: props.result.url, style: resultStyle },
         ' ',
         props.result.title
       )
@@ -430,21 +445,6 @@ function ResultRow(props) {
 
 function ResultsTable(props) {
   var results = props.searchResults.results.toJS();
-  var checkUrlStyles = {
-    'checkingUrl': { color: '#708090', fontStyle: 'italic' },
-    'validUrl': { color: '#0000FF', fontStyle: 'normal' },
-    'invalidUrl': { color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through' }
-  };
-  var resultStyles = Object.keys(results).map(function (key) {
-    switch (results[key].isActive) {
-      case true:
-        return 'validUrl';
-      case false:
-        return 'invalidUrl';
-      default:
-        return 'checkingUrl';
-    }
-  });
 
   var counter = 0;
   return _react2.default.createElement(
@@ -475,10 +475,10 @@ function ResultsTable(props) {
       results && Object.keys(results).map(function (key) {
         var jsx = _react2.default.createElement(ResultRow, {
           key: counter,
-          style: checkUrlStyles[resultStyles[counter]],
           rowNumber: counter + 1,
           result: results[key],
           resultsOffset: props.searchResults.resultsOffset });
+
         counter += 1;
         return jsx;
       })
