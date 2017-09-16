@@ -1,11 +1,14 @@
-version: '2'
+version: "2"
 
 services:
-  db:
-    image: postgres
   web:
     image: website
-    ports:
-      - "80:80"
     links:
       - db
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+
+  db:
+    image: postgrespopulated

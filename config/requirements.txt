@@ -1,7 +1,6 @@
-wagtail
+wagtail==1.11.1
 pygments
 markdown
-uwsgi
 django-contrib-comments
 django_mptt
 django_tagging

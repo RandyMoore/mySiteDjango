@@ -157,7 +157,6 @@ STATICFILES_FINDERS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/run/www/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]

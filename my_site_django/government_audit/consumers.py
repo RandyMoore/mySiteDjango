@@ -19,12 +19,12 @@ def run_url_checker(loop):
 
 
 async def check_url(message):
-    unCheckedUrl = json.loads(message.content['text'])
-    async with session.head(unCheckedUrl['url'], allow_redirects=True, timeout=10) as urlHeadResponse:
+    un_checked_url = json.loads(message.content['text'])
+    async with session.head(un_checked_url['url'], allow_redirects=True, timeout=10) as url_head_response:
         message_response = {
-            'id': unCheckedUrl['id'],
-            'isActive': urlHeadResponse.status == 200,
-            'url': str(urlHeadResponse.url)}
+            'id': un_checked_url['id'],
+            'isActive': url_head_response.status == 200,
+            'url': str(url_head_response.url)}
 
         message.reply_channel.send({
             "text": json.dumps(message_response),
@@ -34,5 +34,6 @@ async def check_url(message):
 def verify_url(message):
     loop.call_soon_threadsafe(asyncio.async, check_url(message))
 
-t = Thread(target=run_url_checker, args=(loop,))
+
+t = Thread(target=run_url_checker, args=(loop,), daemon=True)
 t.start()
