@@ -29,6 +29,10 @@ if __name__ == "__main__":
         with open(meta_path) as meta_file:
             meta = json.loads(meta_file.read())
 
+            if not meta['url']:
+                print(f'Skipping {meta["title"]} as url is null')
+                continue
+
             if meta['title'] in existing_titles:
                 print('Skipping as title exists in DB ' + meta['title'])
                 continue
