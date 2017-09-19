@@ -1,0 +1,34 @@
+{
+    "name": "my_site_django",
+    "version": "1.0.0",
+    "description": "Front end tooling",
+    "dependencies": {
+        "flux": "latest",
+        "immutable": "latest",
+        "jquery": "latest",
+        "react": "~15.6.1",
+        "react-dom": "~15.6.1",
+        "react-paginate": "latest"
+    },
+    "devDependencies": {
+        "axios": "latest",
+        "babel-jest": "^21.0.0",
+        "babel-preset-es2015": "latest",
+        "babel-preset-react": "latest",
+        "babelify": "latest",
+        "eslint": "^4.6.1",
+        "eslint-plugin-react": "latest",
+        "grunt": "latest",
+        "grunt-browserify": "latest",
+        "grunt-contrib-clean": "latest",
+        "grunt-contrib-concat": "latest",
+        "grunt-contrib-cssmin": "latest",
+        "grunt-contrib-uglify": "latest",
+        "grunt-contrib-watch": "latest",
+        "jest": "^21.0.1",
+        "react-test-renderer": "^15.6.1"
+    },
+    "scripts": {
+        "test": "jest"
+    }
+}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block main %}
+    <link href="{% static '/government_audit/min.css' %}" rel="stylesheet">
+
+    <h1 class="heading">
+        Government Audit Documents
+    </h1>
+
+    <p>
+        Text search index of US Inspector General Reports from
+        <a href="https://archive.org/details/usinspectorsgeneral">archive.org</a>
+        <br />
+        Utilizes <a href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html">Postgres text search</a>
+    </p>
+
+    <div id="react" class="main-content" >
+        <i class="pending">Loading components...</i><br><br>
+    </div>
+
+    <script src="{% static '/government_audit/min.js' %}"></script>
+{% endblock %}
+

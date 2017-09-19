@@ -1,0 +1,497 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default render 1`] = `
+<div>
+  <form
+    onSubmit={undefined}
+  >
+    <label>
+      Search Query 
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <div>
+    <a
+      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+    >
+       Query Parser: 
+    </a>
+    <select
+      onChange={undefined}
+      value={undefined}
+    >
+      <option
+        value="plain"
+      >
+        plain
+      </option>
+      <option
+        value="phrase"
+      >
+        phrase
+      </option>
+      <option
+        value="raw"
+      >
+        tsquery raw
+      </option>
+    </select>
+  </div>
+  <table
+    className="results-table"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th
+          width="80%"
+        >
+          Title
+        </th>
+        <th>
+          Publication Date
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`Render result after URL validity check returns active 1`] = `
+<div>
+  <form
+    onSubmit={undefined}
+  >
+    <label>
+      Search Query 
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <div>
+    <a
+      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+    >
+       Query Parser: 
+    </a>
+    <select
+      onChange={undefined}
+      value={undefined}
+    >
+      <option
+        value="plain"
+      >
+        plain
+      </option>
+      <option
+        value="phrase"
+      >
+        phrase
+      </option>
+      <option
+        value="raw"
+      >
+        tsquery raw
+      </option>
+    </select>
+  </div>
+  <table
+    className="results-table"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th
+          width="80%"
+        >
+          Title
+        </th>
+        <th>
+          Publication Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          <a
+            href="http://poundfoolish.com"
+            style={
+              Object {
+                "color": "#0000FF",
+                "fontStyle": "normal",
+              }
+            }
+          >
+             
+            Ogglie Booglie
+          </a>
+        </td>
+        <td>
+           
+          2012-2-13
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Render result after URL validity check returns not active 1`] = `
+<div>
+  <form
+    onSubmit={undefined}
+  >
+    <label>
+      Search Query 
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <div>
+    <a
+      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+    >
+       Query Parser: 
+    </a>
+    <select
+      onChange={undefined}
+      value={undefined}
+    >
+      <option
+        value="plain"
+      >
+        plain
+      </option>
+      <option
+        value="phrase"
+      >
+        phrase
+      </option>
+      <option
+        value="raw"
+      >
+        tsquery raw
+      </option>
+    </select>
+  </div>
+  <table
+    className="results-table"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th
+          width="80%"
+        >
+          Title
+        </th>
+        <th>
+          Publication Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          <a
+            href="http://poundfoolish.com"
+            style={
+              Object {
+                "color": "#FF0000",
+                "fontStyle": "normal",
+                "textDecoration": "line-through",
+              }
+            }
+          >
+             
+            Ogglie Booglie
+          </a>
+        </td>
+        <td>
+           
+          2012-2-13
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Render result before URL validity check 1`] = `
+<div>
+  <form
+    onSubmit={undefined}
+  >
+    <label>
+      Search Query 
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <div>
+    <a
+      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+    >
+       Query Parser: 
+    </a>
+    <select
+      onChange={undefined}
+      value={undefined}
+    >
+      <option
+        value="plain"
+      >
+        plain
+      </option>
+      <option
+        value="phrase"
+      >
+        phrase
+      </option>
+      <option
+        value="raw"
+      >
+        tsquery raw
+      </option>
+    </select>
+  </div>
+  <table
+    className="results-table"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th
+          width="80%"
+        >
+          Title
+        </th>
+        <th>
+          Publication Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          <a
+            href="http://poundfoolish.com"
+            style={
+              Object {
+                "color": "#708090",
+                "fontStyle": "italic",
+              }
+            }
+          >
+             
+            Ogglie Booglie
+          </a>
+        </td>
+        <td>
+           
+          2012-2-13
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Render with pagination visible (available result size > results per page limit) 1`] = `
+<div>
+  <form
+    onSubmit={undefined}
+  >
+    <label>
+      Search Query 
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+    </label>
+    <input
+      type="submit"
+      value="Submit"
+    />
+  </form>
+  <div>
+    <a
+      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+    >
+       Query Parser: 
+    </a>
+    <select
+      onChange={undefined}
+      value={undefined}
+    >
+      <option
+        value="plain"
+      >
+        plain
+      </option>
+      <option
+        value="phrase"
+      >
+        phrase
+      </option>
+      <option
+        value="raw"
+      >
+        tsquery raw
+      </option>
+    </select>
+  </div>
+  <table
+    className="results-table"
+  >
+    <thead>
+      <tr>
+        <th />
+        <th
+          width="80%"
+        >
+          Title
+        </th>
+        <th>
+          Publication Date
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          <a
+            href="http://poundfoolish.com"
+            style={
+              Object {
+                "color": "#708090",
+                "fontStyle": "italic",
+              }
+            }
+          >
+             
+            Ogglie Booglie
+          </a>
+        </td>
+        <td>
+           
+          2012-2-13
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ul
+    className="pagination"
+  >
+    <li
+      className="previous disabled"
+    >
+      <a
+        className={undefined}
+        href={undefined}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex="0"
+      >
+        previous
+      </a>
+    </li>
+    <li
+      className="active"
+    >
+      <a
+        aria-current="page"
+        aria-label="Page 1 is your current page"
+        className={undefined}
+        href={undefined}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex="0"
+      >
+        1
+      </a>
+    </li>
+    <li
+      className={undefined}
+    >
+      <a
+        aria-current={null}
+        aria-label="Page 2"
+        className={undefined}
+        href={undefined}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex="0"
+      >
+        2
+      </a>
+    </li>
+    <li
+      className="next"
+    >
+      <a
+        className={undefined}
+        href={undefined}
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex="0"
+      >
+        next
+      </a>
+    </li>
+  </ul>
+</div>
+`;

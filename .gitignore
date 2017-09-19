@@ -11,3 +11,7 @@ lib/
 lib64
 # Misc
 pip-selfcheck.json
+# NPM
+node_modules/
+package-lock.json
+yarn.lock

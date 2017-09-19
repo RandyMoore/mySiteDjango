@@ -62,6 +62,12 @@ INSTALLED_APPS = [
 # Local apps
     'gallery.apps.GalleryConfig',
     'weblog.apps.WeblogConfig',
+
+    'rest_framework',
+
+    'government_audit.apps.GovernmentAuditConfig',
+
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -84,8 +90,8 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': ['templates'],
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -100,16 +106,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'my_site_django.wsgi.application'
 
-
 # Database
+# Expects local postgres - see run_dev_postgres.sh at project root
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -153,7 +161,6 @@ STATICFILES_FINDERS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/run/www/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -164,6 +171,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 WAGTAIL_SITE_NAME = 'Blog of Randy Moore'
 
 COMMENTS_PLUGINS = []
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_ipc.IPCChannelLayer",
+        "ROUTING": "my_site_django.routing.channel_routing",
+    },
+}
 
 # Self defined settings
 PRODUCTION = False
