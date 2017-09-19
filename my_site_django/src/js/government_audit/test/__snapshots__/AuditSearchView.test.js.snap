@@ -46,6 +46,11 @@ exports[`Default render 1`] = `
       </option>
     </select>
   </div>
+  <h3
+    class="heading"
+  >
+    Results:
+  </h3>
   <table
     className="results-table"
   >
@@ -113,6 +118,11 @@ exports[`Render result after URL validity check returns active 1`] = `
       </option>
     </select>
   </div>
+  <h3
+    class="heading"
+  >
+    Results:
+  </h3>
   <table
     className="results-table"
   >
@@ -205,6 +215,11 @@ exports[`Render result after URL validity check returns not active 1`] = `
       </option>
     </select>
   </div>
+  <h3
+    class="heading"
+  >
+    Results:
+  </h3>
   <table
     className="results-table"
   >
@@ -298,6 +313,11 @@ exports[`Render result before URL validity check 1`] = `
       </option>
     </select>
   </div>
+  <h3
+    class="heading"
+  >
+    Results:
+  </h3>
   <table
     className="results-table"
   >
@@ -390,6 +410,11 @@ exports[`Render with pagination visible (available result size > results per pag
       </option>
     </select>
   </div>
+  <h3
+    class="heading"
+  >
+    Results:
+  </h3>
   <table
     className="results-table"
   >

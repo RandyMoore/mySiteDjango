@@ -493,6 +493,11 @@ function AuditSearch(props) {
     null,
     _react2.default.createElement(SearchInput, props),
     _react2.default.createElement(Options, props),
+    _react2.default.createElement(
+      'h3',
+      { 'class': 'heading' },
+      'Results:'
+    ),
     _react2.default.createElement(ResultsTable, props),
     pageCount > 1 && _react2.default.createElement(_reactPaginate2.default, _extends({}, props, {
       previousLabel: "previous",

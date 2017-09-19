@@ -57,13 +57,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
-    'rest_framework',
-
-# Local apps
-    'gallery.apps.GalleryConfig',
     'weblog.apps.WeblogConfig',
-
-    'rest_framework',
 
     'government_audit.apps.GovernmentAuditConfig',
 
