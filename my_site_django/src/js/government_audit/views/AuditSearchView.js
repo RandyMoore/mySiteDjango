@@ -88,7 +88,7 @@ function AuditSearch(props) {
     <div>
       <SearchInput {...props} />
       <Options {...props} />
-      <h3 class="heading">Results:</h3>
+      <h3 className="heading">Results:</h3>
       <ResultsTable {...props} />
       { pageCount > 1 &&
         <ReactPaginate {...props}

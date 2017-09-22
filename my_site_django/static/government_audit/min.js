@@ -495,7 +495,7 @@ function AuditSearch(props) {
     _react2.default.createElement(Options, props),
     _react2.default.createElement(
       'h3',
-      { 'class': 'heading' },
+      { className: 'heading' },
       'Results:'
     ),
     _react2.default.createElement(ResultsTable, props),

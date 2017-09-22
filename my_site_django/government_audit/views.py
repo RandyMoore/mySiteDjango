@@ -1,6 +1,6 @@
-
+from django.conf import settings
 from django.db import connection
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render
 from psycopg2 import Error
 
@@ -10,6 +10,9 @@ from .models import AuditDocument
 def search(request):
     query = request.GET['query'] if 'query' in request.GET else None
     if query:
+        if settings.MAX_QUERY_LENGTH and len(query) > settings.MAX_QUERY_LENGTH:
+            return HttpResponseBadRequest(f"Query length is limited to { settings.MAX_QUERY_LENGTH } characters.")
+
         query_func = {
             'plain': 'plainto_tsquery',
             'phrase': 'phraseto_tsquery',
