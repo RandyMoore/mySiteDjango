@@ -10,7 +10,7 @@ from .models import AuditDocument
 def search(request):
     query = request.GET['query'] if 'query' in request.GET else None
     if query:
-        if settings.MAX_QUERY_LENGTH and len(query) > settings.MAX_QUERY_LENGTH:
+        if hasattr(settings, 'MAX_QUERY_LENGTH') and len(query) > settings.MAX_QUERY_LENGTH:
             return HttpResponseBadRequest(f"Query length is limited to { settings.MAX_QUERY_LENGTH } characters.")
 
         query_func = {
