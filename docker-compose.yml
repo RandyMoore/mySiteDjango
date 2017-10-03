@@ -5,10 +5,8 @@ services:
     image: website
     links:
       - db
-    depends_on:
-      - db
     ports:
       - "80:80"
 
   db:
-    image: postgrespopulated
+    image: postgrespopulated:2
