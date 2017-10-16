@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import CharField, DateField, IntegerField, FloatField, ForeignKey, Func, TextField, Value
-
+from django.contrib.postgres.indexes import GinIndex
 
 class LexemesField(models.Field):
     description = "Lexemes resulting from PostGres text search pre-processing on a body of text"
@@ -30,8 +30,20 @@ class AuditDocument(models.Model):
         self.text = '' # Not needed for search only
         super(AuditDocument, self).save(*args, **kwargs)
 
+    class Meta:
+        indexes = [
+            models.Index(fields=['publication_date']),
+            GinIndex(fields=['lexemes']),
+        ]
+
 
 class NamedEntity(models.Model):
     document = ForeignKey(AuditDocument, on_delete=models.CASCADE)
     name = CharField(max_length=64, blank=False)
     frequency = IntegerField(blank=False)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['name']),
+            models.Index(fields=['document']),
+        ]

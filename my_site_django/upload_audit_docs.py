@@ -18,7 +18,6 @@ if __name__ == "__main__":
     django.setup()
 
     from government_audit.models import AuditDocument, NamedEntity
-    from django.db import connection
 
     existing_titles = set([record[0] for record in AuditDocument.objects.values_list('title')])
 
@@ -78,8 +77,3 @@ if __name__ == "__main__":
                     print("Saved named entity ", named_entity.name, named_entity.frequency)
                 except BaseException as e:
                     print("Failed to save named entity " + named_entity.name + " : " + str(e))
-
-
-    with connection.cursor() as cursor:
-        cursor.execute("DROP INDEX IF EXISTS textsearch_idx")
-        cursor.execute("CREATE INDEX textsearch_idx ON government_audit_auditdocument USING GIN(lexemes)")
