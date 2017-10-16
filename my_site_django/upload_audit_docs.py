@@ -8,7 +8,7 @@ Then feed that file to this script
 './upload_audit_docs.py reports.txt'
 """
 import os, django, fileinput, json
-from mine_audit_doc import get_named_entities
+from government_audit_mining.audit_miner import get_named_entities
 from nltk.probability import FreqDist
 
 
