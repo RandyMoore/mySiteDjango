@@ -8,18 +8,22 @@ Then feed that file to this script
 './upload_audit_docs.py reports.txt'
 """
 import os, django, fileinput, json
+from mine_audit_doc import get_named_entities
+from nltk.probability import FreqDist
+
 
 if __name__ == "__main__":
     # enter django shell
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_site_django.settings")
     django.setup()
 
-    from government_audit.models import AuditDocument
+    from government_audit.models import AuditDocument, NamedEntity
     from django.db import connection
 
-    existing_titles = set([x[0] for x in AuditDocument.objects.values_list('title')])
+    existing_titles = set([record[0] for record in AuditDocument.objects.values_list('title')])
 
-    for path in fileinput.input():
+    for i, path in enumerate(fileinput.input()):
+        print('\n', i, path)
         meta_path = path.strip('\n')
 
         if not os.path.exists(meta_path):
@@ -44,17 +48,37 @@ if __name__ == "__main__":
             doc.url = meta['url']
 
             text_path = meta_path.replace('report.json', 'report.txt')
+            text = None
             if os.path.exists(text_path):
                 with open(text_path) as text_file:
-                    doc.text = text_file.read()
+                    text = text_file.read()
             else:
-                print('No file for entry ' + text_path)
+                print('No file for entry ' + text_path + ' skipping file')
+                continue
 
+            doc.text = text # doc.text is cleared after save, keeping text around for analysis
             try:
                 doc.save()
                 print("Saved " + meta_path)
             except BaseException as e:
                 print("Failed to save " + meta_path + " : " + str(e))
+
+            # Data mine the doc
+            ne_fdist = FreqDist(ne for ne in get_named_entities(text))
+            for ne in ne_fdist.most_common():
+                if ne[1] < 3:
+                    break
+                named_entity = NamedEntity()
+                named_entity.document = doc
+                named_entity.name = ne[0]
+                named_entity.frequency = ne[1]
+
+                try:
+                    named_entity.save()
+                    print("Saved named entity ", named_entity.name, named_entity.frequency)
+                except BaseException as e:
+                    print("Failed to save named entity " + named_entity.name + " : " + str(e))
+
 
     with connection.cursor() as cursor:
         cursor.execute("DROP INDEX IF EXISTS textsearch_idx")

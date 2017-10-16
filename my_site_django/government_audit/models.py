@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import CharField, DateField, FloatField, Func, TextField, Value
+from django.db.models import CharField, DateField, IntegerField, FloatField, ForeignKey, Func, TextField, Value
 
 
 class LexemesField(models.Field):
@@ -29,3 +29,9 @@ class AuditDocument(models.Model):
         self.lexemes = Func(Value('english'), Value(self.title + ' ' + self.text), function='to_tsvector')
         self.text = '' # Not needed for search only
         super(AuditDocument, self).save(*args, **kwargs)
+
+
+class NamedEntity(models.Model):
+    document = ForeignKey(AuditDocument, on_delete=models.CASCADE)
+    name = CharField(max_length=64, blank=False)
+    frequency = IntegerField(blank=False)

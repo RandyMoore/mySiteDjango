@@ -11,6 +11,7 @@ lib/
 lib64
 # Misc
 pip-selfcheck.json
+*reports.txt
 # NPM
 node_modules/
 package-lock.json
