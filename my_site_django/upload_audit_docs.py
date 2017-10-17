@@ -10,15 +10,32 @@ Then feed that file to this script
 from multiprocessing import Pool
 
 import django
-import fileinput
+import fnmatch
 import json
 import multiprocessing
 import os
+import sys
 from django.db import transaction
 from government_audit_mining.audit_miner import get_named_entities
 from nltk.probability import FreqDist
 
-def save_to_db(db_queue):
+corpus_root = None
+db_queue = None
+META_FILE_NAME = 'report.json'
+TEXT_FILE_NAME = 'report.txt'
+
+
+def find(pattern, path):
+    result = []
+    for root, dirs, files in os.walk(path):
+        for name in files:
+            if fnmatch.fnmatch(name, pattern):
+                result.append(os.path.join(root, name))
+    return result
+
+
+def save_to_db():
+    global db_queue
     while True:
         doc_tuple = db_queue.get()
 
@@ -27,7 +44,7 @@ def save_to_db(db_queue):
             return
 
         doc, named_entities = doc_tuple
-        print('DB PID', os.getpid(), 'saving', doc.title)
+        print('DB saving', doc.title)
 
         try:
             doc.save()
@@ -39,10 +56,10 @@ def save_to_db(db_queue):
             print('Failed to save to DB', str(e))
 
 
-def process_documents(args_tuple):
-    path, db_queue = args_tuple
-    meta_path = path.strip('\n')
-    print('Process ', os.getpid(), ':', meta_path)
+def process_documents(meta_path):
+    global corpus_root, db_queue
+    #meta_path, db_queue = args_tuple
+    print('Process', meta_path)
 
     if not os.path.exists(meta_path):
         print('Input path ' + meta_path + ' not found - Skipping')
@@ -60,8 +77,9 @@ def process_documents(args_tuple):
         doc.publication_date = meta['published_on']
         doc.source = 'AO'
         doc.url = meta['url']
+        doc.path = str(meta_path)[len(corpus_root)+1:-len(META_FILE_NAME)-1]
 
-        text_path = meta_path.replace('report.json', 'report.txt')
+        text_path = meta_path.replace(META_FILE_NAME, TEXT_FILE_NAME)
 
         if os.path.exists(text_path):
             with open(text_path) as text_file:
@@ -90,15 +108,20 @@ if __name__ == "__main__":
 
     from government_audit.models import AuditDocument, NamedEntity
 
-    # TODO: find a better way to resume after failure.
-    # existing_titles = set([record[0] for record in AuditDocument.objects.values_list('title')])
+    existing_paths = set([record[0] for record in AuditDocument.objects.values_list('path')])
     db_queue = multiprocessing.Manager().Queue()
 
-    files = [f for f in fileinput.input()]
+    corpus_root = sys.argv[1]
+    files = []
+    for f in find(META_FILE_NAME, corpus_root):
+        if str(f)[len(corpus_root)+1:-len(META_FILE_NAME)-1] not in existing_paths:
+           files.append(f)
+        else:
+            print(f, 'already in DB, skipping.')
 
-    multiprocessing.Process(target=save_to_db, args=(db_queue,)).start()
+    multiprocessing.Process(target=save_to_db).start()
 
     with multiprocessing.Pool() as p: # by default creates as many processes as available cores.
-        p.map(func=process_documents, iterable=zip(files, [db_queue]*len(files)))
+        p.map(func=process_documents, iterable=files)
 
     db_queue.put(None)
