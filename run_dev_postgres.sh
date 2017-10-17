@@ -4,4 +4,4 @@ docker run -p 5432:5432 -e PGDATA=/var/lib/postgresql/pgdata postgres
 # ./manage.py migrate
 # ./upload_audit_docs.py <paths of .json files>
 # docker commit -c "ENV PGDATA /var/lib/postgresql/pgdata" <container id> postgrespopulated
-#docker run -p 5432:5432 -e PGDATA=/var/lib/postgresql/pgdata postgrespopulated:2
+#docker run -p 5432:5432 -e PGDATA=/var/lib/postgresql/pgdata postgrespopulated:3
