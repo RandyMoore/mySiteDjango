@@ -58,7 +58,6 @@ def save_to_db():
 
 def process_documents(meta_path):
     global corpus_root, db_queue
-    #meta_path, db_queue = args_tuple
     print('Process', meta_path)
 
     if not os.path.exists(meta_path):
