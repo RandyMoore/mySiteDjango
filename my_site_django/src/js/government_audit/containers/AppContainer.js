@@ -20,6 +20,7 @@ function getState() {
     onParserChange: SearchActions.changeParser,
     onQuerySubmit: SearchActions.submitQuery,
     onPageChange: SearchActions.changePage,
+    onNamedEntityClick: SearchActions.searchNamedEntity,
   };
 }
 

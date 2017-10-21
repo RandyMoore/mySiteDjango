@@ -21,6 +21,10 @@ class AuditSearchStore extends ReduceStore {
       SearchActions.receiveUrlCheck(response);
     };
 
+    auditSearch.namedEntitySocket.onmessage = function(response) {
+      SearchActions.receiveNamedEntityResults(response);
+    };
+
     return auditSearch;
   }
 
@@ -95,6 +99,39 @@ class AuditSearchStore extends ReduceStore {
         if (original) {
           state = state.set('results', state.results.set(result['id'], Object.assign(original, result)));
         }
+
+        return state;
+      }
+
+      case SearchActionTypes.SEARCH_NAMED_ENTITY:
+      {
+        const target = action.event.target;
+
+        if (target.id != "ne-exploration-heading") {
+          state = state.set('namedEntities', state.namedEntities.push(target.innerText))
+        }
+
+        const message = JSON.stringify({
+          'entityList': state.namedEntities,
+          'years': state.years,
+        });
+
+        if (state.namedEntitySocket.readyState == WebSocket.OPEN) {
+          state.namedEntitySocket.send(message);
+        } else {
+          console.log("NamedEntity Websocket is not open, cannot perform search.");
+        }
+
+        return state;
+      }
+
+      case SearchActionTypes.RECEIVE_NAMED_ENTITY_RESULTS:
+      {
+        action.event.preventDefault();
+
+        const results = JSON.parse(action.event.data);
+
+        state = state.set('namedEntityResults', Immutable.List(results['topEntities']));
 
         return state;
       }

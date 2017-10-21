@@ -33,7 +33,8 @@ function getState() {
     onYearSelectionChange: _SearchActions2.default.changeYearSelection,
     onParserChange: _SearchActions2.default.changeParser,
     onQuerySubmit: _SearchActions2.default.submitQuery,
-    onPageChange: _SearchActions2.default.changePage
+    onPageChange: _SearchActions2.default.changePage,
+    onNamedEntityClick: _SearchActions2.default.searchNamedEntity
   };
 }
 
@@ -52,10 +53,15 @@ var _immutable2 = _interopRequireDefault(_immutable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getWebSocket() {
-  // TODO: This is a hack to get unit testing to work... fix and update the tests.
+function getVerifyUrlSocket() {
   if (typeof WebSocket !== "undefined") {
     return new WebSocket("ws://" + window.location.host + "/verifyUrl");
+  }
+};
+
+function getNamedEntitySocket() {
+  if (typeof WebSocket !== "undefined") {
+    return new WebSocket("ws://" + window.location.host + "/namedEntity");
   }
 };
 
@@ -63,11 +69,14 @@ var AuditSearch = _immutable2.default.Record({
   query: '',
   queryParser: 'plain',
   years: _immutable2.default.Set(['2017']),
+  namedEntities: _immutable2.default.List(),
+  namedEntityResults: _immutable2.default.List(),
   results: _immutable2.default.List(),
   resultsOffset: 0,
   resultsLimit: 10,
   resultsSize: 0,
-  verifyUrlSocket: getWebSocket()
+  verifyUrlSocket: getVerifyUrlSocket(),
+  namedEntitySocket: getNamedEntitySocket()
 });
 
 exports.default = AuditSearch;
@@ -96,7 +105,9 @@ var SearchActionTypes = {
   SUBMIT_QUERY: 'SUBMIT_QUERY',
   LOAD_QUERY_RESPONSE: 'LOAD_QUERY_RESPONSE',
   CHANGE_PAGE: 'CHANGE_PAGE',
-  RECEIVE_URL_CHECK: 'RECEIVE_URL_CHECK'
+  RECEIVE_URL_CHECK: 'RECEIVE_URL_CHECK',
+  SEARCH_NAMED_ENTITY: 'SEARCH_NAMED_ENTITY',
+  RECEIVE_NAMED_ENTITY_RESULTS: 'RECEIVE_NAMED_ENTITY_RESULTS'
 };
 
 exports.default = SearchActionTypes;
@@ -158,6 +169,18 @@ var SearchActions = {
   receiveUrlCheck: function receiveUrlCheck(event) {
     _Dispatcher2.default.dispatch({
       type: _SearchActionTypes2.default.RECEIVE_URL_CHECK,
+      event: event
+    });
+  },
+  searchNamedEntity: function searchNamedEntity(event) {
+    _Dispatcher2.default.dispatch({
+      type: _SearchActionTypes2.default.SEARCH_NAMED_ENTITY,
+      event: event
+    });
+  },
+  receiveNamedEntityResults: function receiveNamedEntityResults(event) {
+    _Dispatcher2.default.dispatch({
+      type: _SearchActionTypes2.default.RECEIVE_NAMED_ENTITY_RESULTS,
       event: event
     });
   }
@@ -224,6 +247,10 @@ var AuditSearchStore = function (_ReduceStore) {
 
       auditSearch.verifyUrlSocket.onmessage = function (response) {
         _SearchActions2.default.receiveUrlCheck(response);
+      };
+
+      auditSearch.namedEntitySocket.onmessage = function (response) {
+        _SearchActions2.default.receiveNamedEntityResults(response);
       };
 
       return auditSearch;
@@ -300,6 +327,39 @@ var AuditSearchStore = function (_ReduceStore) {
             if (original) {
               state = state.set('results', state.results.set(result['id'], Object.assign(original, result)));
             }
+
+            return state;
+          }
+
+        case _SearchActionTypes2.default.SEARCH_NAMED_ENTITY:
+          {
+            var target = action.event.target;
+
+            if (target.id != "ne-exploration-heading") {
+              state = state.set('namedEntities', state.namedEntities.push(target.innerText));
+            }
+
+            var message = JSON.stringify({
+              'entityList': state.namedEntities,
+              'years': state.years
+            });
+
+            if (state.namedEntitySocket.readyState == WebSocket.OPEN) {
+              state.namedEntitySocket.send(message);
+            } else {
+              console.log("NamedEntity Websocket is not open, cannot perform search.");
+            }
+
+            return state;
+          }
+
+        case _SearchActionTypes2.default.RECEIVE_NAMED_ENTITY_RESULTS:
+          {
+            action.event.preventDefault();
+
+            var results = JSON.parse(action.event.data);
+
+            state = state.set('namedEntityResults', _immutable2.default.List(results['topEntities']));
 
             return state;
           }
@@ -534,6 +594,72 @@ function ResultsTable(props) {
   );
 }
 
+function NamedEntityHistoryStack(props) {}
+
+function NamedEntityResults(props) {
+  var namedEntities = props.auditSearch.namedEntityResults.toJS();
+
+  return _react2.default.createElement(
+    'table',
+    null,
+    _react2.default.createElement(
+      'thead',
+      null,
+      _react2.default.createElement(
+        'tr',
+        null,
+        _react2.default.createElement(
+          'th',
+          { width: '80%' },
+          ' Name '
+        ),
+        _react2.default.createElement(
+          'th',
+          null,
+          ' #Docs '
+        )
+      )
+    ),
+    _react2.default.createElement(
+      'tbody',
+      null,
+      namedEntities.map(function (ne) {
+        return _react2.default.createElement(
+          'tr',
+          { key: ne.name, onClick: props.onNamedEntityClick },
+          _react2.default.createElement(
+            'td',
+            null,
+            ' ',
+            ne.name,
+            ' '
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            ' ',
+            ne.numDocs,
+            ' '
+          )
+        );
+      })
+    )
+  );
+}
+
+function NamedEntityExploration(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'button',
+      { id: 'ne-exploration-heading', onClick: props.onNamedEntityClick },
+      'Named Entity Exploration'
+    ),
+    _react2.default.createElement(NamedEntityResults, props)
+  );
+}
+
 function AuditSearchComponent(props) {
   var pageCount = Math.ceil(props.auditSearch.resultsSize / props.auditSearch.resultsLimit);
   var currentPage = Math.floor(props.auditSearch.resultsOffset / props.auditSearch.resultsLimit);
@@ -542,7 +668,10 @@ function AuditSearchComponent(props) {
     null,
     _react2.default.createElement(SearchInput, props),
     _react2.default.createElement(QueryParserOption, props),
+    _react2.default.createElement('br', null),
     _react2.default.createElement(YearSelection, props),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement(NamedEntityExploration, props),
     _react2.default.createElement(
       'h3',
       { className: 'heading' },

@@ -115,6 +115,44 @@ function ResultsTable(props) {
   );
 }
 
+function NamedEntityHistoryStack(props) {
+
+}
+
+function NamedEntityResults(props) {
+  const namedEntities = props.auditSearch.namedEntityResults.toJS();
+
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th width="80%"> Name </th>
+          <th> #Docs </th>
+        </tr>
+      </thead>
+      <tbody>
+        {namedEntities.map(ne => {
+          return (
+            <tr key={ ne.name } onClick={props.onNamedEntityClick}>
+              <td> { ne.name } </td>
+              <td> { ne.numDocs } </td>
+            </tr>
+          );
+        })}
+     </tbody>
+    </table>
+  );
+}
+
+function NamedEntityExploration(props) {
+  return (
+    <div>
+      <button id="ne-exploration-heading" onClick={props.onNamedEntityClick}>Named Entity Exploration</button>
+      <NamedEntityResults {...props} />
+    </div>
+  );
+}
+
 function AuditSearchComponent(props) {
   const pageCount = Math.ceil(props.auditSearch.resultsSize / props.auditSearch.resultsLimit)
   const currentPage = Math.floor(props.auditSearch.resultsOffset / props.auditSearch.resultsLimit)
@@ -122,7 +160,10 @@ function AuditSearchComponent(props) {
     <div>
       <SearchInput {...props} />
       <QueryParserOption {...props} />
+      <br/>
       <YearSelection {...props} />
+      <br/>
+      <NamedEntityExploration {...props} />
       <h3 className="heading">Results:</h3>
       <ResultsTable {...props} />
       { pageCount > 1 &&

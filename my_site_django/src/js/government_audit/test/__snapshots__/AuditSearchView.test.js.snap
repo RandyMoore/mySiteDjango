@@ -46,6 +46,7 @@ exports[`Default render 1`] = `
       </option>
     </select>
   </div>
+  <br />
   <fieldset
     className="year-selection right"
   >
@@ -130,6 +131,30 @@ exports[`Default render 1`] = `
       </label>
     </span>
   </fieldset>
+  <br />
+  <div>
+    <button
+      id="ne-exploration-heading"
+      onClick={undefined}
+    >
+      Named Entity Exploration
+    </button>
+    <table>
+      <thead>
+        <tr>
+          <th
+            width="80%"
+          >
+             Name 
+          </th>
+          <th>
+             #Docs 
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
   <h3
     className="heading"
   >
@@ -202,6 +227,7 @@ exports[`Render result after URL validity check returns active 1`] = `
       </option>
     </select>
   </div>
+  <br />
   <fieldset
     className="year-selection right"
   >
@@ -286,6 +312,30 @@ exports[`Render result after URL validity check returns active 1`] = `
       </label>
     </span>
   </fieldset>
+  <br />
+  <div>
+    <button
+      id="ne-exploration-heading"
+      onClick={undefined}
+    >
+      Named Entity Exploration
+    </button>
+    <table>
+      <thead>
+        <tr>
+          <th
+            width="80%"
+          >
+             Name 
+          </th>
+          <th>
+             #Docs 
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
   <h3
     className="heading"
   >
@@ -383,6 +433,7 @@ exports[`Render result after URL validity check returns not active 1`] = `
       </option>
     </select>
   </div>
+  <br />
   <fieldset
     className="year-selection right"
   >
@@ -467,6 +518,30 @@ exports[`Render result after URL validity check returns not active 1`] = `
       </label>
     </span>
   </fieldset>
+  <br />
+  <div>
+    <button
+      id="ne-exploration-heading"
+      onClick={undefined}
+    >
+      Named Entity Exploration
+    </button>
+    <table>
+      <thead>
+        <tr>
+          <th
+            width="80%"
+          >
+             Name 
+          </th>
+          <th>
+             #Docs 
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
   <h3
     className="heading"
   >
@@ -565,6 +640,7 @@ exports[`Render result before URL validity check 1`] = `
       </option>
     </select>
   </div>
+  <br />
   <fieldset
     className="year-selection right"
   >
@@ -649,6 +725,30 @@ exports[`Render result before URL validity check 1`] = `
       </label>
     </span>
   </fieldset>
+  <br />
+  <div>
+    <button
+      id="ne-exploration-heading"
+      onClick={undefined}
+    >
+      Named Entity Exploration
+    </button>
+    <table>
+      <thead>
+        <tr>
+          <th
+            width="80%"
+          >
+             Name 
+          </th>
+          <th>
+             #Docs 
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
   <h3
     className="heading"
   >
@@ -746,6 +846,7 @@ exports[`Render with pagination visible (available result size > results per pag
       </option>
     </select>
   </div>
+  <br />
   <fieldset
     className="year-selection right"
   >
@@ -830,6 +931,30 @@ exports[`Render with pagination visible (available result size > results per pag
       </label>
     </span>
   </fieldset>
+  <br />
+  <div>
+    <button
+      id="ne-exploration-heading"
+      onClick={undefined}
+    >
+      Named Entity Exploration
+    </button>
+    <table>
+      <thead>
+        <tr>
+          <th
+            width="80%"
+          >
+             Name 
+          </th>
+          <th>
+             #Docs 
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
   <h3
     className="heading"
   >

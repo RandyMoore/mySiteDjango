@@ -50,6 +50,20 @@ const SearchActions = {
       event
     });
   },
+
+  searchNamedEntity(event) {
+    Dispatcher.dispatch({
+      type: SearchActionTypes.SEARCH_NAMED_ENTITY,
+      event
+    });
+  },
+
+  receiveNamedEntityResults(event) {
+    Dispatcher.dispatch({
+      type: SearchActionTypes.RECEIVE_NAMED_ENTITY_RESULTS,
+      event
+    });
+  },
 };
 
 export default SearchActions;
