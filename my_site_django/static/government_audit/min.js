@@ -27,9 +27,10 @@ function getStores() {
 
 function getState() {
   return {
-    searchResults: _SearchStore2.default.getState(),
+    auditSearch: _SearchStore2.default.getState(),
 
     onQueryChange: _SearchActions2.default.changeQuery,
+    onYearSelectionChange: _SearchActions2.default.changeYearSelection,
     onParserChange: _SearchActions2.default.changeParser,
     onQuerySubmit: _SearchActions2.default.submitQuery,
     onPageChange: _SearchActions2.default.changePage
@@ -38,7 +39,40 @@ function getState() {
 
 exports.default = _utils.Container.createFunctional(_AuditSearchView2.default, getStores, getState);
 
-},{"../data/SearchActions":4,"../data/SearchStore":6,"../views/AuditSearchView":8,"flux/utils":75}],2:[function(require,module,exports){
+},{"../data/SearchActions":5,"../data/SearchStore":6,"../views/AuditSearchView":8,"flux/utils":75}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _immutable = require("immutable");
+
+var _immutable2 = _interopRequireDefault(_immutable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getWebSocket() {
+  // TODO: This is a hack to get unit testing to work... fix and update the tests.
+  if (typeof WebSocket !== "undefined") {
+    return new WebSocket("ws://" + window.location.host + "/verifyUrl");
+  }
+};
+
+var AuditSearch = _immutable2.default.Record({
+  query: '',
+  queryParser: 'plain',
+  years: _immutable2.default.Set(['2017']),
+  results: _immutable2.default.List(),
+  resultsOffset: 0,
+  resultsLimit: 10,
+  resultsSize: 0,
+  verifyUrlSocket: getWebSocket()
+});
+
+exports.default = AuditSearch;
+
+},{"immutable":76}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49,7 +83,7 @@ var _flux = require('flux');
 
 exports.default = new _flux.Dispatcher();
 
-},{"flux":64}],3:[function(require,module,exports){
+},{"flux":64}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -58,6 +92,7 @@ Object.defineProperty(exports, "__esModule", {
 var SearchActionTypes = {
   CHANGE_QUERY: 'CHANGE_QUERY',
   CHANGE_PARSER: 'CHANGE_PARSER',
+  CHANGE_YEAR_SELECTION: 'CHANGE_YEAR_SELECTION',
   SUBMIT_QUERY: 'SUBMIT_QUERY',
   LOAD_QUERY_RESPONSE: 'LOAD_QUERY_RESPONSE',
   CHANGE_PAGE: 'CHANGE_PAGE',
@@ -66,7 +101,7 @@ var SearchActionTypes = {
 
 exports.default = SearchActionTypes;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -93,6 +128,12 @@ var SearchActions = {
   changeParser: function changeParser(event) {
     _Dispatcher2.default.dispatch({
       type: _SearchActionTypes2.default.CHANGE_PARSER,
+      event: event
+    });
+  },
+  changeYearSelection: function changeYearSelection(event) {
+    _Dispatcher2.default.dispatch({
+      type: _SearchActionTypes2.default.CHANGE_YEAR_SELECTION,
       event: event
     });
   },
@@ -124,39 +165,7 @@ var SearchActions = {
 
 exports.default = SearchActions;
 
-},{"./Dispatcher":2,"./SearchActionTypes":3}],5:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _immutable = require("immutable");
-
-var _immutable2 = _interopRequireDefault(_immutable);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function getWebSocket() {
-  // TODO: This is a hack to get unit testing to work... fix and update the tests.
-  if (typeof WebSocket !== "undefined") {
-    return new WebSocket("ws://" + window.location.host + "/verifyUrl");
-  }
-};
-
-var SearchResults = _immutable2.default.Record({
-  query: '',
-  queryParser: 'plain',
-  results: _immutable2.default.List(),
-  resultsOffset: 0,
-  resultsLimit: 10,
-  resultsSize: 0,
-  verifyUrlSocket: getWebSocket()
-});
-
-exports.default = SearchResults;
-
-},{"immutable":76}],6:[function(require,module,exports){
+},{"./Dispatcher":3,"./SearchActionTypes":4}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -187,9 +196,9 @@ var _SearchActionTypes = require('./SearchActionTypes');
 
 var _SearchActionTypes2 = _interopRequireDefault(_SearchActionTypes);
 
-var _SearchResults = require('./SearchResults');
+var _AuditSearch = require('./AuditSearch');
 
-var _SearchResults2 = _interopRequireDefault(_SearchResults);
+var _AuditSearch2 = _interopRequireDefault(_AuditSearch);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -211,13 +220,13 @@ var AuditSearchStore = function (_ReduceStore) {
   _createClass(AuditSearchStore, [{
     key: 'getInitialState',
     value: function getInitialState() {
-      var searchResults = new _SearchResults2.default();
+      var auditSearch = new _AuditSearch2.default();
 
-      searchResults.verifyUrlSocket.onmessage = function (response) {
+      auditSearch.verifyUrlSocket.onmessage = function (response) {
         _SearchActions2.default.receiveUrlCheck(response);
       };
 
-      return searchResults;
+      return auditSearch;
     }
   }, {
     key: 'reduce',
@@ -229,6 +238,14 @@ var AuditSearchStore = function (_ReduceStore) {
         case _SearchActionTypes2.default.CHANGE_PARSER:
           return state.set('queryParser', action.event.target.value);
 
+        case _SearchActionTypes2.default.CHANGE_YEAR_SELECTION:
+          {
+            var toggledSelection = action.event.target.value;
+            var updatedYears = state.years.includes(toggledSelection) ? state.years.delete(toggledSelection) : state.years.add(toggledSelection);
+
+            return state.set('years', updatedYears);
+          }
+
         case _SearchActionTypes2.default.SUBMIT_QUERY:
           if (action.event) {
             action.event.preventDefault();
@@ -238,7 +255,9 @@ var AuditSearchStore = function (_ReduceStore) {
             return state;
           }
 
-          this.fetchResults(state.set('resultsOffset', 0));
+          state = state.set('resultsOffset', 0);
+
+          this.fetchResults(state);
 
           return state;
 
@@ -279,10 +298,7 @@ var AuditSearchStore = function (_ReduceStore) {
             var result = JSON.parse(action.event.data);
             var original = state.results.get(result['id']);
             if (original) {
-              // Must completely replace Immutable.Record
-              state = new _SearchResults2.default(Object.assign(state.toJS(), {
-                results: state.results.set(result['id'], Object.assign(original, result))
-              }));
+              state = state.set('results', state.results.set(result['id'], Object.assign(original, result)));
             }
 
             return state;
@@ -301,6 +317,7 @@ var AuditSearchStore = function (_ReduceStore) {
       _axios2.default.get('/audits/search/', {
         params: {
           query: state.query,
+          years: state.years,
           parser: state.queryParser,
           limit: state.resultsLimit,
           offset: state.resultsOffset
@@ -316,7 +333,7 @@ var AuditSearchStore = function (_ReduceStore) {
 
 exports.default = new AuditSearchStore();
 
-},{"./Dispatcher":2,"./SearchActionTypes":3,"./SearchActions":4,"./SearchResults":5,"axios":9,"flux/utils":75,"immutable":76}],7:[function(require,module,exports){
+},{"./AuditSearch":2,"./Dispatcher":3,"./SearchActionTypes":4,"./SearchActions":5,"axios":9,"flux/utils":75,"immutable":76}],7:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -352,9 +369,13 @@ var _reactPaginate = require('react-paginate');
 
 var _reactPaginate2 = _interopRequireDefault(_reactPaginate);
 
+var _immutable = require('immutable');
+
+var _immutable2 = _interopRequireDefault(_immutable);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Options(props) {
+function QueryParserOption(props) {
   return _react2.default.createElement(
     'div',
     null,
@@ -394,9 +415,36 @@ function SearchInput(props) {
       null,
       'Search Query ',
       _react2.default.createElement('br', null),
-      _react2.default.createElement('input', { type: 'text', value: props.searchResults.query, onChange: props.onQueryChange })
+      _react2.default.createElement('input', { type: 'text', value: props.auditSearch.query, onChange: props.onQueryChange })
     ),
     _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+  );
+}
+
+var YearSelections = _immutable2.default.List(['before2014', '2014', '2015', '2016', '2017']);
+
+function YearSelection(props) {
+  return _react2.default.createElement(
+    'fieldset',
+    { className: 'year-selection right' },
+    YearSelections.map(function (yearSelection) {
+      return _react2.default.createElement(
+        'span',
+        { key: yearSelection },
+        _react2.default.createElement('input', {
+          type: 'checkbox',
+          id: yearSelection,
+          name: 'yearSelection',
+          value: yearSelection,
+          onChange: props.onYearSelectionChange,
+          checked: props.auditSearch.years.includes(yearSelection) }),
+        _react2.default.createElement(
+          'label',
+          { className: 'year-selection-label', htmlFor: yearSelection },
+          yearSelection
+        )
+      );
+    })
   );
 }
 
@@ -444,7 +492,7 @@ function ResultRow(props) {
 }
 
 function ResultsTable(props) {
-  var results = props.searchResults.results.toJS();
+  var results = props.auditSearch.results.toJS();
 
   var counter = 0;
   return _react2.default.createElement(
@@ -477,7 +525,7 @@ function ResultsTable(props) {
           key: counter,
           rowNumber: counter + 1,
           result: results[key],
-          resultsOffset: props.searchResults.resultsOffset });
+          resultsOffset: props.auditSearch.resultsOffset });
 
         counter += 1;
         return jsx;
@@ -486,13 +534,15 @@ function ResultsTable(props) {
   );
 }
 
-function AuditSearch(props) {
-  var pageCount = Math.ceil(props.searchResults.resultsSize / props.searchResults.resultsLimit);
+function AuditSearchComponent(props) {
+  var pageCount = Math.ceil(props.auditSearch.resultsSize / props.auditSearch.resultsLimit);
+  var currentPage = Math.floor(props.auditSearch.resultsOffset / props.auditSearch.resultsLimit);
   return _react2.default.createElement(
     'div',
     null,
     _react2.default.createElement(SearchInput, props),
-    _react2.default.createElement(Options, props),
+    _react2.default.createElement(QueryParserOption, props),
+    _react2.default.createElement(YearSelection, props),
     _react2.default.createElement(
       'h3',
       { className: 'heading' },
@@ -500,6 +550,7 @@ function AuditSearch(props) {
     ),
     _react2.default.createElement(ResultsTable, props),
     pageCount > 1 && _react2.default.createElement(_reactPaginate2.default, _extends({}, props, {
+      forcePage: currentPage,
       previousLabel: "previous",
       nextLabel: "next",
       breakLabel: _react2.default.createElement(
@@ -519,9 +570,9 @@ function AuditSearch(props) {
   );
 }
 
-exports.default = AuditSearch;
+exports.default = AuditSearchComponent;
 
-},{"react":243,"react-paginate":217}],9:[function(require,module,exports){
+},{"immutable":76,"react":243,"react-paginate":217}],9:[function(require,module,exports){
 module.exports = require('./lib/axios');
 },{"./lib/axios":11}],10:[function(require,module,exports){
 (function (process){
@@ -30480,4 +30531,4 @@ module.exports = traverseAllChildren;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":220}]},{},[1,2,4,3,5,6,7,8]);
+},{"./lib/React":220}]},{},[1,2,3,5,4,6,7,8]);

@@ -13,9 +13,10 @@ function getStores() {
 
 function getState() {
   return {
-    searchResults: AuditSearchStore.getState(),
+    auditSearch: AuditSearchStore.getState(),
 
     onQueryChange: SearchActions.changeQuery,
+    onYearSelectionChange: SearchActions.changeYearSelection,
     onParserChange: SearchActions.changeParser,
     onQuerySubmit: SearchActions.submitQuery,
     onPageChange: SearchActions.changePage,

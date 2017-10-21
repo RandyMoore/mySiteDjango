@@ -16,6 +16,13 @@ const SearchActions = {
     });
   },
 
+  changeYearSelection(event) {
+    Dispatcher.dispatch({
+      type: SearchActionTypes.CHANGE_YEAR_SELECTION,
+      event
+    });
+  },
+
   submitQuery(event) {
     Dispatcher.dispatch({
       type: SearchActionTypes.SUBMIT_QUERY,

@@ -7,9 +7,10 @@ function getWebSocket() {
   }
 };
 
-const SearchResults = Immutable.Record({
+const AuditSearch = Immutable.Record({
   query: '',
   queryParser: 'plain',
+  years: Immutable.Set(['2017']),
   results: Immutable.List(),
   resultsOffset: 0,
   resultsLimit: 10,
@@ -17,5 +18,4 @@ const SearchResults = Immutable.Record({
   verifyUrlSocket: getWebSocket(),
 });
 
-
-export default SearchResults;
+export default AuditSearch;

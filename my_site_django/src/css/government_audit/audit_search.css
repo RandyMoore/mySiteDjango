@@ -18,3 +18,11 @@ table, th, td {
 .pagination {
   font-size: 18px;
 }
+
+.year-selection {
+  border: null;
+}
+
+.year-selection-label {
+  padding-right: 20px;
+}

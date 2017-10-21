@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
+import Immutable from 'immutable';
 
-function Options(props) {
+function QueryParserOption(props) {
   return (
     <div>
       <a href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"> Query Parser: </a>
@@ -19,10 +20,42 @@ function SearchInput(props) {
     <form onSubmit={props.onQuerySubmit}>
       <label>
         Search Query <br/>
-        <input type="text" value={props.searchResults.query} onChange={props.onQueryChange}/>
+        <input type="text" value={props.auditSearch.query} onChange={props.onQueryChange}/>
       </label>
       <input type="submit" value="Submit" />
     </form>
+  );
+}
+
+const YearSelections = Immutable.List(
+  [
+    'before2014',
+    '2014',
+    '2015',
+    '2016',
+    '2017'
+  ]
+);
+
+function YearSelection(props) {
+  return (
+      <fieldset className="year-selection right">
+        { YearSelections.map( yearSelection => {
+            return (
+              <span key={yearSelection}>
+                <input
+                  type="checkbox"
+                  id={yearSelection}
+                  name="yearSelection"
+                  value={yearSelection}
+                  onChange={props.onYearSelectionChange}
+                  checked={props.auditSearch.years.includes(yearSelection)} />
+                <label className="year-selection-label" htmlFor={yearSelection}>{yearSelection}</label>
+              </span>
+            );
+          })
+        }
+      </fieldset>
   );
 }
 
@@ -52,7 +85,7 @@ function ResultRow(props) {
 }
 
 function ResultsTable(props) {
-  const results = props.searchResults.results.toJS();
+  const results = props.auditSearch.results.toJS();
 
   let counter = 0;
   return (
@@ -68,10 +101,10 @@ function ResultsTable(props) {
           {results && Object.keys(results).map(key => {
             const jsx = (
               <ResultRow
-                key={counter}
-                rowNumber={counter + 1}
+                key={ counter }
+                rowNumber={ counter + 1 }
                 result={ results[key] }
-                resultsOffset={ props.searchResults.resultsOffset } />
+                resultsOffset={ props.auditSearch.resultsOffset } />
             );
 
             counter += 1;
@@ -82,16 +115,19 @@ function ResultsTable(props) {
   );
 }
 
-function AuditSearch(props) {
-  const pageCount = Math.ceil(props.searchResults.resultsSize / props.searchResults.resultsLimit)
+function AuditSearchComponent(props) {
+  const pageCount = Math.ceil(props.auditSearch.resultsSize / props.auditSearch.resultsLimit)
+  const currentPage = Math.floor(props.auditSearch.resultsOffset / props.auditSearch.resultsLimit)
   return (
     <div>
       <SearchInput {...props} />
-      <Options {...props} />
+      <QueryParserOption {...props} />
+      <YearSelection {...props} />
       <h3 className="heading">Results:</h3>
       <ResultsTable {...props} />
       { pageCount > 1 &&
         <ReactPaginate {...props}
+          forcePage={currentPage}
           previousLabel={"previous"}
           nextLabel={"next"}
           breakLabel={<a>...</a>}
@@ -109,4 +145,4 @@ function AuditSearch(props) {
   );
 }
 
-export default AuditSearch;
+export default AuditSearchComponent;

@@ -6,7 +6,7 @@ import {
 import Dispatcher from './Dispatcher';
 import SearchActions from './SearchActions'
 import SearchActionTypes from './SearchActionTypes';
-import SearchResults from './SearchResults';
+import AuditSearch from './AuditSearch';
 
 
 class AuditSearchStore extends ReduceStore {
@@ -15,13 +15,13 @@ class AuditSearchStore extends ReduceStore {
   }
 
   getInitialState() {
-    let searchResults = new SearchResults();
+    let auditSearch = new AuditSearch();
 
-    searchResults.verifyUrlSocket.onmessage = function(response) {
+    auditSearch.verifyUrlSocket.onmessage = function(response) {
       SearchActions.receiveUrlCheck(response);
     };
 
-    return searchResults;
+    return auditSearch;
   }
 
   reduce(state, action) {
@@ -32,6 +32,15 @@ class AuditSearchStore extends ReduceStore {
       case SearchActionTypes.CHANGE_PARSER:
         return state.set('queryParser', action.event.target.value);
 
+      case SearchActionTypes.CHANGE_YEAR_SELECTION:
+        {
+          const toggledSelection = action.event.target.value;
+          let updatedYears = state.years.includes(toggledSelection) ?
+            state.years.delete(toggledSelection) : state.years.add(toggledSelection);
+
+          return state.set('years', updatedYears);
+        }
+
       case SearchActionTypes.SUBMIT_QUERY:
         if (action.event) {
           action.event.preventDefault();
@@ -41,7 +50,9 @@ class AuditSearchStore extends ReduceStore {
           return state
         }
 
-        this.fetchResults(state.set('resultsOffset', 0));
+        state = state.set('resultsOffset', 0);
+
+        this.fetchResults(state);
 
         return state;
 
@@ -82,10 +93,7 @@ class AuditSearchStore extends ReduceStore {
         const result = JSON.parse(action.event.data);
         let original = state.results.get(result['id']);
         if (original) {
-          // Must completely replace Immutable.Record
-          state = new SearchResults(Object.assign(state.toJS(), {
-            results: state.results.set(result['id'], Object.assign(original, result)),
-          }));
+          state = state.set('results', state.results.set(result['id'], Object.assign(original, result)));
         }
 
         return state;
@@ -101,6 +109,7 @@ class AuditSearchStore extends ReduceStore {
     axios.get('/audits/search/', {
       params: {
         query: state.query,
+        years: state.years,
         parser: state.queryParser,
         limit: state.resultsLimit,
         offset: state.resultsOffset

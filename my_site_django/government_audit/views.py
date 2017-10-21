@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import connection
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import render
+import json
 from psycopg2 import Error
 
 from .models import AuditDocument
@@ -19,13 +20,27 @@ def search(request):
             'raw': 'to_tsquery'
         }
 
-        # TODO: Figure out how to express @@ operator without resorting to raw SQL
         try:
             text_query = f"{ query_func[request.GET['parser']] }('{ query }')"
 
+            years = json.loads(request.GET['years'])
+            year_clauses = []
+            if 'before2014' in years:
+                years.remove('before2014')
+                year_clauses.append('EXTRACT(year FROM government_audit_auditdocument.publication_date) < 2014')
+
+            if years:
+                year_clauses.append(f"EXTRACT(year FROM government_audit_auditdocument.publication_date) IN ({ ', '.join(years) })")
+
+            finalYearClause = ''
+            if len(year_clauses) == 2:
+                finalYearClause = 'AND (' + year_clauses[0] + ' OR ' + year_clauses[1] + ')'
+            elif len(year_clauses) == 1:
+                finalYearClause = 'AND ' + year_clauses[0]
+
             # TODO: Use sockets instead to retain state server side.
             with connection.cursor() as cursor:
-                cursor.execute(f'SELECT count(1) FROM government_audit_auditdocument WHERE lexemes @@ { text_query } ')
+                cursor.execute(f'SELECT count(1) FROM government_audit_auditdocument WHERE lexemes @@ { text_query } { finalYearClause } ')
                 size = cursor.fetchone()[0]
 
             offset = int(request.GET['offset'])
@@ -35,6 +50,7 @@ def search(request):
             SELECT id, title, publication_date, url, ts_rank_cd(lexemes, { text_query }) AS rank
             FROM government_audit_auditdocument
             WHERE lexemes @@ { text_query }
+            { finalYearClause }
             ORDER BY rank, id desc
             LIMIT { limit } OFFSET { offset } ''')
 

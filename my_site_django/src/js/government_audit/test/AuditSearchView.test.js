@@ -3,10 +3,10 @@ import renderer from 'react-test-renderer';
 
 import Immutable from 'immutable';
 import AuditSearchView from '../views/AuditSearchView';
-import SearchResults from '../data/SearchResults';
+import AuditSearch from '../data/AuditSearch';
 
 // What data may look like after query fetch
-const baseSearchResults = {
+const baseAuditSearch = {
   resultsSize: 1,
   resultsLimit: 10,
   results: new Immutable.OrderedMap([['1',  // '1' would be DB primary key
@@ -19,56 +19,56 @@ const baseSearchResults = {
 
 
 test('Default render', () => {
-  const searchResults = new SearchResults(Object.assign({}, baseSearchResults,
+  const auditSearch = new AuditSearch(Object.assign({}, baseAuditSearch,
     {results: new Immutable.OrderedMap()}));
 
-  renderAndCheck(searchResults);
+  renderAndCheck(auditSearch);
 });
 
 test('Render with pagination visible (available result size > results per page limit)', () => {
-  const searchResults = new SearchResults(Object.assign({}, baseSearchResults,
+  const auditSearch = new AuditSearch(Object.assign({}, baseAuditSearch,
     { 'resultsSize': 11 }));
 
   // Note in real life the table would have resultsLimit rows intsead of 1.
-  renderAndCheck(searchResults);
+  renderAndCheck(auditSearch);
 });
 
 test('Render result before URL validity check', () => {
-  const searchResults = new SearchResults(baseSearchResults);
+  const auditSearch = new AuditSearch(baseAuditSearch);
 
   // CSS on result row title will be italic.
-  renderAndCheck(searchResults);
+  renderAndCheck(auditSearch);
 });
 
 test('Render result after URL validity check returns active', () => {
   // Add isActive: true to result object with key 1
   const activeResult = new Immutable.OrderedMap( [['1', Object.assign({},
-    baseSearchResults.results.get('1'),
+    baseAuditSearch.results.get('1'),
     {isActive: true})]]);
-  const searchResults = new SearchResults(Object.assign({}, baseSearchResults,
+  const auditSearch = new AuditSearch(Object.assign({}, baseAuditSearch,
     { 'results': activeResult }));
 
   // CSS on result row title will be blue #0000FF and normal
-  renderAndCheck(searchResults);
+  renderAndCheck(auditSearch);
 });
 
 test('Render result after URL validity check returns not active', () => {
   // Add isActive: false to result object with key 1
   const inActiveResult = new Immutable.OrderedMap( [['1', Object.assign({},
-    baseSearchResults.results.get('1'),
+    baseAuditSearch.results.get('1'),
     {isActive: false})]]);
-  const searchResults = new SearchResults(Object.assign({}, baseSearchResults,
+  const auditSearch = new AuditSearch(Object.assign({}, baseAuditSearch,
     { 'results': inActiveResult }));
 
   // CSS on result row title will be red #FF0000 and strike through
-  renderAndCheck(searchResults);
+  renderAndCheck(auditSearch);
 });
 
 // Helper functions
-function renderAndCheck(searchResults) {
+function renderAndCheck(auditSearch) {
   const component = renderer.create(
     <AuditSearchView
-      searchResults={searchResults}
+      auditSearch={auditSearch}
     />);
 
   let tree = component.toJSON();
