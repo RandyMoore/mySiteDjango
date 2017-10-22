@@ -54,6 +54,12 @@ class AuditSearchStore extends ReduceStore {
           return state
         }
 
+        state = state.merge({
+          namedEntities: Immutable.List(),
+          namedEntityResults: Immutable.List(),
+          results: Immutable.List(),
+        });
+
         state = state.set('resultsOffset', 0);
 
         this.fetchResults(state);
@@ -87,8 +93,22 @@ class AuditSearchStore extends ReduceStore {
         }
 
       case SearchActionTypes.CHANGE_PAGE:
-        this.fetchResults(state.set('resultsOffset', Math.ceil(action.data.selected * state.resultsLimit)));
-        return state; // original state without page changed.
+        {
+          const offset = Math.ceil(action.data.selected * state.resultsLimit);
+          if (state.query != '') {
+            this.fetchResults(state.set('resultsOffset', offset));
+          } else {
+            const message = JSON.stringify({
+              'entityList': state.namedEntities,
+              'years': state.years,
+              'offset': offset
+            });
+
+            this.namedEntitySearch(state, message);
+          }
+
+          return state; // original state without page changed.
+        }
 
       case SearchActionTypes.RECEIVE_URL_CHECK:
       {
@@ -107,20 +127,27 @@ class AuditSearchStore extends ReduceStore {
       {
         const target = action.event.target;
 
-        if (target.id != "ne-exploration-heading") {
-          state = state.set('namedEntities', state.namedEntities.push(target.innerText))
+        let namedEntities = state.namedEntities.toJS();
+
+        if (target.id == "ne-exploration-heading") {
+          state = state.merge({
+            query: '',
+            namedEntities: Immutable.List(),
+            namedEntityResults: Immutable.List(),
+            results: Immutable.List(),
+          });
+          namedEntities = [];
+        } else {
+          namedEntities.push(target.innerText);
         }
 
         const message = JSON.stringify({
-          'entityList': state.namedEntities,
+          'entityList': namedEntities,
           'years': state.years,
+          'offset': 0
         });
 
-        if (state.namedEntitySocket.readyState == WebSocket.OPEN) {
-          state.namedEntitySocket.send(message);
-        } else {
-          console.log("NamedEntity Websocket is not open, cannot perform search.");
-        }
+        this.namedEntitySearch(state, message);
 
         return state;
       }
@@ -129,9 +156,28 @@ class AuditSearchStore extends ReduceStore {
       {
         action.event.preventDefault();
 
-        const results = JSON.parse(action.event.data);
+        const response = JSON.parse(action.event.data);
 
-        state = state.set('namedEntityResults', Immutable.List(results['topEntities']));
+        response.results.forEach(result => {
+          const message = JSON.stringify({
+            'id': result[0],
+            'url': result[1]['url'],
+          });
+
+          if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
+            state.verifyUrlSocket.send(message);
+          } else {
+            console.log("Websocket is not open, skipping URL checks");
+          }
+        });
+
+        return state.merge({
+          'namedEntityResults': Immutable.List(response['topEntities']),
+          'namedEntities': Immutable.List(response['selectedEntities']),
+          'results': Immutable.OrderedMap(response.results),
+          'resultsSize': response.size,
+          'resultsOffset': response.offset,
+        });
 
         return state;
       }
@@ -154,6 +200,14 @@ class AuditSearchStore extends ReduceStore {
     }).then(res => {
       SearchActions.handleQueryResponse(res);
     });
+  }
+
+  namedEntitySearch(state, searchMessage) {
+    if (state.namedEntitySocket.readyState == WebSocket.OPEN) {
+      state.namedEntitySocket.send(searchMessage);
+    } else {
+      console.log("NamedEntity Websocket is not open, cannot perform search.");
+    }
   }
 }
 

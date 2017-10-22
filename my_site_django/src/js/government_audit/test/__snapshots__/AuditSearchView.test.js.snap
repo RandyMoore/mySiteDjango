@@ -2,51 +2,9 @@
 
 exports[`Default render 1`] = `
 <div>
-  <form
-    onSubmit={undefined}
-  >
-    <label>
-      Search Query 
-      <br />
-      <input
-        onChange={undefined}
-        type="text"
-        value=""
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <div>
-    <a
-      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
-    >
-       Query Parser: 
-    </a>
-    <select
-      onChange={undefined}
-      value={undefined}
-    >
-      <option
-        value="plain"
-      >
-        plain
-      </option>
-      <option
-        value="phrase"
-      >
-        phrase
-      </option>
-      <option
-        value="raw"
-      >
-        tsquery raw
-      </option>
-    </select>
-  </div>
-  <br />
+  <label>
+     Years to include 
+  </label>
   <fieldset
     className="year-selection right"
   >
@@ -131,7 +89,59 @@ exports[`Default render 1`] = `
       </label>
     </span>
   </fieldset>
-  <br />
+  <hr />
+  <div>
+    <form
+      onSubmit={undefined}
+    >
+      <label>
+        Search Query utilizing 
+        <a
+          href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html"
+        >
+          Postgres text search
+        </a>
+      </label>
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </form>
+    <div>
+      <a
+        href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+      >
+         Query Parser: 
+      </a>
+      <select
+        onChange={undefined}
+        value={undefined}
+      >
+        <option
+          value="plain"
+        >
+          plain
+        </option>
+        <option
+          value="phrase"
+        >
+          phrase
+        </option>
+        <option
+          value="raw"
+        >
+          tsquery raw
+        </option>
+      </select>
+    </div>
+  </div>
+  <hr />
   <div>
     <button
       id="ne-exploration-heading"
@@ -139,27 +149,11 @@ exports[`Default render 1`] = `
     >
       Named Entity Exploration
     </button>
-    <table>
-      <thead>
-        <tr>
-          <th
-            width="80%"
-          >
-             Name 
-          </th>
-          <th>
-             #Docs 
-          </th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
   </div>
-  <h3
-    className="heading"
-  >
+  <hr />
+  <label>
     Results:
-  </h3>
+  </label>
   <table
     className="results-table"
   >
@@ -183,51 +177,9 @@ exports[`Default render 1`] = `
 
 exports[`Render result after URL validity check returns active 1`] = `
 <div>
-  <form
-    onSubmit={undefined}
-  >
-    <label>
-      Search Query 
-      <br />
-      <input
-        onChange={undefined}
-        type="text"
-        value=""
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <div>
-    <a
-      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
-    >
-       Query Parser: 
-    </a>
-    <select
-      onChange={undefined}
-      value={undefined}
-    >
-      <option
-        value="plain"
-      >
-        plain
-      </option>
-      <option
-        value="phrase"
-      >
-        phrase
-      </option>
-      <option
-        value="raw"
-      >
-        tsquery raw
-      </option>
-    </select>
-  </div>
-  <br />
+  <label>
+     Years to include 
+  </label>
   <fieldset
     className="year-selection right"
   >
@@ -312,7 +264,59 @@ exports[`Render result after URL validity check returns active 1`] = `
       </label>
     </span>
   </fieldset>
-  <br />
+  <hr />
+  <div>
+    <form
+      onSubmit={undefined}
+    >
+      <label>
+        Search Query utilizing 
+        <a
+          href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html"
+        >
+          Postgres text search
+        </a>
+      </label>
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </form>
+    <div>
+      <a
+        href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+      >
+         Query Parser: 
+      </a>
+      <select
+        onChange={undefined}
+        value={undefined}
+      >
+        <option
+          value="plain"
+        >
+          plain
+        </option>
+        <option
+          value="phrase"
+        >
+          phrase
+        </option>
+        <option
+          value="raw"
+        >
+          tsquery raw
+        </option>
+      </select>
+    </div>
+  </div>
+  <hr />
   <div>
     <button
       id="ne-exploration-heading"
@@ -320,27 +324,11 @@ exports[`Render result after URL validity check returns active 1`] = `
     >
       Named Entity Exploration
     </button>
-    <table>
-      <thead>
-        <tr>
-          <th
-            width="80%"
-          >
-             Name 
-          </th>
-          <th>
-             #Docs 
-          </th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
   </div>
-  <h3
-    className="heading"
-  >
+  <hr />
+  <label>
     Results:
-  </h3>
+  </label>
   <table
     className="results-table"
   >
@@ -389,51 +377,9 @@ exports[`Render result after URL validity check returns active 1`] = `
 
 exports[`Render result after URL validity check returns not active 1`] = `
 <div>
-  <form
-    onSubmit={undefined}
-  >
-    <label>
-      Search Query 
-      <br />
-      <input
-        onChange={undefined}
-        type="text"
-        value=""
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <div>
-    <a
-      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
-    >
-       Query Parser: 
-    </a>
-    <select
-      onChange={undefined}
-      value={undefined}
-    >
-      <option
-        value="plain"
-      >
-        plain
-      </option>
-      <option
-        value="phrase"
-      >
-        phrase
-      </option>
-      <option
-        value="raw"
-      >
-        tsquery raw
-      </option>
-    </select>
-  </div>
-  <br />
+  <label>
+     Years to include 
+  </label>
   <fieldset
     className="year-selection right"
   >
@@ -518,7 +464,59 @@ exports[`Render result after URL validity check returns not active 1`] = `
       </label>
     </span>
   </fieldset>
-  <br />
+  <hr />
+  <div>
+    <form
+      onSubmit={undefined}
+    >
+      <label>
+        Search Query utilizing 
+        <a
+          href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html"
+        >
+          Postgres text search
+        </a>
+      </label>
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </form>
+    <div>
+      <a
+        href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+      >
+         Query Parser: 
+      </a>
+      <select
+        onChange={undefined}
+        value={undefined}
+      >
+        <option
+          value="plain"
+        >
+          plain
+        </option>
+        <option
+          value="phrase"
+        >
+          phrase
+        </option>
+        <option
+          value="raw"
+        >
+          tsquery raw
+        </option>
+      </select>
+    </div>
+  </div>
+  <hr />
   <div>
     <button
       id="ne-exploration-heading"
@@ -526,27 +524,11 @@ exports[`Render result after URL validity check returns not active 1`] = `
     >
       Named Entity Exploration
     </button>
-    <table>
-      <thead>
-        <tr>
-          <th
-            width="80%"
-          >
-             Name 
-          </th>
-          <th>
-             #Docs 
-          </th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
   </div>
-  <h3
-    className="heading"
-  >
+  <hr />
+  <label>
     Results:
-  </h3>
+  </label>
   <table
     className="results-table"
   >
@@ -596,51 +578,9 @@ exports[`Render result after URL validity check returns not active 1`] = `
 
 exports[`Render result before URL validity check 1`] = `
 <div>
-  <form
-    onSubmit={undefined}
-  >
-    <label>
-      Search Query 
-      <br />
-      <input
-        onChange={undefined}
-        type="text"
-        value=""
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <div>
-    <a
-      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
-    >
-       Query Parser: 
-    </a>
-    <select
-      onChange={undefined}
-      value={undefined}
-    >
-      <option
-        value="plain"
-      >
-        plain
-      </option>
-      <option
-        value="phrase"
-      >
-        phrase
-      </option>
-      <option
-        value="raw"
-      >
-        tsquery raw
-      </option>
-    </select>
-  </div>
-  <br />
+  <label>
+     Years to include 
+  </label>
   <fieldset
     className="year-selection right"
   >
@@ -725,7 +665,59 @@ exports[`Render result before URL validity check 1`] = `
       </label>
     </span>
   </fieldset>
-  <br />
+  <hr />
+  <div>
+    <form
+      onSubmit={undefined}
+    >
+      <label>
+        Search Query utilizing 
+        <a
+          href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html"
+        >
+          Postgres text search
+        </a>
+      </label>
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </form>
+    <div>
+      <a
+        href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+      >
+         Query Parser: 
+      </a>
+      <select
+        onChange={undefined}
+        value={undefined}
+      >
+        <option
+          value="plain"
+        >
+          plain
+        </option>
+        <option
+          value="phrase"
+        >
+          phrase
+        </option>
+        <option
+          value="raw"
+        >
+          tsquery raw
+        </option>
+      </select>
+    </div>
+  </div>
+  <hr />
   <div>
     <button
       id="ne-exploration-heading"
@@ -733,27 +725,11 @@ exports[`Render result before URL validity check 1`] = `
     >
       Named Entity Exploration
     </button>
-    <table>
-      <thead>
-        <tr>
-          <th
-            width="80%"
-          >
-             Name 
-          </th>
-          <th>
-             #Docs 
-          </th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
   </div>
-  <h3
-    className="heading"
-  >
+  <hr />
+  <label>
     Results:
-  </h3>
+  </label>
   <table
     className="results-table"
   >
@@ -802,51 +778,9 @@ exports[`Render result before URL validity check 1`] = `
 
 exports[`Render with pagination visible (available result size > results per page limit) 1`] = `
 <div>
-  <form
-    onSubmit={undefined}
-  >
-    <label>
-      Search Query 
-      <br />
-      <input
-        onChange={undefined}
-        type="text"
-        value=""
-      />
-    </label>
-    <input
-      type="submit"
-      value="Submit"
-    />
-  </form>
-  <div>
-    <a
-      href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
-    >
-       Query Parser: 
-    </a>
-    <select
-      onChange={undefined}
-      value={undefined}
-    >
-      <option
-        value="plain"
-      >
-        plain
-      </option>
-      <option
-        value="phrase"
-      >
-        phrase
-      </option>
-      <option
-        value="raw"
-      >
-        tsquery raw
-      </option>
-    </select>
-  </div>
-  <br />
+  <label>
+     Years to include 
+  </label>
   <fieldset
     className="year-selection right"
   >
@@ -931,7 +865,59 @@ exports[`Render with pagination visible (available result size > results per pag
       </label>
     </span>
   </fieldset>
-  <br />
+  <hr />
+  <div>
+    <form
+      onSubmit={undefined}
+    >
+      <label>
+        Search Query utilizing 
+        <a
+          href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html"
+        >
+          Postgres text search
+        </a>
+      </label>
+      <br />
+      <input
+        onChange={undefined}
+        type="text"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </form>
+    <div>
+      <a
+        href="https://www.postgresql.org/docs/9.6/static/textsearch-controls.html"
+      >
+         Query Parser: 
+      </a>
+      <select
+        onChange={undefined}
+        value={undefined}
+      >
+        <option
+          value="plain"
+        >
+          plain
+        </option>
+        <option
+          value="phrase"
+        >
+          phrase
+        </option>
+        <option
+          value="raw"
+        >
+          tsquery raw
+        </option>
+      </select>
+    </div>
+  </div>
+  <hr />
   <div>
     <button
       id="ne-exploration-heading"
@@ -939,27 +925,11 @@ exports[`Render with pagination visible (available result size > results per pag
     >
       Named Entity Exploration
     </button>
-    <table>
-      <thead>
-        <tr>
-          <th
-            width="80%"
-          >
-             Name 
-          </th>
-          <th>
-             #Docs 
-          </th>
-        </tr>
-      </thead>
-      <tbody />
-    </table>
   </div>
-  <h3
-    className="heading"
-  >
+  <hr />
+  <label>
     Results:
-  </h3>
+  </label>
   <table
     className="results-table"
   >

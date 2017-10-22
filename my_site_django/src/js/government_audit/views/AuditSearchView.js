@@ -19,12 +19,23 @@ function SearchInput(props) {
   return (
     <form onSubmit={props.onQuerySubmit}>
       <label>
-        Search Query <br/>
-        <input type="text" value={props.auditSearch.query} onChange={props.onQueryChange}/>
+        Search Query utilizing <a href="https://www.postgresql.org/docs/9.6/static/textsearch-intro.html">Postgres text search</a>
       </label>
+      <br/>
+      <input type="text" value={props.auditSearch.query} onChange={props.onQueryChange}/>
       <input type="submit" value="Submit" />
     </form>
   );
+}
+
+function TextSearch(props) {
+  return (
+    <div>
+      <SearchInput {...props} />
+      <QueryParserOption {...props} />
+    </div>
+  );
+
 }
 
 const YearSelections = Immutable.List(
@@ -116,39 +127,60 @@ function ResultsTable(props) {
 }
 
 function NamedEntityHistoryStack(props) {
-
+  const selectedEntities = props.auditSearch.namedEntities.toJS();
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <td className="named-entity"><label>Selected Entities:</label></td>
+          {selectedEntities.map(se => {
+            return (<td key={ se } className="named-entity"> { se } </td>);
+          })}
+        </tr>
+      </tbody>
+    </table>
+  );
 }
 
 function NamedEntityResults(props) {
   const namedEntities = props.auditSearch.namedEntityResults.toJS();
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th width="80%"> Name </th>
-          <th> #Docs </th>
-        </tr>
-      </thead>
-      <tbody>
-        {namedEntities.map(ne => {
-          return (
-            <tr key={ ne.name } onClick={props.onNamedEntityClick}>
-              <td> { ne.name } </td>
-              <td> { ne.numDocs } </td>
-            </tr>
-          );
-        })}
-     </tbody>
-    </table>
+    <div>
+      <label> Most Frequency Occuring Named Entities Sharing Documents with Selected Entities: </label>
+      <table>
+        <thead>
+          <tr>
+            <th width="80%"> Name </th>
+            <th> #Docs </th>
+          </tr>
+        </thead>
+        <tbody>
+          {namedEntities.map(ne => {
+            return (
+              <tr key={ ne.name } >
+                <td> <button onClick={props.onNamedEntityClick}> { ne.name } </button> </td>
+                <td> { ne.numDocs } </td>
+              </tr>
+            );
+          })}
+       </tbody>
+      </table>
+    </div>
   );
 }
 
 function NamedEntityExploration(props) {
+  const entityResultsExist = props.auditSearch.namedEntityResults.size > 0;
   return (
     <div>
       <button id="ne-exploration-heading" onClick={props.onNamedEntityClick}>Named Entity Exploration</button>
-      <NamedEntityResults {...props} />
+      { entityResultsExist && (
+          <div>
+            <NamedEntityHistoryStack {...props} />
+            <NamedEntityResults {...props} />
+          </div>
+      )}
     </div>
   );
 }
@@ -158,13 +190,14 @@ function AuditSearchComponent(props) {
   const currentPage = Math.floor(props.auditSearch.resultsOffset / props.auditSearch.resultsLimit)
   return (
     <div>
-      <SearchInput {...props} />
-      <QueryParserOption {...props} />
-      <br/>
+      <label> Years to include </label>
       <YearSelection {...props} />
-      <br/>
+      <hr/>
+      <TextSearch {...props} />
+      <hr/>
       <NamedEntityExploration {...props} />
-      <h3 className="heading">Results:</h3>
+      <hr/>
+      <label>Results:</label>
       <ResultsTable {...props} />
       { pageCount > 1 &&
         <ReactPaginate {...props}

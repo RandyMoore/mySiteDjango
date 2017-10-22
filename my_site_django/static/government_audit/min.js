@@ -282,6 +282,12 @@ var AuditSearchStore = function (_ReduceStore) {
             return state;
           }
 
+          state = state.merge({
+            namedEntities: _immutable2.default.List(),
+            namedEntityResults: _immutable2.default.List(),
+            results: _immutable2.default.List()
+          });
+
           state = state.set('resultsOffset', 0);
 
           this.fetchResults(state);
@@ -315,8 +321,22 @@ var AuditSearchStore = function (_ReduceStore) {
           }
 
         case _SearchActionTypes2.default.CHANGE_PAGE:
-          this.fetchResults(state.set('resultsOffset', Math.ceil(action.data.selected * state.resultsLimit)));
-          return state; // original state without page changed.
+          {
+            var offset = Math.ceil(action.data.selected * state.resultsLimit);
+            if (state.query != '') {
+              this.fetchResults(state.set('resultsOffset', offset));
+            } else {
+              var message = JSON.stringify({
+                'entityList': state.namedEntities,
+                'years': state.years,
+                'offset': offset
+              });
+
+              this.namedEntitySearch(state, message);
+            }
+
+            return state; // original state without page changed.
+          }
 
         case _SearchActionTypes2.default.RECEIVE_URL_CHECK:
           {
@@ -335,20 +355,27 @@ var AuditSearchStore = function (_ReduceStore) {
           {
             var target = action.event.target;
 
-            if (target.id != "ne-exploration-heading") {
-              state = state.set('namedEntities', state.namedEntities.push(target.innerText));
+            var namedEntities = state.namedEntities.toJS();
+
+            if (target.id == "ne-exploration-heading") {
+              state = state.merge({
+                query: '',
+                namedEntities: _immutable2.default.List(),
+                namedEntityResults: _immutable2.default.List(),
+                results: _immutable2.default.List()
+              });
+              namedEntities = [];
+            } else {
+              namedEntities.push(target.innerText);
             }
 
-            var message = JSON.stringify({
-              'entityList': state.namedEntities,
-              'years': state.years
+            var _message = JSON.stringify({
+              'entityList': namedEntities,
+              'years': state.years,
+              'offset': 0
             });
 
-            if (state.namedEntitySocket.readyState == WebSocket.OPEN) {
-              state.namedEntitySocket.send(message);
-            } else {
-              console.log("NamedEntity Websocket is not open, cannot perform search.");
-            }
+            this.namedEntitySearch(state, _message);
 
             return state;
           }
@@ -357,9 +384,28 @@ var AuditSearchStore = function (_ReduceStore) {
           {
             action.event.preventDefault();
 
-            var results = JSON.parse(action.event.data);
+            var _response = JSON.parse(action.event.data);
 
-            state = state.set('namedEntityResults', _immutable2.default.List(results['topEntities']));
+            _response.results.forEach(function (result) {
+              var message = JSON.stringify({
+                'id': result[0],
+                'url': result[1]['url']
+              });
+
+              if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
+                state.verifyUrlSocket.send(message);
+              } else {
+                console.log("Websocket is not open, skipping URL checks");
+              }
+            });
+
+            return state.merge({
+              'namedEntityResults': _immutable2.default.List(_response['topEntities']),
+              'namedEntities': _immutable2.default.List(_response['selectedEntities']),
+              'results': _immutable2.default.OrderedMap(_response.results),
+              'resultsSize': _response.size,
+              'resultsOffset': _response.offset
+            });
 
             return state;
           }
@@ -385,6 +431,15 @@ var AuditSearchStore = function (_ReduceStore) {
       }).then(function (res) {
         _SearchActions2.default.handleQueryResponse(res);
       });
+    }
+  }, {
+    key: 'namedEntitySearch',
+    value: function namedEntitySearch(state, searchMessage) {
+      if (state.namedEntitySocket.readyState == WebSocket.OPEN) {
+        state.namedEntitySocket.send(searchMessage);
+      } else {
+        console.log("NamedEntity Websocket is not open, cannot perform search.");
+      }
     }
   }]);
 
@@ -473,11 +528,25 @@ function SearchInput(props) {
     _react2.default.createElement(
       'label',
       null,
-      'Search Query ',
-      _react2.default.createElement('br', null),
-      _react2.default.createElement('input', { type: 'text', value: props.auditSearch.query, onChange: props.onQueryChange })
+      'Search Query utilizing ',
+      _react2.default.createElement(
+        'a',
+        { href: 'https://www.postgresql.org/docs/9.6/static/textsearch-intro.html' },
+        'Postgres text search'
+      )
     ),
+    _react2.default.createElement('br', null),
+    _react2.default.createElement('input', { type: 'text', value: props.auditSearch.query, onChange: props.onQueryChange }),
     _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+  );
+}
+
+function TextSearch(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(SearchInput, props),
+    _react2.default.createElement(QueryParserOption, props)
   );
 }
 
@@ -594,60 +663,108 @@ function ResultsTable(props) {
   );
 }
 
-function NamedEntityHistoryStack(props) {}
-
-function NamedEntityResults(props) {
-  var namedEntities = props.auditSearch.namedEntityResults.toJS();
-
+function NamedEntityHistoryStack(props) {
+  var selectedEntities = props.auditSearch.namedEntities.toJS();
   return _react2.default.createElement(
     'table',
     null,
     _react2.default.createElement(
-      'thead',
+      'tbody',
       null,
       _react2.default.createElement(
         'tr',
         null,
         _react2.default.createElement(
-          'th',
-          { width: '80%' },
-          ' Name '
+          'td',
+          { className: 'named-entity' },
+          _react2.default.createElement(
+            'label',
+            null,
+            'Selected Entities:'
+          )
         ),
-        _react2.default.createElement(
-          'th',
-          null,
-          ' #Docs '
-        )
+        selectedEntities.map(function (se) {
+          return _react2.default.createElement(
+            'td',
+            { key: se, className: 'named-entity' },
+            ' ',
+            se,
+            ' '
+          );
+        })
       )
+    )
+  );
+}
+
+function NamedEntityResults(props) {
+  var namedEntities = props.auditSearch.namedEntityResults.toJS();
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'label',
+      null,
+      ' Most Frequency Occuring Named Entities Sharing Documents with Selected Entities: '
     ),
     _react2.default.createElement(
-      'tbody',
+      'table',
       null,
-      namedEntities.map(function (ne) {
-        return _react2.default.createElement(
+      _react2.default.createElement(
+        'thead',
+        null,
+        _react2.default.createElement(
           'tr',
-          { key: ne.name, onClick: props.onNamedEntityClick },
+          null,
           _react2.default.createElement(
-            'td',
-            null,
-            ' ',
-            ne.name,
-            ' '
+            'th',
+            { width: '80%' },
+            ' Name '
           ),
           _react2.default.createElement(
-            'td',
+            'th',
             null,
-            ' ',
-            ne.numDocs,
-            ' '
+            ' #Docs '
           )
-        );
-      })
+        )
+      ),
+      _react2.default.createElement(
+        'tbody',
+        null,
+        namedEntities.map(function (ne) {
+          return _react2.default.createElement(
+            'tr',
+            { key: ne.name },
+            _react2.default.createElement(
+              'td',
+              null,
+              ' ',
+              _react2.default.createElement(
+                'button',
+                { onClick: props.onNamedEntityClick },
+                ' ',
+                ne.name,
+                ' '
+              ),
+              ' '
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              ' ',
+              ne.numDocs,
+              ' '
+            )
+          );
+        })
+      )
     )
   );
 }
 
 function NamedEntityExploration(props) {
+  var entityResultsExist = props.auditSearch.namedEntityResults.size > 0;
   return _react2.default.createElement(
     'div',
     null,
@@ -656,7 +773,12 @@ function NamedEntityExploration(props) {
       { id: 'ne-exploration-heading', onClick: props.onNamedEntityClick },
       'Named Entity Exploration'
     ),
-    _react2.default.createElement(NamedEntityResults, props)
+    entityResultsExist && _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(NamedEntityHistoryStack, props),
+      _react2.default.createElement(NamedEntityResults, props)
+    )
   );
 }
 
@@ -666,15 +788,20 @@ function AuditSearchComponent(props) {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(SearchInput, props),
-    _react2.default.createElement(QueryParserOption, props),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(YearSelection, props),
-    _react2.default.createElement('br', null),
-    _react2.default.createElement(NamedEntityExploration, props),
     _react2.default.createElement(
-      'h3',
-      { className: 'heading' },
+      'label',
+      null,
+      ' Years to include '
+    ),
+    _react2.default.createElement(YearSelection, props),
+    _react2.default.createElement('hr', null),
+    _react2.default.createElement(TextSearch, props),
+    _react2.default.createElement('hr', null),
+    _react2.default.createElement(NamedEntityExploration, props),
+    _react2.default.createElement('hr', null),
+    _react2.default.createElement(
+      'label',
+      null,
       'Results:'
     ),
     _react2.default.createElement(ResultsTable, props),
