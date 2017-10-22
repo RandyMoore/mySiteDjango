@@ -111,7 +111,7 @@ async def named_entity_search(message):
         await get_most_frequent_remaining_named_entities(entities_years_qs, named_entities)
 
     if len(entities_years_qs) > 1:  # Merge the results from 2 querysets (before2014 and 2014|2015|...)
-        top_entities = await merge_top_entities(entities_with_docs_of_selected_entities_qs, top_entities)
+        top_entities = await merge_top_entities(top_entities)
 
     offset = message_data['offset']
     results = [

@@ -2,7 +2,7 @@ version: '2'
 
 services:
   db:
-    image: 300338791355.dkr.ecr.us-east-1.amazonaws.com/website:postgrespopulated2
+    image: 300338791355.dkr.ecr.us-east-1.amazonaws.com/website:postgrespopulated_ne
     cpu_shares: 824
     mem_limit: 524288000
   web:
