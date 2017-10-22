@@ -636,7 +636,7 @@ function ResultsTable(props) {
         _react2.default.createElement('th', null),
         _react2.default.createElement(
           'th',
-          { width: '80%' },
+          null,
           'Title'
         ),
         _react2.default.createElement(
@@ -666,34 +666,26 @@ function ResultsTable(props) {
 function NamedEntityHistoryStack(props) {
   var selectedEntities = props.auditSearch.namedEntities.toJS();
   return _react2.default.createElement(
-    'table',
+    'div',
     null,
     _react2.default.createElement(
-      'tbody',
-      null,
+      'p',
+      { className: 'named-entity' },
       _react2.default.createElement(
-        'tr',
+        'b',
         null,
-        _react2.default.createElement(
-          'td',
-          { className: 'named-entity' },
-          _react2.default.createElement(
-            'label',
-            null,
-            'Selected Entities:'
-          )
-        ),
-        selectedEntities.map(function (se) {
-          return _react2.default.createElement(
-            'td',
-            { key: se, className: 'named-entity' },
-            ' ',
-            se,
-            ' '
-          );
-        })
+        'Selected Entities:'
       )
-    )
+    ),
+    selectedEntities.map(function (se) {
+      return _react2.default.createElement(
+        'p',
+        { className: 'named-entity-border', key: se },
+        ' ',
+        se,
+        ' '
+      );
+    })
   );
 }
 
@@ -719,8 +711,8 @@ function NamedEntityResults(props) {
           null,
           _react2.default.createElement(
             'th',
-            { width: '80%' },
-            ' Name '
+            null,
+            ' Entity Name '
           ),
           _react2.default.createElement(
             'th',

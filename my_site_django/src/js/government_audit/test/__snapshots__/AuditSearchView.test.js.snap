@@ -160,9 +160,7 @@ exports[`Default render 1`] = `
     <thead>
       <tr>
         <th />
-        <th
-          width="80%"
-        >
+        <th>
           Title
         </th>
         <th>
@@ -335,9 +333,7 @@ exports[`Render result after URL validity check returns active 1`] = `
     <thead>
       <tr>
         <th />
-        <th
-          width="80%"
-        >
+        <th>
           Title
         </th>
         <th>
@@ -535,9 +531,7 @@ exports[`Render result after URL validity check returns not active 1`] = `
     <thead>
       <tr>
         <th />
-        <th
-          width="80%"
-        >
+        <th>
           Title
         </th>
         <th>
@@ -736,9 +730,7 @@ exports[`Render result before URL validity check 1`] = `
     <thead>
       <tr>
         <th />
-        <th
-          width="80%"
-        >
+        <th>
           Title
         </th>
         <th>
@@ -936,9 +928,7 @@ exports[`Render with pagination visible (available result size > results per pag
     <thead>
       <tr>
         <th />
-        <th
-          width="80%"
-        >
+        <th>
           Title
         </th>
         <th>

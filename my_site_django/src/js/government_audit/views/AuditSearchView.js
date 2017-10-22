@@ -104,7 +104,7 @@ function ResultsTable(props) {
       <thead>
         <tr>
           <th/>
-          <th width="80%">Title</th>
+          <th>Title</th>
           <th>Publication Date</th>
          </tr>
         </thead>
@@ -129,16 +129,13 @@ function ResultsTable(props) {
 function NamedEntityHistoryStack(props) {
   const selectedEntities = props.auditSearch.namedEntities.toJS();
   return (
-    <table>
-      <tbody>
-        <tr>
-          <td className="named-entity"><label>Selected Entities:</label></td>
-          {selectedEntities.map(se => {
-            return (<td key={ se } className="named-entity"> { se } </td>);
+    <div>
+      <p className="named-entity"><b>Selected Entities:</b></p>
+      {selectedEntities.map(se => {
+            return (<p className="named-entity-border" key={ se }> { se } </p>);
           })}
-        </tr>
-      </tbody>
-    </table>
+    </div>
+
   );
 }
 
@@ -151,7 +148,7 @@ function NamedEntityResults(props) {
       <table>
         <thead>
           <tr>
-            <th width="80%"> Name </th>
+            <th> Entity Name </th>
             <th> #Docs </th>
           </tr>
         </thead>

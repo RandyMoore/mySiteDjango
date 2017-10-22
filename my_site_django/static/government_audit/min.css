@@ -28,5 +28,12 @@ table, th, td {
 }
 
 .named-entity {
-  padding: 6px;
+  padding-right: 6px;
+  display: inline;
+}
+
+.named-entity-border {
+  border-radius: 4px;
+  border: 2px solid;
+  display: inline;
 }
