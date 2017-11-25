@@ -9,4 +9,4 @@ services:
       - "80:80"
 
   db:
-    image: postgrespopulated:ne
+    image: postgrespopulated:ne2
