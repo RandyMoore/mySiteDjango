@@ -1,8 +1,6 @@
 import axios from 'axios';
 import Immutable from 'immutable';
-import {
-  ReduceStore
-} from 'flux/utils';
+import {ReduceStore} from 'flux/utils';
 import Dispatcher from './Dispatcher';
 import SearchActions from './SearchActions'
 import SearchActionTypes from './SearchActionTypes';
@@ -117,7 +115,7 @@ class AuditSearchStore extends ReduceStore {
         const result = JSON.parse(action.event.data);
         let original = state.results.get(result['id']);
         if (original) {
-          state = state.set('results', state.results.set(result['id'], Object.assign(original, result)));
+          state = state.setIn(['results', result['id']], Immutable.fromJS(Object.assign(original, result)));
         }
 
         return state;
@@ -172,8 +170,8 @@ class AuditSearchStore extends ReduceStore {
         });
 
         return state.merge({
-          'namedEntityResults': Immutable.List(response['topEntities']),
-          'namedEntities': Immutable.List(response['selectedEntities']),
+          'namedEntityResults': Immutable.fromJS(response['topEntities']),
+          'namedEntities': Immutable.fromJS(response['selectedEntities']),
           'results': Immutable.OrderedMap(response.results),
           'resultsSize': response.size,
           'resultsOffset': response.offset,

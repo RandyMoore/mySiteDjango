@@ -345,7 +345,7 @@ var AuditSearchStore = function (_ReduceStore) {
             var result = JSON.parse(action.event.data);
             var original = state.results.get(result['id']);
             if (original) {
-              state = state.set('results', state.results.set(result['id'], Object.assign(original, result)));
+              state = state.setIn(['results', result['id']], _immutable2.default.fromJS(Object.assign(original, result)));
             }
 
             return state;
@@ -400,8 +400,8 @@ var AuditSearchStore = function (_ReduceStore) {
             });
 
             return state.merge({
-              'namedEntityResults': _immutable2.default.List(_response['topEntities']),
-              'namedEntities': _immutable2.default.List(_response['selectedEntities']),
+              'namedEntityResults': _immutable2.default.fromJS(_response['topEntities']),
+              'namedEntities': _immutable2.default.fromJS(_response['selectedEntities']),
               'results': _immutable2.default.OrderedMap(_response.results),
               'resultsSize': _response.size,
               'resultsOffset': _response.offset
@@ -651,7 +651,7 @@ function ResultsTable(props) {
       null,
       results && Object.keys(results).map(function (key) {
         var jsx = _react2.default.createElement(ResultRow, {
-          key: counter,
+          key: key,
           rowNumber: counter + 1,
           result: results[key],
           resultsOffset: props.auditSearch.resultsOffset });
@@ -30779,4 +30779,4 @@ module.exports = traverseAllChildren;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":220}]},{},[1,2,3,5,4,6,7,8]);
+},{"./lib/React":220}]},{},[1,2,3,4,5,6,7,8]);

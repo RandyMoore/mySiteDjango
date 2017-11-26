@@ -112,7 +112,7 @@ function ResultsTable(props) {
           {results && Object.keys(results).map(key => {
             const jsx = (
               <ResultRow
-                key={ counter }
+                key={ key }
                 rowNumber={ counter + 1 }
                 result={ results[key] }
                 resultsOffset={ props.auditSearch.resultsOffset } />
