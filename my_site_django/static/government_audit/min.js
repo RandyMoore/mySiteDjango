@@ -53,15 +53,19 @@ var _immutable2 = _interopRequireDefault(_immutable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function getWsScheme() {
+  return window.location.protocol == "https:" ? "wss" : "ws";
+}
+
 function getVerifyUrlSocket() {
   if (typeof WebSocket !== "undefined") {
-    return new WebSocket("ws://" + window.location.host + "/verifyUrl");
+    return new WebSocket(getWsScheme() + "://" + window.location.host + "/verifyUrl");
   }
 };
 
 function getNamedEntitySocket() {
   if (typeof WebSocket !== "undefined") {
-    return new WebSocket("ws://" + window.location.host + "/namedEntity");
+    return new WebSocket(getWsScheme() + "://" + window.location.host + "/namedEntity");
   }
 };
 
