@@ -37,9 +37,9 @@ const SearchActions = {
     });
   },
 
-  changePage(data) {
+  changeDocumentPage(data) {
     Dispatcher.dispatch({
-      type: SearchActionTypes.CHANGE_PAGE,
+      type: SearchActionTypes.CHANGE_DOCUMENT_PAGE,
       data
     });
   },
@@ -55,6 +55,13 @@ const SearchActions = {
     Dispatcher.dispatch({
       type: SearchActionTypes.SEARCH_NAMED_ENTITY,
       event
+    });
+  },
+
+  changeEntityPage(data) {
+    Dispatcher.dispatch({
+      type: SearchActionTypes.CHANGE_ENTITY_PAGE,
+      data
     });
   },
 

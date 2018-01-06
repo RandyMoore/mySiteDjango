@@ -30,103 +30,87 @@ async def check_url(message):
         print(f"Received ClientConnectorError {e}")
 
 
-# Returns a list of up to 2 query sets of named entities for year selections [[before214],[2014|2015|...]]
-async def get_named_entities_for_years(message_data):
-    from .models import NamedEntity
-
+def get_year_set(message):
+    message_data = json.loads(message.content['text'])
     years = message_data['years']
-    before2014 = False
-
+    # Django ORM doesn't allow annotation after a union
+    # https://code.djangoproject.com/ticket/26019
+    #  which is required here to count how many documents each named entity appears in.
+    # To keep the code simple and efficient we normalize 'before2014' to be year values in the
+    #  set of years to include in the query (to avoid a union with queryset asking for year < 2014)
+    # 1978 is the year of the earliest document:
+    #   SELECT DISTINCT EXTRACT(year from "publication_date") AS year
+    #   FROM government_audit_auditdocument
+    #   ORDER BY year
+    #   LIMIT 1
     if 'before2014' in years:
-        before2014 = True
         years.remove('before2014')
+        years.extend(range(1978, 2014))
 
-    # Union does not support later operations, keep QuerySets separate and combine final results.
-    entities_qs = []
-    if years:
-        entities_qs.append(NamedEntity.objects.filter(document__publication_date__year__in=years))
-    if before2014:
-        entities_qs.append(NamedEntity.objects.filter(document__publication_date__year__lt=2014))
-    if not years and not before2014:
-        entities_qs.append(NamedEntity.objects.all())
+    if not years:
+        years = list(range(1978, 2018))
 
-    return entities_qs
+    return years
 
 
-async def get_most_frequent_remaining_named_entities(entities_years_qs, named_entities):
+async def get_remaining_top_named_entities(message, document_qs=None):
     from django.db.models import Count
+    from .models import NamedEntity
+    message_data = json.loads(message.content['text'])
+    selected_entities = message_data['selectedEntities']
+    offset = message_data['entityOffset']
 
-    docs_with_named_entities = set()
-    entities_with_docs_of_selected_entities_qs = entities_years_qs
+    years = get_year_set(message)
 
-    if named_entities:
-        qs_with_docs_having_selected_named_entities = []
-        for qs in entities_years_qs:
-            docs_with_all_named_entities = set()
-            for ne in named_entities:
-                docs_with_ne = set([doc['document'] for doc in qs.filter(name=ne).values('document')])
-                if docs_with_all_named_entities:
-                    docs_with_all_named_entities = docs_with_all_named_entities & docs_with_ne  # docs that include this AND all past named entities
-                else:
-                    docs_with_all_named_entities = docs_with_ne
-            qs_with_docs_having_selected_named_entities.append(qs.filter(document__in=docs_with_all_named_entities))
-            docs_with_named_entities.update(docs_with_all_named_entities)
-            entities_with_docs_of_selected_entities_qs = qs_with_docs_having_selected_named_entities
+    qs = NamedEntity.objects
+    if years:
+        qs = qs.filter(document__publication_date__year__in=years)
 
-    top_entities_nested = [entities \
-                           .exclude(name__in=named_entities)
-                           .values('name') \
-                           .annotate(numDocs=Count('document')) \
-                           .order_by('-numDocs')[:10] \
-                       for entities in entities_with_docs_of_selected_entities_qs]
+    # Only include entities already in the documents containing all of the entities already selected.
+    if document_qs:
+        qs = qs.filter(document__in=document_qs)
 
-    # Flatten the lest
-    top_entities = [e for e_list in top_entities_nested for e in e_list]
+    qs = qs.exclude(name__in=selected_entities).values('name').annotate(numDocs=Count('document'))
 
-    return docs_with_named_entities, entities_with_docs_of_selected_entities_qs, top_entities
+    total_size = qs.count()
+    results = list(qs.order_by('-numDocs')[offset:offset + 10])
+
+    return results, selected_entities, offset, total_size
 
 
-async def merge_top_entities(top_entities):
-    merged = []
-    top_entities.sort(key=lambda e: e['name'])
-    for e in top_entities:
-        if not merged or merged[-1]['name'] != e['name']:
-            merged.append(e)
-        else:
-            merged[-1]['numDocs'] += e['numDocs']
-
-    top_entities = sorted(merged, key=lambda e: e['numDocs'], reverse=True)[:10]
-    return top_entities
-
-
-async def named_entity_search(message):
+async def named_entity_document_search(message):
     from .models import AuditDocument
 
     message_data = json.loads(message.content['text'])
-    named_entities = message_data['entityList']
+    named_entities = message_data['selectedEntities']
+    document_offset = message_data['documentOffset']
+    years = get_year_set(message)
 
-    entities_years_qs = await get_named_entities_for_years(message_data)
+    document_qs = None
+    if named_entities:
+        document_qs = AuditDocument.objects.filter(publication_date__year__in=years)
+        for named_entity in named_entities:
+            document_qs = document_qs.filter(named_entities__name__in=[named_entity])
 
-    docs_with_named_entities, entities_with_docs_of_selected_entities_qs, top_entities = \
-        await get_most_frequent_remaining_named_entities(entities_years_qs, named_entities)
+    top_entities, selected_entities, entity_offset, entity_total_size = \
+        await get_remaining_top_named_entities(message, document_qs)
 
-    if len(entities_years_qs) > 1:  # Merge the results from 2 querysets (before2014 and 2014|2015|...)
-        top_entities = await merge_top_entities(top_entities)
-
-    offset = message_data['offset']
-    results = [
+    document_results = [
         [str(doc.id), {
             'title': doc.title,
             'url': doc.url,
             'date': str(doc.publication_date)}
-        ] for doc in AuditDocument.objects.filter(id__in=docs_with_named_entities)[offset:offset+10]]
+        ] for doc in
+        document_qs[document_offset:document_offset+10]] if document_qs else []
 
     message_response = {
         'selectedEntities': named_entities,
         'topEntities': top_entities,
-        'results': results,
-        'size': len(docs_with_named_entities),
-        'offset': offset
+        'entityResultsSize': entity_total_size,
+        'entityOffset': entity_offset,
+        'documentResults': document_results,
+        'documentResultsSize': document_qs.count() if document_qs else 0,
+        'documentOffset': document_offset
     }
 
     message.reply_channel.send({
@@ -143,8 +127,8 @@ def verify_url(message):
     loop.call_soon_threadsafe(asyncio.async, check_url(message))
 
 
-def named_entity(message):
-    loop.call_soon_threadsafe(asyncio.async, named_entity_search(message))
+def named_entity_search(message):
+    loop.call_soon_threadsafe(asyncio.async, named_entity_document_search(message))
 
 
 t = Thread(target=run_async_loop, args=(loop,), daemon=True)

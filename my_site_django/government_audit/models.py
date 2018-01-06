@@ -39,7 +39,7 @@ class AuditDocument(models.Model):
 
 
 class NamedEntity(models.Model):
-    document = ForeignKey(AuditDocument, on_delete=models.CASCADE)
+    document = ForeignKey(AuditDocument, on_delete=models.CASCADE, related_name='named_entities')
     name = CharField(max_length=64, blank=False)
     frequency = IntegerField(blank=False)
 

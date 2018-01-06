@@ -5,6 +5,7 @@ import Dispatcher from './Dispatcher';
 import SearchActions from './SearchActions'
 import SearchActionTypes from './SearchActionTypes';
 import AuditSearch from './AuditSearch';
+import NamedEntity from './NamedEntity';
 
 
 class AuditSearchStore extends ReduceStore {
@@ -52,15 +53,22 @@ class AuditSearchStore extends ReduceStore {
           return state
         }
 
-        state = state.merge({
-          namedEntities: Immutable.List(),
-          namedEntityResults: Immutable.List(),
+        state = state.set('namedEntity', state.namedEntity.merge({
+          selectedEntities: Immutable.List(),
           results: Immutable.List(),
-        });
+          resultsSize: 0,
+          resultsOffset: 0,
+        }));
 
-        state = state.set('resultsOffset', 0);
+        state = state.set('auditDocument', state.auditDocument.merge({
+           results: Immutable.List(),
+           resultsSize: 0,
+           resultsOffset: 0,
+        }));
 
         this.fetchResults(state);
+
+        state = state.set('fetching', true);
 
         return state;
 
@@ -68,42 +76,37 @@ class AuditSearchStore extends ReduceStore {
         {
           const response = action.response.data;
 
-          // Check the url of each result.  Can't do this browser side due to
-          //  XSRF restrictions
-          response.results.forEach(result => {
-            const message = JSON.stringify({
-              'id': result[0],
-              'url': result[1]['url'],
-            });
+          this.runUrlChecks(state, response);
 
-            if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
-              state.verifyUrlSocket.send(message);
-            } else {
-              console.log("Websocket is not open, skipping URL checks");
-            }
-          });
+          state = state.set('auditDocument', state.auditDocument.merge({
+            results: Immutable.OrderedMap(response.documentResults),
+            resultsSize: response.documentResultsSize,
+            resultsOffset: response.documentOffset,
+          }));
 
-          return state.merge({
-            'results': Immutable.OrderedMap(response.results),
-            'resultsSize': response.size,
-            'resultsOffset': response.offset,
-          });
+          state = state.set('fetching', false);
+          state = state.setIn(['auditDocument', 'updatingPage'], false);
+
+          return state;
         }
 
-      case SearchActionTypes.CHANGE_PAGE:
+      case SearchActionTypes.CHANGE_DOCUMENT_PAGE:
         {
-          const offset = Math.ceil(action.data.selected * state.resultsLimit);
+          const offset = Math.ceil(action.data.selected * state.auditDocument.resultsLimit);
           if (state.query != '') {
-            this.fetchResults(state.set('resultsOffset', offset));
+            this.fetchResults(state.setIn(['auditDocument', 'resultsOffset'], offset));
           } else {
             const message = JSON.stringify({
-              'entityList': state.namedEntities,
+              'selectedEntities': state.namedEntity.selectedEntities,
+              'entityOffset': state.namedEntity.resultsOffset,
               'years': state.years,
-              'offset': offset
+              'documentOffset': offset
             });
 
             this.namedEntitySearch(state, message);
           }
+
+          state = state.setIn(['auditDocument', 'updatingPage'], true);
 
           return state; // original state without page changed.
         }
@@ -113,9 +116,10 @@ class AuditSearchStore extends ReduceStore {
         action.event.preventDefault();
 
         const result = JSON.parse(action.event.data);
-        let original = state.results.get(result['id']);
+        let original = state.auditDocument.results.get(result['id']);
         if (original) {
-          state = state.setIn(['results', result['id']], Immutable.fromJS(Object.assign(original, result)));
+          state = state.setIn(['auditDocument', 'results', result['id']],
+                              Immutable.fromJS(Object.assign(original, result)));
         }
 
         return state;
@@ -123,29 +127,19 @@ class AuditSearchStore extends ReduceStore {
 
       case SearchActionTypes.SEARCH_NAMED_ENTITY:
       {
-        const target = action.event.target;
-
-        let namedEntities = state.namedEntities.toJS();
-
-        if (target.id == "ne-exploration-heading") {
-          state = state.merge({
-            query: '',
-            namedEntities: Immutable.List(),
-            namedEntityResults: Immutable.List(),
-            results: Immutable.List(),
-          });
-          namedEntities = [];
-        } else {
-          namedEntities.push(target.innerText);
-        }
+        let selectedEntities = state.namedEntity.selectedEntities.toJS();
+        selectedEntities.push(action.event.target.innerText);
 
         const message = JSON.stringify({
-          'entityList': namedEntities,
+          'selectedEntities': selectedEntities,
+          'entityOffset': 0,
           'years': state.years,
-          'offset': 0
+          'documentOffset': 0,
         });
 
         this.namedEntitySearch(state, message);
+
+        state = state.set('fetching', true);
 
         return state;
       }
@@ -156,29 +150,52 @@ class AuditSearchStore extends ReduceStore {
 
         const response = JSON.parse(action.event.data);
 
-        response.results.forEach(result => {
-          const message = JSON.stringify({
-            'id': result[0],
-            'url': result[1]['url'],
-          });
+        this.runUrlChecks(state, response);
 
-          if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
-            state.verifyUrlSocket.send(message);
-          } else {
-            console.log("Websocket is not open, skipping URL checks");
-          }
+        state = state.merge({
+          query: '',
         });
 
-        return state.merge({
-          'namedEntityResults': Immutable.fromJS(response['topEntities']),
-          'namedEntities': Immutable.fromJS(response['selectedEntities']),
-          'results': Immutable.OrderedMap(response.results),
-          'resultsSize': response.size,
-          'resultsOffset': response.offset,
-        });
+        state = state.set('namedEntity', state.namedEntity.merge({
+          results: Immutable.fromJS(response['topEntities']),
+          resultsSize: response.entityResultsSize,
+          resultsOffset: response.entityOffset,
+          selectedEntities: Immutable.fromJS(response['selectedEntities']),
+        }));
+
+        state = state.set('auditDocument', state.auditDocument.merge({
+          results: Immutable.OrderedMap(response.documentResults),
+          resultsSize: response.documentResultsSize,
+          resultsOffset: response.documentOffset,
+        }));
+
+        state = state.set('fetching', false);
+        state = state.setIn(['namedEntity', 'updatingPage'], false);
 
         return state;
       }
+
+      case SearchActionTypes.CHANGE_ENTITY_PAGE:
+        {
+          const selected_page = action.data.selected;
+          const entityOffset = selected_page
+            ? Math.ceil(selected_page * state.namedEntity.resultsLimit)
+            : 0;
+          const namedEntities = state.namedEntity.selectedEntities.toJS();
+
+          const message = JSON.stringify({
+            'selectedEntities': namedEntities,
+            'years': state.years,
+            'entityOffset': entityOffset,
+            'documentOffset': state.auditDocument.resultsOffset
+          });
+
+          this.namedEntitySearch(state, message);
+
+          state = state.setIn(['namedEntity', 'updatingPage'], true);
+
+          return state; // original state without page changed.
+        }
 
       default:
         return state;
@@ -186,27 +203,42 @@ class AuditSearchStore extends ReduceStore {
   }
 
   // Helper functions
+  runUrlChecks(state, response) {
+    response.documentResults.forEach(result => {
+      const message = JSON.stringify({
+        'id': result[0],
+        'url': result[1]['url'],
+      });
+
+      if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
+        state.verifyUrlSocket.send(message);
+      } else {
+        console.log("Websocket is not open, skipping URL checks");
+      }
+    });
+  };
+
   fetchResults(state) {
     axios.get('/audits/search/', {
       params: {
         query: state.query,
         years: state.years,
         parser: state.queryParser,
-        limit: state.resultsLimit,
-        offset: state.resultsOffset
+        limit: state.auditDocument.resultsLimit,
+        offset: state.auditDocument.resultsOffset
       }
     }).then(res => {
       SearchActions.handleQueryResponse(res);
     });
-  }
+  };
 
   namedEntitySearch(state, searchMessage) {
     if (state.namedEntitySocket.readyState == WebSocket.OPEN) {
       state.namedEntitySocket.send(searchMessage);
     } else {
-      console.log("NamedEntity Websocket is not open, cannot perform search.");
+      console.log("namedEntitySearch Websocket is not open, cannot perform search.");
     }
-  }
+  };
 }
 
 export default new AuditSearchStore();

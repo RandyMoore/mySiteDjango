@@ -1,4 +1,6 @@
 import Immutable from 'immutable';
+import AuditDocument from './AuditDocument';
+import NamedEntity from './NamedEntity';
 
 function getWsScheme() {
     return window.location.protocol == "https:" ? "wss" : "ws";
@@ -10,9 +12,9 @@ function getVerifyUrlSocket() {
   }
 };
 
-function getNamedEntitySocket() {
+function getNamedEntitySearchSocket() {
   if (typeof(WebSocket) !== "undefined") {
-    return new WebSocket(getWsScheme() + "://" + window.location.host + "/namedEntity")
+    return new WebSocket(getWsScheme() + "://" + window.location.host + "/namedEntitySearch")
   }
 };
 
@@ -20,14 +22,11 @@ const AuditSearch = Immutable.Record({
   query: '',
   queryParser: 'plain',
   years: Immutable.Set(['2017']),
-  namedEntities: Immutable.List(),
-  namedEntityResults: Immutable.List(),
-  results: Immutable.List(),
-  resultsOffset: 0,
-  resultsLimit: 10,
-  resultsSize: 0,
+  fetching: false,
   verifyUrlSocket: getVerifyUrlSocket(),
-  namedEntitySocket: getNamedEntitySocket(),
+  namedEntitySocket: getNamedEntitySearchSocket(),
+  namedEntity: NamedEntity(),
+  auditDocument: AuditDocument(),
 });
 
 export default AuditSearch;

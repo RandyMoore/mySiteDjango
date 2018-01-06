@@ -19,8 +19,10 @@ function getState() {
     onYearSelectionChange: SearchActions.changeYearSelection,
     onParserChange: SearchActions.changeParser,
     onQuerySubmit: SearchActions.submitQuery,
-    onPageChange: SearchActions.changePage,
+    onDocumentPageChange: SearchActions.changeDocumentPage,
+    onNamedEntityExplorationClick: SearchActions.changeEntityPage,
     onNamedEntityClick: SearchActions.searchNamedEntity,
+    onEntityPageChange: SearchActions.changeEntityPage,
   };
 }
 

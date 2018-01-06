@@ -96,7 +96,7 @@ function ResultRow(props) {
 }
 
 function ResultsTable(props) {
-  const results = props.auditSearch.results.toJS();
+  const results = props.auditSearch.auditDocument.results.toJS();
 
   let counter = 0;
   return (
@@ -115,7 +115,7 @@ function ResultsTable(props) {
                 key={ key }
                 rowNumber={ counter + 1 }
                 result={ results[key] }
-                resultsOffset={ props.auditSearch.resultsOffset } />
+                resultsOffset={ props.auditSearch.auditDocument.resultsOffset } />
             );
 
             counter += 1;
@@ -127,7 +127,7 @@ function ResultsTable(props) {
 }
 
 function NamedEntityHistoryStack(props) {
-  const selectedEntities = props.auditSearch.namedEntities.toJS();
+  const selectedEntities = props.auditSearch.namedEntity.selectedEntities.toJS();
   return (
     <div>
       <p className="named-entity"><b>Selected Entities:</b></p>
@@ -140,8 +140,7 @@ function NamedEntityHistoryStack(props) {
 }
 
 function NamedEntityResults(props) {
-  const namedEntities = props.auditSearch.namedEntityResults.toJS();
-
+  const namedEntities = props.auditSearch.namedEntity.results.toJS();
   return (
     <div>
       <label> Most Frequency Occuring Named Entities Sharing Documents with Selected Entities: </label>
@@ -168,35 +167,21 @@ function NamedEntityResults(props) {
 }
 
 function NamedEntityExploration(props) {
-  const entityResultsExist = props.auditSearch.namedEntityResults.size > 0;
+  const namedEntityResultsLimit = props.auditSearch.namedEntity.resultsLimit;
+  const pageCount = Math.ceil(props.auditSearch.namedEntity.resultsSize / namedEntityResultsLimit);
+  const currentPage = Math.floor(props.auditSearch.namedEntity.resultsOffset / namedEntityResultsLimit);
   return (
     <div>
-      <button id="ne-exploration-heading" onClick={props.onNamedEntityClick}>Named Entity Exploration</button>
-      { entityResultsExist && (
+      <button id="ne-exploration-heading" onClick={props.onNamedEntityExplorationClick}>Named Entity Exploration</button>
+      { pageCount > 0 && (
           <div>
             <NamedEntityHistoryStack {...props} />
             <NamedEntityResults {...props} />
           </div>
       )}
-    </div>
-  );
-}
-
-function AuditSearchComponent(props) {
-  const pageCount = Math.ceil(props.auditSearch.resultsSize / props.auditSearch.resultsLimit)
-  const currentPage = Math.floor(props.auditSearch.resultsOffset / props.auditSearch.resultsLimit)
-  return (
-    <div>
-      <label> Years to include </label>
-      <YearSelection {...props} />
-      <hr/>
-      <TextSearch {...props} />
-      <hr/>
-      <NamedEntityExploration {...props} />
-      <hr/>
-      <label>Results:</label>
-      <ResultsTable {...props} />
-      { pageCount > 1 &&
+      { pageCount > 1 && (
+        props.auditSearch.namedEntity.updatingPage ? <label>Updating...</label>
+        :
         <ReactPaginate {...props}
           forcePage={currentPage}
           previousLabel={"previous"}
@@ -206,11 +191,55 @@ function AuditSearchComponent(props) {
           pageCount={pageCount}
           marginPagesDisplayed={2}
           pageRangeDisplayed={5}
-          onPageChange={props.onPageChange}
+          onPageChange={props.onEntityPageChange}
           containerClassName={"pagination"}
           subContainerClassName={"pages pagination"}
           activeClassName={"active"}
         />
+      )}
+    </div>
+  );
+}
+
+function AuditSearchComponent(props) {
+  const auditDocResultsLimit = props.auditSearch.auditDocument.resultsLimit;
+  const pageCount = Math.ceil(props.auditSearch.auditDocument.resultsSize / auditDocResultsLimit);
+  const currentPage = Math.floor(props.auditSearch.auditDocument.resultsOffset / auditDocResultsLimit);
+  return (
+    <div>
+      {props.auditSearch.fetching
+        ?
+        <label>Fetching results...</label>
+        :
+        <div>
+          <label> Years to include </label>
+          <YearSelection {...props} />
+          <hr/>
+          <TextSearch {...props} />
+          <hr/>
+          <NamedEntityExploration {...props} />
+          <hr/>
+          <label>Results:</label>
+          <ResultsTable {...props} />
+          { pageCount > 1 && (
+            props.auditSearch.auditDocument.updatingPage ? <label>Updating...</label>
+            :
+            <ReactPaginate {...props}
+              forcePage={currentPage}
+              previousLabel={"previous"}
+              nextLabel={"next"}
+              breakLabel={<a>...</a>}
+              breakClassName={"break-me"}
+              pageCount={pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={props.onDocumentPageChange}
+              containerClassName={"pagination"}
+              subContainerClassName={"pages pagination"}
+              activeClassName={"active"}
+            />
+          )}
+        </div>
       }
     </div>
   );

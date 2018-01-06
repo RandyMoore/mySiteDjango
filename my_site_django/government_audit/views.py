@@ -64,7 +64,9 @@ def search(request):
                     'rank': m.rank}]
                 for m in matches]
 
-            return JsonResponse({'results': results, 'offset': offset, 'size': size, 'query': query})
+            return JsonResponse({'documentResults': results,
+                                 'documentOffset': offset,
+                                 'documentResultsSize': size})
         except Error as e:
             return JsonResponse({'error': e.pgerror})
 
