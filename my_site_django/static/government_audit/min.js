@@ -468,6 +468,7 @@ var AuditSearchStore = function (_ReduceStore) {
 
             state = state.set('fetching', false);
             state = state.setIn(['namedEntity', 'updatingPage'], false);
+            state = state.setIn(['auditDocument', 'updatingPage'], false);
 
             return state;
           }
