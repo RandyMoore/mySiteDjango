@@ -72,12 +72,12 @@ function YearSelection(props) {
 
 function ResultRow(props) {
   function getCSSForTitle(urlActive) {
-    switch(props.result.isActive) {
+    switch(props.result.url_active) {
       case true:
         return {color: '#0000FF', fontStyle: 'normal'};
       case false:
         return {color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through'};
-      default: // Not known if url is active yet, initial state
+      default: // Not known if url is active
         return {color: '#708090', fontStyle: 'italic'};
     }
   };

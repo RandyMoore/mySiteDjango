@@ -16,10 +16,6 @@ class AuditSearchStore extends ReduceStore {
   getInitialState() {
     let auditSearch = new AuditSearch();
 
-    auditSearch.verifyUrlSocket.onmessage = function(response) {
-      SearchActions.receiveUrlCheck(response);
-    };
-
     auditSearch.namedEntitySocket.onmessage = function(response) {
       SearchActions.receiveNamedEntityResults(response);
     };
@@ -76,8 +72,6 @@ class AuditSearchStore extends ReduceStore {
         {
           const response = action.response.data;
 
-          this.runUrlChecks(state, response);
-
           state = state.set('auditDocument', state.auditDocument.merge({
             results: Immutable.OrderedMap(response.documentResults),
             resultsSize: response.documentResultsSize,
@@ -111,20 +105,6 @@ class AuditSearchStore extends ReduceStore {
           return state; // original state without page changed.
         }
 
-      case SearchActionTypes.RECEIVE_URL_CHECK:
-      {
-        action.event.preventDefault();
-
-        const result = JSON.parse(action.event.data);
-        let original = state.auditDocument.results.get(result['id']);
-        if (original) {
-          state = state.setIn(['auditDocument', 'results', result['id']],
-                              Immutable.fromJS(Object.assign(original, result)));
-        }
-
-        return state;
-      }
-
       case SearchActionTypes.SEARCH_NAMED_ENTITY:
       {
         let selectedEntities = state.namedEntity.selectedEntities.toJS();
@@ -149,8 +129,6 @@ class AuditSearchStore extends ReduceStore {
         action.event.preventDefault();
 
         const response = JSON.parse(action.event.data);
-
-        this.runUrlChecks(state, response);
 
         state = state.merge({
           query: '',
@@ -202,22 +180,6 @@ class AuditSearchStore extends ReduceStore {
         return state;
     }
   }
-
-  // Helper functions
-  runUrlChecks(state, response) {
-    response.documentResults.forEach(result => {
-      const message = JSON.stringify({
-        'id': result[0],
-        'url': result[1]['url'],
-      });
-
-      if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
-        state.verifyUrlSocket.send(message);
-      } else {
-        console.log("Websocket is not open, skipping URL checks");
-      }
-    });
-  };
 
   fetchResults(state) {
     axios.get('/audits/search/', {

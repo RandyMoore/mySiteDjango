@@ -44,13 +44,6 @@ const SearchActions = {
     });
   },
 
-  receiveUrlCheck(event) {
-    Dispatcher.dispatch({
-      type: SearchActionTypes.RECEIVE_URL_CHECK,
-      event
-    });
-  },
-
   searchNamedEntity(event) {
     Dispatcher.dispatch({
       type: SearchActionTypes.SEARCH_NAMED_ENTITY,

@@ -56,7 +56,7 @@ var _immutable2 = _interopRequireDefault(_immutable);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AuditDocument = _immutable2.default.Record({
-    results: _immutable2.default.List(),
+    results: _immutable2.default.OrderedMap(),
     resultsOffset: 0,
     resultsSize: 0,
     resultsLimit: 10,
@@ -90,12 +90,6 @@ function getWsScheme() {
   return window.location.protocol == "https:" ? "wss" : "ws";
 }
 
-function getVerifyUrlSocket() {
-  if (typeof WebSocket !== "undefined") {
-    return new WebSocket(getWsScheme() + "://" + window.location.host + "/verifyUrl");
-  }
-};
-
 function getNamedEntitySearchSocket() {
   if (typeof WebSocket !== "undefined") {
     return new WebSocket(getWsScheme() + "://" + window.location.host + "/namedEntitySearch");
@@ -107,7 +101,6 @@ var AuditSearch = _immutable2.default.Record({
   queryParser: 'plain',
   years: _immutable2.default.Set(['2017']),
   fetching: false,
-  verifyUrlSocket: getVerifyUrlSocket(),
   namedEntitySocket: getNamedEntitySearchSocket(),
   namedEntity: (0, _NamedEntity2.default)(),
   auditDocument: (0, _AuditDocument2.default)()
@@ -163,7 +156,6 @@ var SearchActionTypes = {
   SUBMIT_QUERY: 'SUBMIT_QUERY',
   LOAD_QUERY_RESPONSE: 'LOAD_QUERY_RESPONSE',
   CHANGE_DOCUMENT_PAGE: 'CHANGE_DOCUMENT_PAGE',
-  RECEIVE_URL_CHECK: 'RECEIVE_URL_CHECK',
   SEARCH_NAMED_ENTITY: 'SEARCH_NAMED_ENTITY',
   CHANGE_ENTITY_PAGE: 'CHANGE_ENTITY_PAGE',
   RECEIVE_NAMED_ENTITY_RESULTS: 'RECEIVE_NAMED_ENTITY_RESULTS'
@@ -223,12 +215,6 @@ var SearchActions = {
     _Dispatcher2.default.dispatch({
       type: _SearchActionTypes2.default.CHANGE_DOCUMENT_PAGE,
       data: data
-    });
-  },
-  receiveUrlCheck: function receiveUrlCheck(event) {
-    _Dispatcher2.default.dispatch({
-      type: _SearchActionTypes2.default.RECEIVE_URL_CHECK,
-      event: event
     });
   },
   searchNamedEntity: function searchNamedEntity(event) {
@@ -314,10 +300,6 @@ var AuditSearchStore = function (_ReduceStore) {
     value: function getInitialState() {
       var auditSearch = new _AuditSearch2.default();
 
-      auditSearch.verifyUrlSocket.onmessage = function (response) {
-        _SearchActions2.default.receiveUrlCheck(response);
-      };
-
       auditSearch.namedEntitySocket.onmessage = function (response) {
         _SearchActions2.default.receiveNamedEntityResults(response);
       };
@@ -374,8 +356,6 @@ var AuditSearchStore = function (_ReduceStore) {
           {
             var response = action.response.data;
 
-            this.runUrlChecks(state, response);
-
             state = state.set('auditDocument', state.auditDocument.merge({
               results: _immutable2.default.OrderedMap(response.documentResults),
               resultsSize: response.documentResultsSize,
@@ -409,19 +389,6 @@ var AuditSearchStore = function (_ReduceStore) {
             return state; // original state without page changed.
           }
 
-        case _SearchActionTypes2.default.RECEIVE_URL_CHECK:
-          {
-            action.event.preventDefault();
-
-            var result = JSON.parse(action.event.data);
-            var original = state.auditDocument.results.get(result['id']);
-            if (original) {
-              state = state.setIn(['auditDocument', 'results', result['id']], _immutable2.default.fromJS(Object.assign(original, result)));
-            }
-
-            return state;
-          }
-
         case _SearchActionTypes2.default.SEARCH_NAMED_ENTITY:
           {
             var selectedEntities = state.namedEntity.selectedEntities.toJS();
@@ -446,8 +413,6 @@ var AuditSearchStore = function (_ReduceStore) {
             action.event.preventDefault();
 
             var _response = JSON.parse(action.event.data);
-
-            this.runUrlChecks(state, _response);
 
             state = state.merge({
               query: ''
@@ -496,25 +461,6 @@ var AuditSearchStore = function (_ReduceStore) {
         default:
           return state;
       }
-    }
-
-    // Helper functions
-
-  }, {
-    key: 'runUrlChecks',
-    value: function runUrlChecks(state, response) {
-      response.documentResults.forEach(function (result) {
-        var message = JSON.stringify({
-          'id': result[0],
-          'url': result[1]['url']
-        });
-
-        if (state.verifyUrlSocket.readyState == WebSocket.OPEN) {
-          state.verifyUrlSocket.send(message);
-        } else {
-          console.log("Websocket is not open, skipping URL checks");
-        }
-      });
     }
   }, {
     key: 'fetchResults',
@@ -678,13 +624,13 @@ function YearSelection(props) {
 
 function ResultRow(props) {
   function getCSSForTitle(urlActive) {
-    switch (props.result.isActive) {
+    switch (props.result.url_active) {
       case true:
         return { color: '#0000FF', fontStyle: 'normal' };
       case false:
         return { color: '#FF0000', fontStyle: 'normal', textDecoration: 'line-through' };
       default:
-        // Not known if url is active yet, initial state
+        // Not known if url is active
         return { color: '#708090', fontStyle: 'italic' };
     }
   };
@@ -30914,4 +30860,4 @@ module.exports = traverseAllChildren;
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":222}]},{},[1,2,3,4,5,7,6,8,9,10]);
+},{"./lib/React":222}]},{},[1,2,3,4,5,6,7,8,9,10]);

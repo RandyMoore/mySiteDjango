@@ -60,6 +60,7 @@ def search(request):
                 [str(m.id), {
                     'title': m.title,
                     'url': m.url,
+                    'url_active': m.url_active,
                     'date': m.publication_date,
                     'rank': m.rank}]
                 for m in matches]
