@@ -1,5 +1,6 @@
 from django.db import models
-from django.db.models import CharField, DateField, IntegerField, FloatField, ForeignKey, Func, TextField, Value
+from django.db.models import (NullBooleanField, CharField, DateField, IntegerField, FloatField, ForeignKey, Func,
+                              TextField, Value)
 from django.contrib.postgres.indexes import GinIndex
 
 class LexemesField(models.Field):
@@ -22,9 +23,10 @@ class AuditDocument(models.Model):
     source = CharField(max_length=2, blank=False, choices=SOURCES)
     lexemes = LexemesField(null=True)
     text = TextField(default='')
-    url = CharField(max_length=256, blank=False)
+    url = CharField(max_length=1024, blank=False)
     rank = FloatField(null=True)
     path = CharField(max_length=256, blank=False, default='')
+    url_active = NullBooleanField()
 
     def save(self, *args, **kwargs):
         self.lexemes = Func(Value('english'), Value(self.title + ' ' + self.text), function='to_tsvector')
