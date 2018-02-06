@@ -3,26 +3,32 @@ from django.db import transaction
 import aiohttp
 import asyncio
 import os
+import random
 import re
 
 domains_to_ignore = set()
+domains_record = {}
 
 
 async def check_url(doc, session):
     print('Checking ', doc['url'])
+    domain = doc['domain']
+    if domain not in domains_record:
+        domains_record[domain] = [0, 0]
+
     try:
-        async with session.head(doc['url'], allow_redirects=True, timeout=3) as url_head_response:
+        async with session.head(doc['url'], allow_redirects=True, timeout=5) as url_head_response:
             url_active = url_head_response.status == 200
             doc['url_active'] = url_active
             if url_active:
                 doc['url'] = url_head_response.url
 
-    except aiohttp.client_exceptions.ClientConnectorError as e:
-        print(f"Received ClientConnectorError {e}")
-        domains_to_ignore.add(doc['domain'])
-    except asyncio.TimeoutError as e:
-        print(f"TimeoutError {e} for url {doc['url']}")
-        domains_to_ignore.add(doc['domain'])
+    except (asyncio.TimeoutError, aiohttp.client_exceptions.ClientConnectorError) as e:
+        print(f"Received exception for {doc['url']}")
+        domains_to_ignore.add(domain)
+        domains_record[domain][0] += 1
+
+    domains_record[domain][1] += 1
 
     return doc # doc without updates returned in case of exception
 
@@ -47,16 +53,24 @@ async def update_doc_url_stati():
             break
 
         print("Fetching ", len(docs_to_fetch), " urls")
+
+        domains_to_restore = set()
+        for domain in domains_to_ignore:
+            print("Considering domain ", domain, " with record ", domains_record[domain])
+            if random.randint(0, domains_record[domain][1] + 1) > domains_record[domain][0]:
+                domains_to_restore.add(domain)
+        print("Restoring domains ", domains_to_restore)
+        domains_to_ignore.difference_update(domains_to_restore)
+        print(f"Ignoring {str(domains_to_ignore)}")
+
         checked_urls = await asyncio.gather(*[check_url(doc, session) for doc in docs_to_fetch if doc['domain'] not in domains_to_ignore])
-        print(f"Ignored {str(domains_to_ignore)}")
 
         with transaction.atomic():
             for doc in checked_urls:
                 if 'url_active' in doc:
                     AuditDocument.objects.filter(id=doc['id']).update(url_active=doc['url_active'],
                                                                       url=doc['url'])
-        print('Sleeping...')
-        await asyncio.sleep(3)
+        await asyncio.sleep(1)
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_site_django.settings")
