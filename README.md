@@ -33,7 +33,7 @@
 Quickstart outline of commands made at project root.
 Poking around and reading documentation for the various technologies strongly encouraged.
  
-### Development (Django + sqlite.  Does not use Docker, Nginx, Postgres)
+### Development
 Create a python virtual environment (here I use python3, default python2 also works)
 ```bash
 virtualenv -p python3 .
@@ -92,57 +92,17 @@ docker-compose up
 If all goes well you should be able to access the website at [http://localhost](http://localhost) 
 (note the default http port 80 is used - Nginx is serving requests, not the Django dev server on port 8000).
 
-Now that you know the Docker images work together you have a better shot of things working
-when deploying to AWS.  This is the outline to deploy to AWS:
-1. Create AWS account.
-2. Install AWS tools locally
-  * (uses pip, you can install in the virtualenv) http://docs.aws.amazon.com/cli/latest/userguide/installing.html
-  * (installs in /usr/local/src) http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html
-3. Create a cluster by browsing to "EC2 Container Service" (not EC2) in AWS management console.  This can probably
-also be done via the ecs-cli command line.  Make sure your selections correspond to free tier options if you don't
-want to spend money (my site is running on a single t2.micro instance).
-4. Push your image to the repository following the AWS tutorial.
-  * http://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
-5. Update docker-compose-AWS.yml in this project to reference the image you pushed (your specific image name / tag).
-6. Use ecs-cli to issue the equivalent of docker-compose command but against your AWS 
-cluster.  This creates a new task in your cluster with 2 containers, one each for the
- website and db images.
-```bash
-ecs-cli compose --file docker-compose-AWS.yml --verbose up
-```
-7. If all goes well you should see something that indicates both containers reach RUNNING status ("lastStatus=RUNNING")
-> INFO[0007] Started container...                          container=".../web" desiredStatus=RUNNING lastStatus=RUNNING taskDefinition="ecscompose-..."
-> 
->INFO[0007] Started container...                          container=".../db" desiredStatus=RUNNING lastStatus=RUNNING taskDefinition="ecscompose-..."
-8. Now you should be able to access your site on a web browser using the EC2 instance public DNS name that is hosting your
-cluster (click around on the AWS management site to find this). For example [http://ec2-34-231-146-137.compute-1.amazonaws.com/](http://ec2-34-231-146-137.compute-1.amazonaws.com/)
-  * (Optional) You can use AWS Elastic IP to link your site to a registered DNS entry using a "type A" record.
-  This makes it so your DNS name (e.g. randalmoore.me) appears in the browser address bar instead of the ugly generated EC2 DNS name.
 
 ### How to view webserver logs and poke around:
-**(Start here for AWS deployment)**
-1. Open AWS EC2 (not EC2 Container Service) management in your browser and click on
-the instance hosting your site.
-2. Click on the security group link for your instance.
-3. Click on the Inbound tab of the security group, edit, and add port 22.
-4. Follow the AWS docs for how to SSH into the instance (use the same public DNS name as 
-you used to view the site in the browser)
-  * http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
-5. After SSHing into the EC2 instance you will have landed in an Amazon virtual machine 
- image which is running Docker with your two containers plus a third amazon-ecs-agent 
- container.
- 
-**(Start here for a local Docker deployment)**
-
-6. Find the container id running your website image
+1. Find the container id running your website image
 ```bash
 docker ps
 ```
-7. Open a bash shell into the container
+2. Open a bash shell into the container
 ```bash
 docker exec -ti <website container id> bash
 ```
-8. Now you can poke around in a minimal Ubuntu like environment [phusion/baseimage](https://github.com/phusion/baseimage-docker)
+3. Now you can poke around in a minimal Ubuntu like environment [phusion/baseimage](https://github.com/phusion/baseimage-docker)
 For example
 ```bash
 # Nginx errors

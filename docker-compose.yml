@@ -2,11 +2,11 @@ version: "2"
 
 services:
   web:
-    image: website
+    image: website:latest
     links:
       - db
     ports:
       - "80:80"
 
   db:
-    image: postgrespopulated:ne2
+    image: postgres:latest
