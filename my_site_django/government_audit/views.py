@@ -47,7 +47,7 @@ def search(request):
             limit = int(request.GET['limit'])
 
             matches = AuditDocument.objects.raw(f'''
-            SELECT id, title, publication_date, url, ts_rank_cd(lexemes, { text_query }) AS rank
+            SELECT id, title, publication_date, url, url_active, ts_rank_cd(lexemes, { text_query }) AS rank
             FROM government_audit_auditdocument
             WHERE lexemes @@ { text_query }
             { finalYearClause }
