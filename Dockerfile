@@ -27,5 +27,3 @@ ENV DJANGO_SETTINGS_MODULE "my_site_django.prod_settings"
 
 # Clean up APT when done.
 RUN apt-get purge -y build-essential python3.6-dev wget && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-
