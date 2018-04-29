@@ -8,14 +8,14 @@ from pygments import highlight
 from pygments.formatters import get_formatter_by_name
 from pygments.lexers import get_lexer_by_name
 
-from wagtail.wagtailcore import blocks
-from wagtail.wagtailcore.blocks import BlockQuoteBlock, RawHTMLBlock
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import StreamField
-from wagtail.wagtailadmin.edit_handlers import FieldPanel, StreamFieldPanel
-from wagtail.wagtailembeds.blocks import EmbedBlock
-from wagtail.wagtailimages.blocks import ImageChooserBlock
-from wagtail.wagtailsearch import index
+from wagtail.core import blocks
+from wagtail.core.blocks import BlockQuoteBlock, RawHTMLBlock
+from wagtail.core.models import Page
+from wagtail.core.fields import StreamField
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.embeds.blocks import EmbedBlock
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.search import index
 
 
 # Custom blocks for StreamField.  From https://gist.github.com/frankwiles/74a882f16704db9caa27

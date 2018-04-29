@@ -38,21 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sites',
     'django.contrib.staticfiles',
-    'django_comments',
-    'mptt',
-    'tagging',
 
-    'wagtail.wagtailforms',
-    'wagtail.wagtailredirects',
-    'wagtail.wagtailembeds',
-    'wagtail.wagtailsites',
-    'wagtail.wagtailusers',
-    'wagtail.wagtailsnippets',
-    'wagtail.wagtaildocs',
-    'wagtail.wagtailimages',
-    'wagtail.wagtailsearch',
-    'wagtail.wagtailadmin',
-    'wagtail.wagtailcore',
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.core',
 
     'modelcluster',
     'taggit',
@@ -73,8 +70,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'wagtail.wagtailcore.middleware.SiteMiddleware',
-    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
+    'wagtail.core.middleware.SiteMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'my_site_django.urls'
@@ -97,8 +94,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'my_site_django.wsgi.application'
 
 # Database
 # Expects local postgres - see run_dev_postgres.sh at project root
@@ -166,12 +161,9 @@ WAGTAIL_SITE_NAME = 'Blog of Randy Moore'
 
 COMMENTS_PLUGINS = []
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "asgi_ipc.IPCChannelLayer",
-        "ROUTING": "my_site_django.routing.channel_routing",
-    },
-}
+
+ASGI_APPLICATION = "my_site_django.routing.application"
+
 
 # Self defined settings
 PRODUCTION = False

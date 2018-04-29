@@ -2,8 +2,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 
-from wagtail.wagtailadmin import urls as wagtailadmin_urls
-from wagtail.wagtailcore import urls as wagtail_urls
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.core import urls as wagtail_urls
 
 
 urlpatterns = ([] if settings.PRODUCTION else [url(r'^cms/', include(wagtailadmin_urls))]) + [

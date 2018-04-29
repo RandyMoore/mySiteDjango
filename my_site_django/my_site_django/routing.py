@@ -1,6 +1,9 @@
-from channels.routing import route
-from government_audit.consumers import named_entity_search
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+import government_audit.routing
 
-channel_routing = [
-    route("websocket.receive", named_entity_search, path="^/namedEntitySearch$"),
-]
+
+application = ProtocolTypeRouter({
+    'websocket': AuthMiddlewareStack(
+        URLRouter(government_audit.routing.websocket_urlpatterns)),
+})

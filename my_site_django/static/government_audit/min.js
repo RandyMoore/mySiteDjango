@@ -92,7 +92,7 @@ function getWsScheme() {
 
 function getNamedEntitySearchSocket() {
   if (typeof WebSocket !== "undefined") {
-    return new WebSocket(getWsScheme() + "://" + window.location.host + "/namedEntitySearch");
+    return new WebSocket(getWsScheme() + "://" + window.location.host + "/ws/namedEntitySearch");
   }
 };
 
