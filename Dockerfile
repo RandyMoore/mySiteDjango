@@ -14,9 +14,9 @@ python3.6 get-pip.py && ln -s /usr/bin/python3.6 /usr/local/bin/python3 && \
 pip3 install --upgrade pip && pip3 install -r /usr/local/etc/requirements.txt
 
 # Everything here on doesn't require downloads - can be changed with quick image rebuild times
-ADD config/* /usr/local/etc/
-
-ADD my_site_django /usr/local/src/
+COPY config/* /usr/local/etc/
+COPY my_site_django /usr/local/src/
+COPY dump.sql.bz2 /usr/local/src/
 
 RUN /bin/sh /usr/local/etc/setup.sh
 
