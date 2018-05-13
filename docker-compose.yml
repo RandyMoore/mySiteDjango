@@ -9,6 +9,6 @@ services:
       - "80:80"
 
   db:
-    image: postgres:latest
+    image: postgres:10.2
     ports:
       - "5432:5432"

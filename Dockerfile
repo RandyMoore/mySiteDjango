@@ -4,7 +4,7 @@ ARG django_secret_key
 
 RUN add-apt-repository ppa:jonathonf/python-3.6
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y python3.6 python3.6-dev nginx postgresql-client wget build-essential
+RUN apt-get install -y python3.6 python3.6-dev python3-distutils nginx postgresql-client wget build-essential
 
 # Only add in requirements.txt for now, so temp docker image can be cached in case other files in config/ are edited
 ADD config/requirements.txt /usr/local/etc/
