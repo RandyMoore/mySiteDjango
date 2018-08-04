@@ -13,4 +13,4 @@
 #   cat dump.sql | docker exec -i <postgres container id>  psql -U postgres postgresql://0.0.0.0
 # Dump from a container that doesn't have db port exposed as below
 #   docker exec -i <postgres container id>  pg_dump -U postgres postgresql://0.0.0.0 > dump.sql
-docker run -p 5432:5432 postgres
+docker-compose up db

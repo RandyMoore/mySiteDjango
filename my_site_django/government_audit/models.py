@@ -23,7 +23,7 @@ class AuditDocument(models.Model):
     source = CharField(max_length=2, blank=False, choices=SOURCES)
     lexemes = LexemesField(null=True)
     text = TextField(default='')
-    url = CharField(max_length=1024, blank=False)
+    url = CharField(max_length=1024, blank=True, null=True)
     rank = FloatField(null=True)
     path = CharField(max_length=256, blank=False, default='')
     url_active = NullBooleanField()
