@@ -67,15 +67,15 @@ def process_documents(meta_path):
     with open(meta_path) as meta_file:
         meta = json.loads(meta_file.read())
 
-        if not 'url' in meta or not meta['url']:
-            print(f'Skipping {meta["title"]} as url is null')
-            return
+        #if not 'url' in meta or not meta['url']:
+        #    print(f'Skipping {meta["title"]} as url is null')
+        #    return
 
         doc = AuditDocument()
         doc.title = meta['title']
         doc.publication_date = meta['published_on']
         doc.source = 'AO'
-        doc.url = meta['url']
+        doc.url = meta.get('url')
         doc.path = str(meta_path)[len(corpus_root)+1:-len(META_FILE_NAME)-1]
 
         text_path = meta_path.replace(META_FILE_NAME, TEXT_FILE_NAME)
@@ -85,19 +85,19 @@ def process_documents(meta_path):
                 doc.text = text_file.read()
         else:
             print('No file for entry ' + text_path + ' skipping file')
-            return
+            return        
 
         # Data mine the doc
         ne_fdist = FreqDist(ne for ne in get_named_entities(doc.text))
         named_entities = []
-        for ne in ne_fdist.most_common():
+        for ne in ne_fdist.most_common():            
             if ne[1] < 3:
                 break
             named_entity = NamedEntity()
             named_entity.name = ne[0]
             named_entity.frequency = ne[1]
             named_entities.append(named_entity)
-
+        
         db_queue.put((doc, named_entities))
 
 
@@ -118,6 +118,7 @@ if __name__ == "__main__":
         else:
             print(f, 'already in DB, skipping.')
 
+    print('start processing files: ', str(len(files)))
     multiprocessing.Process(target=save_to_db).start()
 
     with multiprocessing.Pool() as p: # by default creates as many processes as available cores.
