@@ -12,6 +12,7 @@ RUN pip3 install -r /usr/local/etc/requirements.txt
 # Everything here on doesn't require downloads - can be changed with quick image rebuild times
 COPY config/* /usr/local/etc/
 COPY my_site_django /usr/local/src/
+COPY dump.sql.bz2 /usr/local/src/
 
 RUN /bin/sh /usr/local/etc/setup.sh
 
