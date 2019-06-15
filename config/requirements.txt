@@ -26,12 +26,9 @@ Pygments==2.2.0
 pytz==2018.4
 requests==2.18.4
 six==1.11.0
-Twisted==17.9.0
+Twisted==19.2.1
 txaio==2.10.0
 Unidecode==0.4.21
 urllib3==1.22
 uWSGI==2.0.17
 wagtail==2.0.1
-webencodings==0.5.1
-Willow==1.1
-zope.interface==4.5.0

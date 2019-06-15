@@ -10,5 +10,5 @@ services:
 
   db:
     image: postgres:10.2
-    # ports:
-    #  - "5432:5432"
+    ports:
+     - "5432:5432"
