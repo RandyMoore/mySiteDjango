@@ -9,7 +9,7 @@ channels==2.1.1
 chardet==3.0.4
 constantly==15.1.0
 daphne==2.1.1
-Django==2.0.4
+Django==2.2.24
 django-modelcluster==4.1
 django-taggit==0.22.2
 django-treebeard==4.3
