@@ -26,7 +26,7 @@ Pygments==2.2.0
 pytz==2018.4
 requests==2.18.4
 six==1.11.0
-Twisted==19.2.1
+Twisted==22.2.0
 txaio==2.10.0
 Unidecode==0.4.21
 urllib3==1.22
